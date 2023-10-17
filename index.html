@@ -14,20 +14,18 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-simple.min.css">
   <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"beishangeyu.github.io","root":"/","scheme":"pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":null,"padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"beishangeyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":null,"padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="��ʵ�Ǿ�ֽ">
-<meta property="og:type" content="website">
+  <meta property="og:type" content="website">
 <meta property="og:title" content="Eyu&#39;s Blog">
 <meta property="og:url" content="https://beishangeyu.github.io/index.html">
 <meta property="og:site_name" content="Eyu&#39;s Blog">
-<meta property="og:description" content="��ʵ�Ǿ�ֽ">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="beishangeyu">
 <meta name="twitter:card" content="summary">
@@ -183,106 +181,12 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/10/13/CF1838A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_avatar.jpg">
-      <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="��ʵ�Ǿ�ֽ">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eyu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/13/CF1838A/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-13 21:27:52" itemprop="dateCreated datePublished" datetime="2023-10-13T21:27:52+08:00">2023-10-13</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-10 10:33:05" itemprop="dateModified" datetime="2023-10-10T10:33:05+08:00">2023-10-10</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Blackboard-List"><a href="#Blackboard-List" class="headerlink" title="Blackboard List"></a>Blackboard List</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>在黑板上有两个数字，进行如下操作 $n-2$ 次：</p>
-<ul>
-<li>每次在黑板上选择任意两个数，将两个数的差的绝对值写在黑板上。</li>
-</ul>
-<p>这样你会得到一个长度为 $n (3 \le n \le 100)$ 的序列。</p>
-<p>一共 $t (1 \le t \le 100)$ 组数据。</p>
-<p>每组数据给定操作后的序列，需要你还原出最初写在黑板上的两个数。</p>
-<p>虽然可能有多个答案，不过，你只需要输出其中任意一个可能中的一个数即可。</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Two integers were written on a blackboard. After that, the following step was carried out $ n-2 $ times:</p>
-<ul>
-<li>Select any two integers on the board, and write the absolute value of their difference on the board.</li>
-</ul>
-<p>After this process was complete, the list of $ n $ integers was shuffled. You are given the final list. Recover one of the initial two numbers. You do not need to recover the other one.</p>
-<p>You are guaranteed that the input can be generated using the above process.</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>The first line of the input contains a single integer $ t $ ( $ 1 \le t \le 100 $ ) — the number of test cases. The description of the test cases follows.</p>
-<p>The first line of each test case contains a single integer $ n $ ( $ 3 \le n \le 100 $ ) — the size of the final list.</p>
-<p>The next line of each test case contains $ n $ integers $ a_1, a_2, \ldots a_n $ ( $ -10^9 \le a_i \le 10^9 $ ) — the shuffled list of numbers written on the blackboard.</p>
-<p>It is guaranteed that the input was generated using the process described above.</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output a single integer $ x $ — one of the two initial numbers on the blackboard.</p>
-<p>If there are multiple solutions, print any of them.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">9</span><br><span class="line">3</span><br><span class="line">9<span class="number"> 2 </span>7</span><br><span class="line">3</span><br><span class="line">15 -4 11</span><br><span class="line">4</span><br><span class="line">-9<span class="number"> 1 </span>11 -10</span><br><span class="line">5</span><br><span class="line">3<span class="number"> 0 </span>0<span class="number"> 0 </span>3</span><br><span class="line">7</span><br><span class="line">8<span class="number"> 16 </span>8<span class="number"> 0 </span>8<span class="number"> 16 </span>8</span><br><span class="line">4</span><br><span class="line">0<span class="number"> 0 </span>0 0</span><br><span class="line">10</span><br><span class="line">27<span class="number"> 1 </span>24<span class="number"> 28 </span>2 -1<span class="number"> 26 </span>25<span class="number"> 28 </span>27</span><br><span class="line">6</span><br><span class="line">600000000<span class="number"> 800000000 </span>0 -200000000<span class="number"> 1000000000 </span>800000000</span><br><span class="line">3</span><br><span class="line">0 -1000000000 1000000000</span><br></pre></td></tr></table></figure>
-
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">9</span><br><span class="line">11</span><br><span class="line"><span class="deletion">-9</span></span><br><span class="line">3</span><br><span class="line">8</span><br><span class="line">0</span><br><span class="line"><span class="deletion">-1</span></span><br><span class="line">600000000</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
-
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>记最开始给定的两个数是 $a$ 和 $b$, 首先我们要明确, 除了 $a$ 和 $b$ 之外, 其他的都只会是非负数, 所以如果有负数, 那么它肯定是 $a$ 和 $b$ 之一</p>
-<p>剩下一种情况就是 $a$ 和 $b$ 都是非负数, 我们注意到一个性质, 当 $a$ 和 $b$ 均大于等于0的时候, $\left | a-b \right | $ 肯定要比 $a$ 和 $b$ 中较大的那个小, 由此不难推广到整个序列中任意一个构造出来的数都会比 $max(a,b)$ 要小, 那么整个序列中最大的数肯定就是 $a$ 和 $b$ 其中之一</p>
-<p>综上, 我们直接把给定序列升序排列, 第一个是负数就输出第一个, 否则就输出最后一个</p>
-<p>我居然想出来了, 看来刷题还是有点用的哈, 这要是放一开始我可能就去看答案了</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a[<span class="number">110</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">			cin &gt;&gt; a[i];</span><br><span class="line">		<span class="built_in">sort</span>(a, a + n);</span><br><span class="line">		<span class="keyword">if</span>(a[<span class="number">0</span>] &lt; <span class="number">0</span>) cout &lt;&lt; a[<span class="number">0</span>] &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">else</span> cout &lt;&lt; a[n - <span class="number">1</span>] &lt;&lt; endl;</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/10/13/CF1838B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_avatar.jpg">
+      <meta itemprop="image" content="/images/m_ava.png">
       <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="��ʵ�Ǿ�ֽ">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -379,12 +283,106 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/10/13/CF1838A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/m_ava.png">
+      <meta itemprop="name" content="beishangeyu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eyu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/13/CF1838A/" class="post-title-link" itemprop="url">未命名</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-13 21:27:52" itemprop="dateCreated datePublished" datetime="2023-10-13T21:27:52+08:00">2023-10-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-10 10:33:05" itemprop="dateModified" datetime="2023-10-10T10:33:05+08:00">2023-10-10</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Blackboard-List"><a href="#Blackboard-List" class="headerlink" title="Blackboard List"></a>Blackboard List</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>在黑板上有两个数字，进行如下操作 $n-2$ 次：</p>
+<ul>
+<li>每次在黑板上选择任意两个数，将两个数的差的绝对值写在黑板上。</li>
+</ul>
+<p>这样你会得到一个长度为 $n (3 \le n \le 100)$ 的序列。</p>
+<p>一共 $t (1 \le t \le 100)$ 组数据。</p>
+<p>每组数据给定操作后的序列，需要你还原出最初写在黑板上的两个数。</p>
+<p>虽然可能有多个答案，不过，你只需要输出其中任意一个可能中的一个数即可。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Two integers were written on a blackboard. After that, the following step was carried out $ n-2 $ times:</p>
+<ul>
+<li>Select any two integers on the board, and write the absolute value of their difference on the board.</li>
+</ul>
+<p>After this process was complete, the list of $ n $ integers was shuffled. You are given the final list. Recover one of the initial two numbers. You do not need to recover the other one.</p>
+<p>You are guaranteed that the input can be generated using the above process.</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>The first line of the input contains a single integer $ t $ ( $ 1 \le t \le 100 $ ) — the number of test cases. The description of the test cases follows.</p>
+<p>The first line of each test case contains a single integer $ n $ ( $ 3 \le n \le 100 $ ) — the size of the final list.</p>
+<p>The next line of each test case contains $ n $ integers $ a_1, a_2, \ldots a_n $ ( $ -10^9 \le a_i \le 10^9 $ ) — the shuffled list of numbers written on the blackboard.</p>
+<p>It is guaranteed that the input was generated using the process described above.</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output a single integer $ x $ — one of the two initial numbers on the blackboard.</p>
+<p>If there are multiple solutions, print any of them.</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">9</span><br><span class="line">3</span><br><span class="line">9<span class="number"> 2 </span>7</span><br><span class="line">3</span><br><span class="line">15 -4 11</span><br><span class="line">4</span><br><span class="line">-9<span class="number"> 1 </span>11 -10</span><br><span class="line">5</span><br><span class="line">3<span class="number"> 0 </span>0<span class="number"> 0 </span>3</span><br><span class="line">7</span><br><span class="line">8<span class="number"> 16 </span>8<span class="number"> 0 </span>8<span class="number"> 16 </span>8</span><br><span class="line">4</span><br><span class="line">0<span class="number"> 0 </span>0 0</span><br><span class="line">10</span><br><span class="line">27<span class="number"> 1 </span>24<span class="number"> 28 </span>2 -1<span class="number"> 26 </span>25<span class="number"> 28 </span>27</span><br><span class="line">6</span><br><span class="line">600000000<span class="number"> 800000000 </span>0 -200000000<span class="number"> 1000000000 </span>800000000</span><br><span class="line">3</span><br><span class="line">0 -1000000000 1000000000</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">9</span><br><span class="line">11</span><br><span class="line"><span class="deletion">-9</span></span><br><span class="line">3</span><br><span class="line">8</span><br><span class="line">0</span><br><span class="line"><span class="deletion">-1</span></span><br><span class="line">600000000</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>记最开始给定的两个数是 $a$ 和 $b$, 首先我们要明确, 除了 $a$ 和 $b$ 之外, 其他的都只会是非负数, 所以如果有负数, 那么它肯定是 $a$ 和 $b$ 之一</p>
+<p>剩下一种情况就是 $a$ 和 $b$ 都是非负数, 我们注意到一个性质, 当 $a$ 和 $b$ 均大于等于0的时候, $\left | a-b \right | $ 肯定要比 $a$ 和 $b$ 中较大的那个小, 由此不难推广到整个序列中任意一个构造出来的数都会比 $max(a,b)$ 要小, 那么整个序列中最大的数肯定就是 $a$ 和 $b$ 其中之一</p>
+<p>综上, 我们直接把给定序列升序排列, 第一个是负数就输出第一个, 否则就输出最后一个</p>
+<p>我居然想出来了, 看来刷题还是有点用的哈, 这要是放一开始我可能就去看答案了</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a[<span class="number">110</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">			cin &gt;&gt; a[i];</span><br><span class="line">		<span class="built_in">sort</span>(a, a + n);</span><br><span class="line">		<span class="keyword">if</span>(a[<span class="number">0</span>] &lt; <span class="number">0</span>) cout &lt;&lt; a[<span class="number">0</span>] &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">else</span> cout &lt;&lt; a[n - <span class="number">1</span>] &lt;&lt; endl;</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/10/13/CF1837C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_avatar.jpg">
+      <meta itemprop="image" content="/images/m_ava.png">
       <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="��ʵ�Ǿ�ֽ">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -462,9 +460,9 @@
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/10/13/CF1837B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_avatar.jpg">
+      <meta itemprop="image" content="/images/m_ava.png">
       <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="��ʵ�Ǿ�ֽ">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -549,9 +547,9 @@
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/10/13/CF1834C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_avatar.jpg">
+      <meta itemprop="image" content="/images/m_ava.png">
       <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="��ʵ�Ǿ�ֽ">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -640,9 +638,9 @@
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/10/13/CF1834D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_avatar.jpg">
+      <meta itemprop="image" content="/images/m_ava.png">
       <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="��ʵ�Ǿ�ֽ">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -744,9 +742,9 @@
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/10/13/CF1834B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_avatar.jpg">
+      <meta itemprop="image" content="/images/m_ava.png">
       <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="��ʵ�Ǿ�ֽ">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -831,9 +829,9 @@
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/10/13/CF1830B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_avatar.jpg">
+      <meta itemprop="image" content="/images/m_ava.png">
       <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="��ʵ�Ǿ�ֽ">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -923,9 +921,9 @@
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/10/13/CF1828A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_avatar.jpg">
+      <meta itemprop="image" content="/images/m_ava.png">
       <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="��ʵ�Ǿ�ֽ">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1036,9 +1034,9 @@ int main()
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/10/13/CF1828B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_avatar.jpg">
+      <meta itemprop="image" content="/images/m_ava.png">
       <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="��ʵ�Ǿ�ֽ">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1166,9 +1164,9 @@ int main()
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="beishangeyu"
-      src="/images/m_avatar.jpg">
+      src="/images/m_ava.png">
   <p class="site-author-name" itemprop="name">beishangeyu</p>
-  <div class="site-description" itemprop="description">��ʵ�Ǿ�ֽ</div>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -1229,8 +1227,6 @@ int main()
   </span>
   <span class="author" itemprop="copyrightHolder">beishangeyu</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.pisces</a> 强力驱动
-  </div>
 
         
 
@@ -1247,6 +1243,7 @@ int main()
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 

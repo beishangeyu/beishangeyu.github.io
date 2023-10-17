@@ -14,12 +14,12 @@
 
 
 <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
-  <link rel="stylesheet" href="/lib/pace/pace-theme-mac-osx.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-center-simple.min.css">
   <script src="/lib/pace/pace.min.js"></script>
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"beishangeyu.github.io","root":"/","scheme":"pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":null,"padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"beishangeyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":null,"padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Ranom Numbers题面翻译Ranom Number 是一个字符串，这个字符串只含字母 $\texttt A \sim \texttt E$。$\texttt{A}$ 的值是 $1$，$\texttt{B}$ 的值是 $10$，$\texttt{C}$ 的值是 $100$，$\texttt{D}$ 的值是 $1000$，$\texttt{E}$ 的值是 $10000$。 这个串的值按如下规则">
@@ -30,7 +30,7 @@
 <meta property="og:description" content="Ranom Numbers题面翻译Ranom Number 是一个字符串，这个字符串只含字母 $\texttt A \sim \texttt E$。$\texttt{A}$ 的值是 $1$，$\texttt{B}$ 的值是 $10$，$\texttt{C}$ 的值是 $100$，$\texttt{D}$ 的值是 $1000$，$\texttt{E}$ 的值是 $10000$。 这个串的值按如下规则">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-17T12:52:29.000Z">
-<meta property="article:modified_time" content="2023-10-16T07:58:18.922Z">
+<meta property="article:modified_time" content="2023-10-17T12:26:14.525Z">
 <meta property="article:author" content="beishangeyu">
 <meta property="article:tag" content="题解">
 <meta name="twitter:card" content="summary">
@@ -190,9 +190,9 @@
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1841C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_avatar.jpg">
+      <meta itemprop="image" content="/images/m_ava.png">
       <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="��ʵ�Ǿ�ֽ">
+      <meta itemprop="description" content="">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -217,7 +217,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-16 15:58:18" itemprop="dateModified" datetime="2023-10-16T15:58:18+08:00">2023-10-16</time>
+                <time title="修改时间：2023-10-17 20:26:14" itemprop="dateModified" datetime="2023-10-17T20:26:14+08:00">2023-10-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -255,9 +255,9 @@
 <p>The only line of each test case contains a string $ s $ ( $ 1 \le |s| \le 2 \cdot 10^5 $ ) consisting of uppercase Latin letters from A to E — the Ranom number you are given.</p>
 <p>The sum of the string lengths over all test cases does not exceed $ 2 \cdot 10^5 $ .</p>
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, print a single integer — the maximum possible value of the number, if you can change no more than one digit in it.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">DAAABDCA</span><br><span class="line">AB</span><br><span class="line">ABCDEEDCBA</span><br><span class="line">DDDDAAADDABECD</span><br></pre></td></tr></table></figure>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">DAAABDCA</span><br><span class="line">AB</span><br><span class="line">ABCDEEDCBA</span><br><span class="line">DDDDAAADDABECD</span><br></pre></td></tr></table></figure>
 
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">11088</span><br><span class="line">10010</span><br><span class="line">31000</span><br><span class="line">15886</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">11088</span><br><span class="line">10010</span><br><span class="line">31000</span><br><span class="line">15886</span><br></pre></td></tr></table></figure>
 
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><h4 id="写一下错误解法的经过"><a href="#写一下错误解法的经过" class="headerlink" title="写一下错误解法的经过"></a>写一下错误解法的经过</h4><p>刚开始我的做法是, 维护一个前缀和, 表示从1到位置x内有多少个A, B…., 然后又因为一个数右边有比他大的数, 那这个数就负贡献, 那就可以用dp的方式 $O(n)$ 求出每个位置右边的最大值, 然后先求出初始字符串的值, 具体就是根据每个位置右边最大值就可以得知是正还是负贡献. 然后我们枚举每一个位置, 将它换成其他四种字母, 我一开始想到一个数变大会让左边一些数字变负, 反之就会让左边一些数字变正, 刚好符合前缀和的性质, </p>
 <p><strong>错就错在这里</strong>: 前缀和代表是位置1到x有多少个字母, 比如说左边有很多个C, 但是假设你把这个位置变小了, 假设从D变成C, 那之前的那些C就一定全部变正贡献吗? 要是这个位置的左边还有D, 还有E呢?</p>
@@ -293,12 +293,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/09/17/%E7%94%A8%E5%B9%B3%E6%96%B9%E6%95%B0%E8%A1%A8%E7%A4%BAX/" rel="prev" title="用平方数表示X">
-      <i class="fa fa-chevron-left"></i> 用平方数表示X
+    <a href="/2023/09/17/CF1839C/" rel="prev" title="CF1839C">
+      <i class="fa fa-chevron-left"></i> CF1839C
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1839C/" rel="next" title="CF1839C">
-      CF1839C <i class="fa fa-chevron-right"></i>
+    <a href="/2023/09/17/CF1841B/" rel="next" title="CF1841B">
+      CF1841B <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -365,9 +365,9 @@
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="beishangeyu"
-      src="/images/m_avatar.jpg">
+      src="/images/m_ava.png">
   <p class="site-author-name" itemprop="name">beishangeyu</p>
-  <div class="site-description" itemprop="description">��ʵ�Ǿ�ֽ</div>
+  <div class="site-description" itemprop="description"></div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -428,8 +428,6 @@
   </span>
   <span class="author" itemprop="copyrightHolder">beishangeyu</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.pisces</a> 强力驱动
-  </div>
 
         
 
@@ -446,6 +444,7 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
