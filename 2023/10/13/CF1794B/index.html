@@ -242,9 +242,9 @@
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, print the answer on a separate line.</p>
 <p>In the only line, print $ n $ integers — the resulting array $ a $ after applying at most $ 2n $ operations.</p>
 <p>We can show that an answer always exists under the given constraints. If there are multiple answers, print any of them.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4</span><br><span class="line">2 4 3 6</span><br><span class="line">3</span><br><span class="line">1 2 3</span><br><span class="line">2</span><br><span class="line">4 2</span><br></pre></td></tr></table></figure>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line"><span class="symbol">2 </span><span class="number">4</span> <span class="number">3</span> <span class="number">6</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="symbol">1 </span><span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="number">2</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">2</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">4 5 6 7</span><br><span class="line">3 2 3</span><br><span class="line">4 2</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">4 </span><span class="number">5</span> <span class="number">6</span> <span class="number">7</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">2</span> <span class="number">3</span></span><br><span class="line"><span class="symbol">4 </span><span class="number">2</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>$a_{i+1}$ 不能被 $a_i$ 整除, 有什么性质呢, 我们很自然的就可以想到$a_{i+1}$ 和 $a_i$ 的最小公倍数就应该是他们两个的乘积, 那我们遍历数组 $a$, 如果 $lcm(a_i,a_{i+1})\neq a_i\times a_{i+1}$ , 那么我们就让 $a_i$ 加一直到满足 $a_{i+1}$ 和 $a_i$ 的最小公倍数是他们两个的乘积 </p>
 <p>存在特殊情况是 $a_i&#x3D;1$ 的时候, 也满足和 $a_{i+1}$ 的最小公倍数是他俩的乘积, 但是任何数都可以被1整除, 解决方法也很简单, 在读入的时候如果遇上1就加上1让它变成2就可以了</p>
@@ -266,7 +266,7 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/project/2023/10/13/CF1794A/" rel="prev" title="">
+    <a href="/project/2023/10/13/CF1793C/" rel="prev" title="">
       <i class="fa fa-chevron-left"></i> 
     </a></div>
       <div class="post-nav-item">

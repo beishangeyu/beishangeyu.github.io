@@ -233,10 +233,10 @@
 <p>The first and only line of each test case contains the string $ s $ ( $ 1 \le |s| \le 3 \cdot 10^5 $ ) consisting of characters 0, 1, and&#x2F;or ?.</p>
 <p>The sum of the string lengths over all test cases does not exceed $ 3 \cdot 10^5 $ .</p>
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, print a binary string with the minimum possible cost among those that match the given pattern. If there are multiple answers, print any of them.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">??01?</span><br><span class="line">10100</span><br><span class="line">1??10?</span><br><span class="line">0?1?10?10</span><br></pre></td></tr></table></figure>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span></span><br><span class="line"><span class="string">??</span><span class="number">01</span>?</span><br><span class="line"><span class="number">10100</span></span><br><span class="line"><span class="number">1</span>?<span class="string">?1</span>0?</span><br><span class="line"><span class="number">0</span>?<span class="number">1</span>?<span class="number">10</span>?<span class="number">10</span></span><br></pre></td></tr></table></figure>
 
 
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">00011</span><br><span class="line">10100</span><br><span class="line">111101</span><br><span class="line">011110010</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight dns"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">00011</span></span><br><span class="line"><span class="number">10100</span></span><br><span class="line"><span class="number">111101</span></span><br><span class="line"><span class="number">011110010</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>我们可以选区间 [l,r] 进行反转操作.</p>
 <p>题目要求我们通过反转操作，将初始字符串变为一个非降序的字符串，并输出我们构建的这个初始串，使得反转操作的次数最少, 那我们能操作的就是 ‘?’, 我们就要关注这个 ‘?’ 要放0还是放1</p>
@@ -262,7 +262,7 @@
       <i class="fa fa-chevron-left"></i> 
     </a></div>
       <div class="post-nav-item">
-    <a href="/project/2023/10/13/CF1838A/" rel="next" title="">
+    <a href="/project/2023/10/13/CF1838B/" rel="next" title="">
        <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>

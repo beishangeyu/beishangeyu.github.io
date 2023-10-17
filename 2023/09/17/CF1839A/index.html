@@ -259,9 +259,9 @@
 <p>The only line of each test case contains two integers $ n $ , $ k $ ( $ 2 \le n \le 100 $ , $ 1 \le k \le n $ ) — the length of array and parameter $ k $ from the statement.</p>
 <h2 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case output one integer — the minimum possible number of ones in a good array.</p>
 <p>It can be shown that under the given constraints at least one good array always exists.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">3 2</span><br><span class="line">5 2</span><br><span class="line">9 3</span><br><span class="line">7 1</span><br><span class="line">10 4</span><br><span class="line">9 5</span><br><span class="line">8 8</span><br></pre></td></tr></table></figure>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">7</span></span><br><span class="line"><span class="symbol">3 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">5 </span><span class="number">2</span></span><br><span class="line"><span class="symbol">9 </span><span class="number">3</span></span><br><span class="line"><span class="symbol">7 </span><span class="number">1</span></span><br><span class="line"><span class="symbol">10 </span><span class="number">4</span></span><br><span class="line"><span class="symbol">9 </span><span class="number">5</span></span><br><span class="line"><span class="symbol">8 </span><span class="number">8</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">7</span><br><span class="line">4</span><br><span class="line">3</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">7</span><br><span class="line">4</span><br><span class="line">3</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
 
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>我们先只考虑前i个数字, 在1到k这一段, 我们需要1个1, 从k+1到2k这一段, 我们需要2个1…, 为了使每一段都合法, 那我们肯定要把1放在每一段的开头, 具体来说就是位置1放1, 位置k+1放1, 位置2k+1放1…</p>
 <p>因为给的n很小, 我们完全可以先只按以上原则构造, 然后再从后往前遍历, 如果到一个位置发现1不够, 就在那个位置补1个就好了, 时间复杂度为 $O(n)$ </p>
@@ -286,12 +286,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/project/2023/09/17/CF1839B/" rel="prev" title="CF1839B">
-      <i class="fa fa-chevron-left"></i> CF1839B
+    <a href="/project/2023/09/17/CF1839C/" rel="prev" title="CF1839C">
+      <i class="fa fa-chevron-left"></i> CF1839C
     </a></div>
       <div class="post-nav-item">
-    <a href="/project/2023/09/17/CF1838C/" rel="next" title="CF1838C">
-      CF1838C <i class="fa fa-chevron-right"></i>
+    <a href="/project/2023/09/17/CF1839B/" rel="next" title="CF1839B">
+      CF1839B <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

@@ -243,9 +243,9 @@
 <p>It is guaranteed that these strings are all the non-empty prefixes and suffixes of some string consisting of lowercase English letters.</p>
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output “YES” if $ s $ is a palindrome, and “NO” otherwise.</p>
 <p>You can output the answer in any case (upper or lower). For example, the strings “yEs”, “yes”, “Yes”, and “YES” will be recognized as positive responses.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">4</span><br><span class="line">bcd cd a d abc ab</span><br><span class="line">3</span><br><span class="line">i io i oi</span><br><span class="line">2</span><br><span class="line">g g</span><br><span class="line">3</span><br><span class="line">t al lt a</span><br><span class="line">4</span><br><span class="line">bba a ab a abb ba</span><br></pre></td></tr></table></figure>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line">bcd <span class="keyword">cd</span> <span class="keyword">a</span> d <span class="keyword">abc</span> <span class="keyword">ab</span></span><br><span class="line"><span class="number">3</span></span><br><span class="line">i io i oi</span><br><span class="line"><span class="number">2</span></span><br><span class="line">g g</span><br><span class="line"><span class="number">3</span></span><br><span class="line">t <span class="keyword">al</span> <span class="keyword">lt</span> <span class="keyword">a</span></span><br><span class="line"><span class="number">4</span></span><br><span class="line">bba <span class="keyword">a</span> <span class="keyword">ab</span> <span class="keyword">a</span> abb <span class="keyword">ba</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NO</span><br><span class="line">YES</span><br><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">YES</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">NO</span></span><br><span class="line"><span class="keyword">YES</span></span><br><span class="line"><span class="keyword">YES</span></span><br><span class="line"><span class="keyword">NO</span></span><br><span class="line"><span class="keyword">YES</span></span><br></pre></td></tr></table></figure>
 
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>回文串的定义就是一个字符串从前往后读跟从后往前读是一样的, 那么比如s是一个回文串, 我把s的尾部字符删了得到s1, 把s的头部字符删了得到s2, 从前往后跟从后往前读是一样的, 那么不就说明s1 &#x3D; s2.reverse() 吗</p>
 <p>那我们我就得出s是回文串当且仅当s1 &#x3D; s2.reverse()</p>
@@ -266,11 +266,11 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/project/2023/10/13/CF1793C/" rel="prev" title="">
+    <a href="/project/2023/10/13/CF1793B/" rel="prev" title="">
       <i class="fa fa-chevron-left"></i> 
     </a></div>
       <div class="post-nav-item">
-    <a href="/project/2023/10/13/CF1794B/" rel="next" title="">
+    <a href="/project/2023/10/13/CF1793C/" rel="next" title="">
        <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
