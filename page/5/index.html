@@ -181,7 +181,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1830B/">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1826C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/m_ava.png">
@@ -195,7 +195,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/09/17/CF1830B/" class="post-title-link" itemprop="url">CF1830B.md</a>
+            <a href="/2023/09/17/CF1826C/" class="post-title-link" itemprop="url">CF1826C</a>
         </h2>
 
         <div class="post-meta">
@@ -212,7 +212,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-17 21:04:18" itemprop="dateModified" datetime="2023-10-17T21:04:18+08:00">2023-10-17</time>
+                <time title="修改时间：2023-10-17 21:04:56" itemprop="dateModified" datetime="2023-10-17T21:04:56+08:00">2023-10-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,168 +235,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="The-BOSS-Can-Count-Pairs"><a href="#The-BOSS-Can-Count-Pairs" class="headerlink" title="The BOSS Can Count Pairs"></a>The BOSS Can Count Pairs</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>多组数据。</p>
-<p>每组数据给你一个 $n$ 和两个序列 $a,b$。</p>
-<p>求有多少个数对 $(i,j)$ 满足 $1 \le i &lt; j \le n$ 且 $a_i \times a_j &#x3D; b_i + b_j$</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You are given two arrays $ a $ and $ b $ , both of length $ n $ .</p>
-<p>Your task is to count the number of pairs of integers $ (i,j) $ such that $ 1 \leq i &lt; j \leq n $ and $ a_i \cdot a_j &#x3D; b_i+b_j $ .</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line of input contains a single integer $ t $ ( $ 1 \le t \le 10^4 $ ) — the number of test cases. The description of test cases follows.</p>
-<p>The first line of each test case contains a single integer $ n $ ( $ 2 \le n \le 2 \cdot 10^5 $ ) — the length of the arrays.</p>
-<p>The second line of each test case contains $ n $ integers $ a_1,a_2,\ldots,a_n $ ( $ 1 \le a_i \le n $ ) — the elements of array $ a $ .</p>
-<p>The third line of each test case contains $ n $ integers $ b_1,b_2,\ldots,b_n $ ( $ 1 \le b_i \le n $ ) — the elements of array $ b $ .</p>
-<p>It is guaranteed that the sum of $ n $ across all test cases does not exceed $ 2 \cdot 10^5 $ .</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output the number of good pairs.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">3</span><br><span class="line">2 3 2</span><br><span class="line">3 3 1</span><br><span class="line">8</span><br><span class="line">4 2 8 2 1 2 7 5</span><br><span class="line">3 5 8 8 1 1 6 5</span><br><span class="line">8</span><br><span class="line">4 4 8 8 8 8 8 8</span><br><span class="line">8 8 8 8 8 8 8 8</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">7</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>$a[i]\times a[j] &#x3D; b[i] + b[j]$ , 我们不难发现, $a[i]$ 和 $a[j]$ 至少有一个 $\le \sqrt{2n}$ , 我们分类讨论一下</p>
-<ul>
-<li><p>当 $a[i]&#x3D;a[j]$ 的时候, </p>
-<p>毫无疑问, 都要满足 $\le \sqrt{2n}$, 我们枚举 $a[i]$, 满足条件的我们计算 $b[j]$, 因为 $a[i]$ 和 $b[i]$ 已知, 我们可以直接计算出 $b[j]$, 然后我们看”桶”里有没有一个 $a[j]&#x3D;a[i]$ 的拥有我们需要的 $b[j]$</p>
-<p>需要注意的是, 如果自己和自己也满足条件, 是有可能找到自己的, 需要排除这种情况, 比如说能满足 $a[i]\times a[i] &#x3D; b[i] + b[i]$ 的一对 $ab$ 一共有 $n$ 对, 那么遍历到第一对 $ab$ 的时候, 它会和自己组成一次, 遍历到第二对 $ab$ 的时候, 它会和自己组成一次, 以此类推, 所以最终答案要减去能满足这个条件的 $ab$ 的对数</p>
-<p>不仅如此, 如果 $a_1b_1$ 可以与 $a_2b_2$ 组队, 那么我们遍历到 $a_1b_1$ 的时候它找到了 $a_2b_2$, 我们遍历 $a_2b_2$ 的时候又找到了 $a_1b_1$, 同样的结果被计算了两次, 所以在减去”自己找自己”之后还要除个2</p>
-</li>
-<li><p>当 $a[i]\neq a[j]$ 的时候</p>
-<p>两个 $a$ 肯定一大一小, 我们可以枚举 $a[i]$, 然后去找有没有对应的合法的 $a[j]$ 能够满足</p>
-<p>$a[i]\times a[j] \le 2n$ 的情况, 如果有, 我们再进一步算出 $a[j]$ 是否有合法的 $b[j]$, 在找 $a[j]$ 的时候我们直接从1开始枚举 $a[j]$ 的值, 直到不满足 $a[i]\times a[j] \le 2n$, 且为了不重复, 我们要求 $a[i]&gt;j$</p>
-<p>那为什么一定要求 $a[i]&gt;j$ 呢? 能不能反过来呢?</p>
-<p>我们发现在处理第一种情况的时候, 两个 $a$ 都是小于 $\sqrt{2n}$ 的, 我们的桶也是存的满足这个条件的 $a$ 的值, 并不是说合法的 $a$ 一定要满足这个条件, 因为当其中一个 $a$ 变小, 另一个 $a$ 可以变大, 大到超过 $\sqrt{2n}$, 我们枚举每一个 $a[i]$, 包括那些超过 $\sqrt{2n}$ 的, 那么这些超过 $\sqrt{2n}$ 的如果能找到答案, 那么那一个 $a$ 一定是小于 $\sqrt{2n}$, 所以代码中是 <code>ans += f[j][t]</code>, 因为小的在桶里, 大的不在</p>
-<p>那为什么不把所有的存起来呢? 是因为数组不允许开那么大</p>
-</li>
-</ul>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span>  ll;</span><br><span class="line"><span class="type">int</span> f[<span class="number">635</span>][N], a[N], b[N];	<span class="comment">//635是 2N开根号</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		ll lim = <span class="built_in">sqrt</span>(n * <span class="number">2</span>); </span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) cin &gt;&gt; a[i];</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; b[i];</span><br><span class="line">			<span class="keyword">if</span>(a[i] &lt;= lim) f[a[i]][b[i]]++;	<span class="comment">//只存小的</span></span><br><span class="line">		&#125;</span><br><span class="line">		ll ans = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i] &lt;= lim &amp;&amp; a[i] * a[i] - b[i] &gt; <span class="number">0</span> &amp;&amp; a[i] * a[i] - b[i] &lt;= n)</span><br><span class="line">				ans += f[a[i]][a[i] * a[i] - b[i]];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span>; i &lt;= lim; i += <span class="number">2</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			ans -= f[i][i * i / <span class="number">2</span>];	<span class="comment">//去掉自己找自己</span></span><br><span class="line">		&#125;</span><br><span class="line">		ans /= <span class="number">2</span>;	<span class="comment">//去重</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; a[i] * j &lt;= <span class="number">2</span> * n &amp;&amp; a[i] &gt; j; j++)	<span class="comment">//直接枚举aj的值 </span></span><br><span class="line">			&#123;</span><br><span class="line">					ll t = a[i] * j - b[i];</span><br><span class="line">					<span class="keyword">if</span>(t &gt; <span class="number">0</span> &amp;&amp; t &lt;= n) ans += f[j][t];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">			<span class="keyword">if</span>(a[i] &lt;= lim) f[a[i]][b[i]] = <span class="number">0</span>;	<span class="comment">//清空, 存了的才清空</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1828A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_ava.png">
-      <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eyu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/09/17/CF1828A/" class="post-title-link" itemprop="url">CF1828A</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-17 21:04:29" itemprop="dateModified" datetime="2023-10-17T21:04:29+08:00">2023-10-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Divisible-Array"><a href="#Divisible-Array" class="headerlink" title="Divisible Array"></a>Divisible Array</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>构造一个长度为 $n$ 的序列 $a$ 满足以下条件。</p>
-<ul>
-<li>对于每个元素 $a_i$ 满足 $a_i \le 1000$。</li>
-<li>对于每个元素 $a_i$ 满足 $a_i \equiv 0 \pmod i$。即每个元素 $a_i$ 能被 $i$ 整除。</li>
-<li>满足 $\sum_{i &#x3D; 1}^{n} a_i \equiv 0 \pmod n$。即所有元素之和能被 $n$ 整除。</li>
-</ul>
-<p>$n \leq 200$。</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You are given a positive integer $ n $ . Please find an array $ a_1, a_2, \ldots, a_n $ that is perfect.</p>
-<p>A perfect array $ a_1, a_2, \ldots, a_n $ satisfies the following criteria:</p>
-<ul>
-<li>$ 1 \le a_i \le 1000 $ for all $ 1 \le i \le n $ .</li>
-<li>$ a_i $ is divisible by $ i $ for all $ 1 \le i \le n $ .</li>
-<li>$ a_1 + a_2 + \ldots + a_n $ is divisible by $ n $ .</li>
-</ul>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 200 $ ). The description of the test cases follows.</p>
-<p>The only line of each test case contains a single positive integer $ n $ ( $ 1 \le n \le 200 $ ) — the length of the array $ a $ .</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output an array $ a_1, a_2, \ldots, a_n $ that is perfect.</p>
-<p>We can show that an answer always exists. If there are multiple solutions, print any.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2 4</span><br><span class="line">1 2 3</span><br><span class="line">2 8 6 4</span><br><span class="line">3 4 9 4 5</span><br><span class="line">1 10 18 8 5 36</span><br><span class="line">3 6 21 24 10 6 14</span><br></pre></td></tr></table></figure>
-
-
-
-
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>切入点在任何数都可以整除1, 所以第一个位置上可以放大于等于1的任何数字(题目要求元素要大于等于1)</p>
-<p>要求 <code>a[i] % i == 0 &amp;&amp; (a[1] + a[2] + ... + a[n]) % n == 0</code><br>任何数都能被1整除，那我们让 <code>a[i] = i</code>，最后的差由 <code>a[1]</code> 来补齐，又因为要求 <code>a[i] &gt;= 1</code>，避免<code>a[1] == 0</code> 的情况出现，我们令 <code>a[1] += n</code>，这样总和仍能被n整除</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code class="cpp">#include &lt;iostream&gt;
-using namespace std;
-const int N = 210;
-int main()
-&#123;
-    int t;
-    scanf(&quot;%d&quot;, &amp;t);
-    while (t--)
-    &#123;
-        int n;
-        scanf(&quot;%d&quot;, &amp;n);
-        if (n == 1)
-        &#123;
-            printf(&quot;1\n&quot;);
-            continue;
-        &#125;
-        int res = (n - 1) * (n + 2) / 2;
-        printf(&quot;%d &quot;, 2 * n - (res % n));
-        for (int i = 2; i &lt;= n; i++)
-            printf(&quot;%d &quot;, i);
-        printf(&quot;\n&quot;);
-    &#125;
-&#125;
-</code></pre>
+          <h1 id="CF1826C"><a href="#CF1826C" class="headerlink" title="CF1826C"></a>CF1826C</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>n个程序员, m个算法</p>
+<p>每一轮, n个程序员对剩余算法投票, 只有票数最多的算法会被保留, 可能不止保留一个</p>
+<p>问有没有可能无限进行, 输出yes代表一定会结束, 输出no代表有可能无限进行下去</p>
+<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>$t\le10^{5}$, $1\le n,m\le10^{6}$</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>要想不结束, 可以让 $n$ 平均分配到 $k$ 个选项上, 我们找出 $n$ 的最小因数, 看它是否小于 $m$ 即可判断</p>
+<p>复杂度为 $O(n)$ </p>
 
       
     </div>
@@ -488,6 +332,209 @@ int main()
 
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>因为数组中元素只有 $1\sim n$，数字 $i$ 的初始位置为 $x$，它最后的位置应该要在 $i$ (下标从1开始)，也即 <code>(x - i) % k == 0</code>，那我们只需要求出每个数的初末位置的差值，然后求所有差值的最大公约数即可</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"><span class="comment">//求最大公因数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">gcd</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> q ? <span class="built_in">gcd</span>(q, p % q) : p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t);</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">			a[i] = <span class="built_in">abs</span>(a[i] - i);	<span class="comment">//存需要移动的距离</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="type">int</span> k = <span class="built_in">gcd</span>(a[<span class="number">1</span>], a[<span class="number">2</span>]);</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">3</span>; i &lt;= n; i++)</span><br><span class="line">			k = <span class="built_in">gcd</span>(k, a[i]);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot; %d\n&quot;</span>, k);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1834B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/m_ava.png">
+      <meta itemprop="name" content="beishangeyu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eyu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/17/CF1834B/" class="post-title-link" itemprop="url">CF1834B</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-17 21:03:57" itemprop="dateModified" datetime="2023-10-17T21:03:57+08:00">2023-10-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Maximum-Strength"><a href="#Maximum-Strength" class="headerlink" title="Maximum Strength"></a>Maximum Strength</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>每一种材料的力量由一个十进制整数表示。</p>
+<p>对于一个武器，由<strong>两种</strong>材料构成。假如第一种材料的力量为 $X &#x3D; \overline{x_1x_2 \dots x_n}$，第二种材料的力量为 $Y &#x3D; \overline{y_1y_2 \dots y_n}$，那么这个武器的力量为 $\sum_{i &#x3D; 1}^n |x_i - y_i|$，也就是 $|x_1 - y_1| + |x_2 - y_2| + \dots + |x_n - y_n|$。</p>
+<p><strong>如果两个数字长度不一样，则要将短的数字用前导零补成相同长度</strong>。</p>
+<p>现在，你拥有<strong>无数个</strong>力量在 $[L, R]$ 中的材料。你想要选出<strong>两个</strong>材料做出一个力量<strong>最大</strong>的武器。请你求出你设计出的武器力量的最大值。</p>
+<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>Fedya is playing a new game called “The Legend of Link”, in which one of the character’s abilities is to combine two materials into one weapon. Each material has its own strength, which can be represented by a positive integer $ x $ . The strength of the resulting weapon is determined as the sum of the absolute differences of the digits in the decimal representation of the integers at each position.</p>
+<p>Formally, let the first material have strength $ X &#x3D; \overline{x_{1}x_{2} \ldots x_{n}} $ , and the second material have strength $ Y &#x3D; \overline{y_{1}y_{2} \ldots y_{n}} $ . Then the strength of the weapon is calculated as $ |x_{1} - y_{1}| + |x_{2} - y_{2}| + \ldots + |x_{n} - y_{n}| $ . If the integers have different lengths, then the shorter integer is padded with leading zeros.</p>
+<p>Fedya has an unlimited supply of materials with all possible strengths from $ L $ to $ R $ , inclusive. Help him find the maximum possible strength of the weapon he can obtain.</p>
+<p>An integer $ C &#x3D; \overline{c_{1}c_{2} \ldots c_{k}} $ is defined as an integer obtained by sequentially writing the digits $ c_1, c_2, \ldots, c_k $ from left to right, i.e. $ 10^{k-1} \cdot c_1 + 10^{k-2} \cdot c_2 + \ldots + c_k $ .</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 500 $ ). The description of the test cases follows.</p>
+<p>The first line of each test case contains two integers $ L $ and $ R $ ( $ 1 \le L \le R &lt; 10^{100} $ ) — the decimal representation of the integers representing the minimum and maximum strength of the materials that Fedya has. It is guaranteed that the integers $ L $ and $ R $ do not contain leading zeros.</p>
+<p>Note that the input data may not fit into standard $ 32 $ -bit or $ 64 $ -bit integer data types.</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case print one integer — the maximum possible strength of the weapon that Fedya can obtain from the given materials.</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">53 57</span><br><span class="line">179 239</span><br><span class="line">13 37</span><br><span class="line">132228 132228</span><br><span class="line">54943329752812629795 55157581939688863366</span><br><span class="line">88 1914</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">19</span><br><span class="line">11</span><br><span class="line">0</span><br><span class="line">163</span><br><span class="line">28</span><br></pre></td></tr></table></figure>
+
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>当某个位置一个是9, 一个是0的时候, 他们的差值是最大的, 那我们考虑可不可以选出两个数, 使得其中一个的9尽可能多, 另一个的0尽可能多</p>
+<p>对于上界R, 我们如果要让一个数从不是9变成9, 有很多限制, 如果要不使得上界增加, 我们还得选几个位置去缩小, 不仅麻烦, 且并不符合我们要找<strong>尽可能多</strong>的9的思路, 对于下界L要让非0变成0也是如此</p>
+<p>那既然上界不能变大, 下界不能变小, 那我们就在下界基础上增加, 上界基础上减小, 保证数字仍在合法区间不就行了吗</p>
+<p><strong>!</strong>: 我们并不是改变上下区间, 只是在这个基础上增加减小, 以下说R变小L变大是为了方便叙述</p>
+<p>我们只需要让R的最高位始终大于等于L的最低位, 那不管后边的数怎么变, R仍旧大于等于L, 且因为我们要在L上递增, R上递减, 所以就能保证我们找到的数字在合法的区间内了.</p>
+<p>解释一下 check函数 的逻辑, 从高位往低位, R肯定至少有一位要比L大, 因为R是上界, L是下界, 我们从高位往低位遍历, 直到当前位置(不包括)为止, 只要有一位R比L大, 那就可以让R的这一位变成0, L的这一位变成9. </p>
+<p><strong>!</strong>: 数字太长先用 string 存然后一位一位放到 vector 里, 按照我的 get函数 和 check函数 的逻辑来看, vector的低位置放的是数字的低位, 但是 string 中数字的最高位是在0的位置, 我们读入后要记得 reverse 一下</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; L, R;</span><br><span class="line">string l, r;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = R.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt; cur; i--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(L[i] &lt; R[i]) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; r[i]; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		R.<span class="built_in">push_back</span>(r[i] - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; R.<span class="built_in">size</span>(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(i &lt; l.<span class="built_in">size</span>()) L.<span class="built_in">push_back</span>(l[i] - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">		<span class="keyword">else</span> L.<span class="built_in">push_back</span>(<span class="number">0</span>);	<span class="comment">//L可能比R短, 所以要补前导0 </span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; R.<span class="built_in">size</span>(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">check</span>(i))	<span class="comment">//可以下边变9, 上边变0</span></span><br><span class="line">		&#123;</span><br><span class="line">			ans += <span class="number">9</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> ans += R[i] - L[i]; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		cin &gt;&gt; l &gt;&gt; r;</span><br><span class="line">		<span class="built_in">reverse</span>(l.<span class="built_in">begin</span>(), l.<span class="built_in">end</span>()), <span class="built_in">reverse</span>(r.<span class="built_in">begin</span>(), r.<span class="built_in">end</span>());</span><br><span class="line">		cout &lt;&lt; <span class="built_in">get</span>() &lt;&lt; endl;</span><br><span class="line">		L.<span class="built_in">clear</span>(), R.<span class="built_in">clear</span>(); </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1830B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/m_ava.png">
+      <meta itemprop="name" content="beishangeyu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eyu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/17/CF1830B/" class="post-title-link" itemprop="url">CF1830B.md</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-17 21:04:18" itemprop="dateModified" datetime="2023-10-17T21:04:18+08:00">2023-10-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="The-BOSS-Can-Count-Pairs"><a href="#The-BOSS-Can-Count-Pairs" class="headerlink" title="The BOSS Can Count Pairs"></a>The BOSS Can Count Pairs</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>多组数据。</p>
+<p>每组数据给你一个 $n$ 和两个序列 $a,b$。</p>
+<p>求有多少个数对 $(i,j)$ 满足 $1 \le i &lt; j \le n$ 且 $a_i \times a_j &#x3D; b_i + b_j$</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You are given two arrays $ a $ and $ b $ , both of length $ n $ .</p>
+<p>Your task is to count the number of pairs of integers $ (i,j) $ such that $ 1 \leq i &lt; j \leq n $ and $ a_i \cdot a_j &#x3D; b_i+b_j $ .</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line of input contains a single integer $ t $ ( $ 1 \le t \le 10^4 $ ) — the number of test cases. The description of test cases follows.</p>
+<p>The first line of each test case contains a single integer $ n $ ( $ 2 \le n \le 2 \cdot 10^5 $ ) — the length of the arrays.</p>
+<p>The second line of each test case contains $ n $ integers $ a_1,a_2,\ldots,a_n $ ( $ 1 \le a_i \le n $ ) — the elements of array $ a $ .</p>
+<p>The third line of each test case contains $ n $ integers $ b_1,b_2,\ldots,b_n $ ( $ 1 \le b_i \le n $ ) — the elements of array $ b $ .</p>
+<p>It is guaranteed that the sum of $ n $ across all test cases does not exceed $ 2 \cdot 10^5 $ .</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output the number of good pairs.</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">3</span><br><span class="line">2 3 2</span><br><span class="line">3 3 1</span><br><span class="line">8</span><br><span class="line">4 2 8 2 1 2 7 5</span><br><span class="line">3 5 8 8 1 1 6 5</span><br><span class="line">8</span><br><span class="line">4 4 8 8 8 8 8 8</span><br><span class="line">8 8 8 8 8 8 8 8</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">7</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>$a[i]\times a[j] &#x3D; b[i] + b[j]$ , 我们不难发现, $a[i]$ 和 $a[j]$ 至少有一个 $\le \sqrt{2n}$ , 我们分类讨论一下</p>
+<ul>
+<li><p>当 $a[i]&#x3D;a[j]$ 的时候, </p>
+<p>毫无疑问, 都要满足 $\le \sqrt{2n}$, 我们枚举 $a[i]$, 满足条件的我们计算 $b[j]$, 因为 $a[i]$ 和 $b[i]$ 已知, 我们可以直接计算出 $b[j]$, 然后我们看”桶”里有没有一个 $a[j]&#x3D;a[i]$ 的拥有我们需要的 $b[j]$</p>
+<p>需要注意的是, 如果自己和自己也满足条件, 是有可能找到自己的, 需要排除这种情况, 比如说能满足 $a[i]\times a[i] &#x3D; b[i] + b[i]$ 的一对 $ab$ 一共有 $n$ 对, 那么遍历到第一对 $ab$ 的时候, 它会和自己组成一次, 遍历到第二对 $ab$ 的时候, 它会和自己组成一次, 以此类推, 所以最终答案要减去能满足这个条件的 $ab$ 的对数</p>
+<p>不仅如此, 如果 $a_1b_1$ 可以与 $a_2b_2$ 组队, 那么我们遍历到 $a_1b_1$ 的时候它找到了 $a_2b_2$, 我们遍历 $a_2b_2$ 的时候又找到了 $a_1b_1$, 同样的结果被计算了两次, 所以在减去”自己找自己”之后还要除个2</p>
+</li>
+<li><p>当 $a[i]\neq a[j]$ 的时候</p>
+<p>两个 $a$ 肯定一大一小, 我们可以枚举 $a[i]$, 然后去找有没有对应的合法的 $a[j]$ 能够满足</p>
+<p>$a[i]\times a[j] \le 2n$ 的情况, 如果有, 我们再进一步算出 $a[j]$ 是否有合法的 $b[j]$, 在找 $a[j]$ 的时候我们直接从1开始枚举 $a[j]$ 的值, 直到不满足 $a[i]\times a[j] \le 2n$, 且为了不重复, 我们要求 $a[i]&gt;j$</p>
+<p>那为什么一定要求 $a[i]&gt;j$ 呢? 能不能反过来呢?</p>
+<p>我们发现在处理第一种情况的时候, 两个 $a$ 都是小于 $\sqrt{2n}$ 的, 我们的桶也是存的满足这个条件的 $a$ 的值, 并不是说合法的 $a$ 一定要满足这个条件, 因为当其中一个 $a$ 变小, 另一个 $a$ 可以变大, 大到超过 $\sqrt{2n}$, 我们枚举每一个 $a[i]$, 包括那些超过 $\sqrt{2n}$ 的, 那么这些超过 $\sqrt{2n}$ 的如果能找到答案, 那么那一个 $a$ 一定是小于 $\sqrt{2n}$, 所以代码中是 <code>ans += f[j][t]</code>, 因为小的在桶里, 大的不在</p>
+<p>那为什么不把所有的存起来呢? 是因为数组不允许开那么大</p>
+</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span>  ll;</span><br><span class="line"><span class="type">int</span> f[<span class="number">635</span>][N], a[N], b[N];	<span class="comment">//635是 2N开根号</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		ll lim = <span class="built_in">sqrt</span>(n * <span class="number">2</span>); </span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++) cin &gt;&gt; a[i];</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; b[i];</span><br><span class="line">			<span class="keyword">if</span>(a[i] &lt;= lim) f[a[i]][b[i]]++;	<span class="comment">//只存小的</span></span><br><span class="line">		&#125;</span><br><span class="line">		ll ans = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i] &lt;= lim &amp;&amp; a[i] * a[i] - b[i] &gt; <span class="number">0</span> &amp;&amp; a[i] * a[i] - b[i] &lt;= n)</span><br><span class="line">				ans += f[a[i]][a[i] * a[i] - b[i]];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span>; i &lt;= lim; i += <span class="number">2</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			ans -= f[i][i * i / <span class="number">2</span>];	<span class="comment">//去掉自己找自己</span></span><br><span class="line">		&#125;</span><br><span class="line">		ans /= <span class="number">2</span>;	<span class="comment">//去重</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; a[i] * j &lt;= <span class="number">2</span> * n &amp;&amp; a[i] &gt; j; j++)	<span class="comment">//直接枚举aj的值 </span></span><br><span class="line">			&#123;</span><br><span class="line">					ll t = a[i] * j - b[i];</span><br><span class="line">					<span class="keyword">if</span>(t &gt; <span class="number">0</span> &amp;&amp; t &lt;= n) ans += f[j][t];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">			<span class="keyword">if</span>(a[i] &lt;= lim) f[a[i]][b[i]] = <span class="number">0</span>;	<span class="comment">//清空, 存了的才清空</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -606,215 +653,6 @@ int main()
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1834B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_ava.png">
-      <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eyu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/09/17/CF1834B/" class="post-title-link" itemprop="url">CF1834B</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-17 21:03:57" itemprop="dateModified" datetime="2023-10-17T21:03:57+08:00">2023-10-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Maximum-Strength"><a href="#Maximum-Strength" class="headerlink" title="Maximum Strength"></a>Maximum Strength</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>每一种材料的力量由一个十进制整数表示。</p>
-<p>对于一个武器，由<strong>两种</strong>材料构成。假如第一种材料的力量为 $X &#x3D; \overline{x_1x_2 \dots x_n}$，第二种材料的力量为 $Y &#x3D; \overline{y_1y_2 \dots y_n}$，那么这个武器的力量为 $\sum_{i &#x3D; 1}^n |x_i - y_i|$，也就是 $|x_1 - y_1| + |x_2 - y_2| + \dots + |x_n - y_n|$。</p>
-<p><strong>如果两个数字长度不一样，则要将短的数字用前导零补成相同长度</strong>。</p>
-<p>现在，你拥有<strong>无数个</strong>力量在 $[L, R]$ 中的材料。你想要选出<strong>两个</strong>材料做出一个力量<strong>最大</strong>的武器。请你求出你设计出的武器力量的最大值。</p>
-<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>Fedya is playing a new game called “The Legend of Link”, in which one of the character’s abilities is to combine two materials into one weapon. Each material has its own strength, which can be represented by a positive integer $ x $ . The strength of the resulting weapon is determined as the sum of the absolute differences of the digits in the decimal representation of the integers at each position.</p>
-<p>Formally, let the first material have strength $ X &#x3D; \overline{x_{1}x_{2} \ldots x_{n}} $ , and the second material have strength $ Y &#x3D; \overline{y_{1}y_{2} \ldots y_{n}} $ . Then the strength of the weapon is calculated as $ |x_{1} - y_{1}| + |x_{2} - y_{2}| + \ldots + |x_{n} - y_{n}| $ . If the integers have different lengths, then the shorter integer is padded with leading zeros.</p>
-<p>Fedya has an unlimited supply of materials with all possible strengths from $ L $ to $ R $ , inclusive. Help him find the maximum possible strength of the weapon he can obtain.</p>
-<p>An integer $ C &#x3D; \overline{c_{1}c_{2} \ldots c_{k}} $ is defined as an integer obtained by sequentially writing the digits $ c_1, c_2, \ldots, c_k $ from left to right, i.e. $ 10^{k-1} \cdot c_1 + 10^{k-2} \cdot c_2 + \ldots + c_k $ .</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 500 $ ). The description of the test cases follows.</p>
-<p>The first line of each test case contains two integers $ L $ and $ R $ ( $ 1 \le L \le R &lt; 10^{100} $ ) — the decimal representation of the integers representing the minimum and maximum strength of the materials that Fedya has. It is guaranteed that the integers $ L $ and $ R $ do not contain leading zeros.</p>
-<p>Note that the input data may not fit into standard $ 32 $ -bit or $ 64 $ -bit integer data types.</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case print one integer — the maximum possible strength of the weapon that Fedya can obtain from the given materials.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">53 57</span><br><span class="line">179 239</span><br><span class="line">13 37</span><br><span class="line">132228 132228</span><br><span class="line">54943329752812629795 55157581939688863366</span><br><span class="line">88 1914</span><br></pre></td></tr></table></figure>
-
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">19</span><br><span class="line">11</span><br><span class="line">0</span><br><span class="line">163</span><br><span class="line">28</span><br></pre></td></tr></table></figure>
-
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>当某个位置一个是9, 一个是0的时候, 他们的差值是最大的, 那我们考虑可不可以选出两个数, 使得其中一个的9尽可能多, 另一个的0尽可能多</p>
-<p>对于上界R, 我们如果要让一个数从不是9变成9, 有很多限制, 如果要不使得上界增加, 我们还得选几个位置去缩小, 不仅麻烦, 且并不符合我们要找<strong>尽可能多</strong>的9的思路, 对于下界L要让非0变成0也是如此</p>
-<p>那既然上界不能变大, 下界不能变小, 那我们就在下界基础上增加, 上界基础上减小, 保证数字仍在合法区间不就行了吗</p>
-<p><strong>!</strong>: 我们并不是改变上下区间, 只是在这个基础上增加减小, 以下说R变小L变大是为了方便叙述</p>
-<p>我们只需要让R的最高位始终大于等于L的最低位, 那不管后边的数怎么变, R仍旧大于等于L, 且因为我们要在L上递增, R上递减, 所以就能保证我们找到的数字在合法的区间内了.</p>
-<p>解释一下 check函数 的逻辑, 从高位往低位, R肯定至少有一位要比L大, 因为R是上界, L是下界, 我们从高位往低位遍历, 直到当前位置(不包括)为止, 只要有一位R比L大, 那就可以让R的这一位变成0, L的这一位变成9. </p>
-<p><strong>!</strong>: 数字太长先用 string 存然后一位一位放到 vector 里, 按照我的 get函数 和 check函数 的逻辑来看, vector的低位置放的是数字的低位, 但是 string 中数字的最高位是在0的位置, 我们读入后要记得 reverse 一下</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; L, R;</span><br><span class="line">string l, r;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">(<span class="type">int</span> cur)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = R.<span class="built_in">size</span>() - <span class="number">1</span>; i &gt; cur; i--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(L[i] &lt; R[i]) <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span>; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">get</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; r[i]; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		R.<span class="built_in">push_back</span>(r[i] - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; R.<span class="built_in">size</span>(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(i &lt; l.<span class="built_in">size</span>()) L.<span class="built_in">push_back</span>(l[i] - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">		<span class="keyword">else</span> L.<span class="built_in">push_back</span>(<span class="number">0</span>);	<span class="comment">//L可能比R短, 所以要补前导0 </span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; R.<span class="built_in">size</span>(); i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(<span class="built_in">check</span>(i))	<span class="comment">//可以下边变9, 上边变0</span></span><br><span class="line">		&#123;</span><br><span class="line">			ans += <span class="number">9</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> ans += R[i] - L[i]; </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		cin &gt;&gt; l &gt;&gt; r;</span><br><span class="line">		<span class="built_in">reverse</span>(l.<span class="built_in">begin</span>(), l.<span class="built_in">end</span>()), <span class="built_in">reverse</span>(r.<span class="built_in">begin</span>(), r.<span class="built_in">end</span>());</span><br><span class="line">		cout &lt;&lt; <span class="built_in">get</span>() &lt;&lt; endl;</span><br><span class="line">		L.<span class="built_in">clear</span>(), R.<span class="built_in">clear</span>(); </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1834D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_ava.png">
-      <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eyu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/09/17/CF1834D/" class="post-title-link" itemprop="url">CF1834D</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-18 12:52:12" itemprop="dateModified" datetime="2023-10-18T12:52:12+08:00">2023-10-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Survey-in-Class"><a href="#Survey-in-Class" class="headerlink" title="Survey in Class"></a>Survey in Class</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>有 $n$ 个学生同时对课堂内容进行了预习。有 $m$ 个问题，第 $i$ 个人预习的问题是一个区间，可以用 $[l_i,r_i]$ 表示。每当老师问出一个问题，如果一个人不会，它的分数就会 $-1$，否则 $+1$。注意，分数可能为负。</p>
-<p>现在你要问一些不重复的问题，最大化学生分数的极差，并输出这个值。</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Zinaida Viktorovna has $ n $ students in her history class. The homework for today included $ m $ topics, but the students had little time to prepare, so $ i $ -th student learned only topics from $ l_i $ to $ r_i $ inclusive.</p>
-<p>At the beginning of the lesson, each student holds their hand at $ 0 $ . The teacher wants to ask some topics. It goes like this:</p>
-<ul>
-<li>The teacher asks the topic $ k $ .</li>
-<li>If the student has learned topic $ k $ , then he raises his hand by $ 1 $ , otherwise he lower it by $ 1 $ .</li>
-</ul>
-<p>Each topic Zinaida Viktorovna can ask no more than one time.</p>
-<p>Find the maximum difference of the heights of the highest and the lowest hand that can be in class after the survey.</p>
-<p>Note that the student’s hand can go below $ 0 $ .</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 10^4 $ ). The description of the test cases follows.</p>
-<p>The first line of each test case contains two integers $ n $ and $ m $ ( $ 2 \le n \le 10^5, 1 \le m \le 10^9 $ ) — the number of students and the number of topics, respectively.</p>
-<p>Each of the next $ n $ lines of each test case contain two integers $ l_i $ and $ r_i $ ( $ 1 \le l_i \le r_i \le m $ ) — the endpoints of the segment of topics that $ i $ -th student has learned.</p>
-<p>It is guaranteed that the sum of $ n $ over all test cases does not exceed $ 10^5 $ .</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, print one integer — the maximum difference of the heights of the highest and the lowest hand that can be in the class after the survey.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">4 8</span><br><span class="line">2 6</span><br><span class="line">4 8</span><br><span class="line">2 7</span><br><span class="line">1 5</span><br><span class="line">3 3</span><br><span class="line">1 3</span><br><span class="line">2 3</span><br><span class="line">2 2</span><br><span class="line">3 5</span><br><span class="line">1 5</span><br><span class="line">1 5</span><br><span class="line">1 5</span><br><span class="line">3 5</span><br><span class="line">1 1</span><br><span class="line">3 3</span><br><span class="line">5 5</span><br><span class="line">4 7</span><br><span class="line">1 7</span><br><span class="line">1 3</span><br><span class="line">3 3</span><br><span class="line">4 5</span><br><span class="line">2 4</span><br><span class="line">1 3</span><br><span class="line">2 4</span><br></pre></td></tr></table></figure>
-
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">4</span><br><span class="line">0</span><br><span class="line">2</span><br><span class="line">12</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>为了差值最大化, 我们肯定要找一段自己有的, 这样子自己可以加分, 别人就要减分, 是最赚的</p>
-<p>对于段与段之间的关系, 我们进行分类讨论</p>
-<ul>
-<li><p>包含与被包含</p>
-<p>很明显自己有的别人没有的部分 $&#x3D;(r2-r1)+(l1-l2)&#x3D;(r2-l2)-(r1-l1)$, 所以我们分别维护一个最大的 还有最小的 $r-l$ 就可以了, 然后两个的差值就是这种情况的的最优答案</p>
-<p>我们不用判断两段之间是否满足这种情况, 因为如果不满足我们在另一种情况讨论, 结果肯定会比这个计算结果要优, 我们取最大值的时候就会自动排除不符合的情况的</p>
-<p><img data-src="/./CF1834D.assets/f1.jpg"></p>
-</li>
-<li><p>相交或者分离</p>
-<p>对于这种情况, 如果是相交, 那么自己有别人没有的就是右边突出来的一段 $&#x3D;r1-r2$, 如果是相离, 那就是 $r1-l1+1$, 为了是这一部分最长, 我们找到最小的那个 $r$ 即可, 让别的 $r$ 来减去即可</p>
-<p>不要忘记考虑左边也会突出来一段, 与讨论右边段类似, 我们找到最大的 $l$ 让他减去其他的 $l$ 即可, 当然也要考虑相离的情况</p>
-<p>和计算”包含”一样, 对所有的数求, 不判断是否满足这个关系, 因为如果是包含, 以这种计算方式计算出来的结果不会优于”包含”计算结果, 不会对答案产生影响 </p>
-<p><img data-src="/./CF1834D.assets/f2.jpg"></p>
-</li>
-</ul>
-<p>然后对于这两种分类求出来的最大值再合在一起求个最大值即可, 主要的切入点在这个分类讨论上, 没有用到什么很高级的算法</p>
-<p>所以就算是难度系数比我目前的高, 也不一定就会用到很高级的算法, 还是思维上的难度</p>
-<p><strong>!</strong>: 还是那句话, 到了 10^9^, 开long long</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line">	ll l, r;</span><br><span class="line">&#125;a[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		ll ans = <span class="number">0</span>;</span><br><span class="line">		ll n, m; cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">		ll minr = <span class="number">1e9</span>, maxl = <span class="number">-1e9</span>; </span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; a[i].l &gt;&gt; a[i].r;</span><br><span class="line">			minr = <span class="built_in">min</span>(minr, a[i].r), maxl = <span class="built_in">max</span>(maxl, a[i].l);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//包含</span></span><br><span class="line">		ll maxn = <span class="number">-1e9</span>, minn = <span class="number">1e9</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">		&#123;</span><br><span class="line">			maxn = <span class="built_in">max</span>(maxn, a[i].r - a[i].l);</span><br><span class="line">			minn = <span class="built_in">min</span>(minn, a[i].r - a[i].l);</span><br><span class="line">		&#125;</span><br><span class="line">		ans = maxn - minn;</span><br><span class="line">		<span class="comment">//右边突出来 </span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i].l &gt; minr) ans = <span class="built_in">max</span>(ans, a[i].r - a[i].l + <span class="number">1</span>);</span><br><span class="line">			<span class="keyword">else</span> ans = <span class="built_in">max</span>(ans, a[i].r - minr);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//左边突出来</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i].r &lt; maxl) ans = <span class="built_in">max</span>(ans, a[i].r - a[i].l + <span class="number">1</span>);</span><br><span class="line">			<span class="keyword">else</span> ans = <span class="built_in">max</span>(ans, maxl - a[i].l);</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; ans * <span class="number">2</span> &lt;&lt; endl; 	<span class="comment">//自己有别人没有, 自己加1别人就要减1, 所以要这一段的值要乘2</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1837B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -899,6 +737,117 @@ int main()
 <p>简单感性理解一下为什么可以这样子, 我们单独看最长连续出现的相同符号这一段, 假设是 “&lt;&lt;&lt;&lt;” 那我们可以构造 “1&lt;2&lt;3&lt;4”, 其他的情况我们只需要或反向或正向的使用这一段里边的数字就可以了, 是一定一定可以用这几个数字填入其他所有的地方的</p>
 <p>这个其实还是比较好理解的, 你脑子里自己想象一下</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">char</span> str[<span class="number">110</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t);</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%s&quot;</span>, &amp;n, str);</span><br><span class="line">		<span class="type">char</span> last = <span class="string">&#x27;a&#x27;</span>;</span><br><span class="line">		<span class="type">int</span> cnt = <span class="number">1</span>, ml = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (str[i] != last)</span><br><span class="line">			&#123;</span><br><span class="line">				ml = <span class="built_in">max</span>(ml, cnt);</span><br><span class="line">				last = str[i];</span><br><span class="line">				cnt = <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				cnt++;</span><br><span class="line">		&#125;</span><br><span class="line">		ml = <span class="built_in">max</span>(ml, cnt);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ml + <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1834D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/m_ava.png">
+      <meta itemprop="name" content="beishangeyu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eyu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/17/CF1834D/" class="post-title-link" itemprop="url">CF1834D</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-19 11:32:16" itemprop="dateModified" datetime="2023-10-19T11:32:16+08:00">2023-10-19</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Survey-in-Class"><a href="#Survey-in-Class" class="headerlink" title="Survey in Class"></a>Survey in Class</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>有 $n$ 个学生同时对课堂内容进行了预习。有 $m$ 个问题，第 $i$ 个人预习的问题是一个区间，可以用 $[l_i,r_i]$ 表示。每当老师问出一个问题，如果一个人不会，它的分数就会 $-1$，否则 $+1$。注意，分数可能为负。</p>
+<p>现在你要问一些不重复的问题，最大化学生分数的极差，并输出这个值。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Zinaida Viktorovna has $ n $ students in her history class. The homework for today included $ m $ topics, but the students had little time to prepare, so $ i $ -th student learned only topics from $ l_i $ to $ r_i $ inclusive.</p>
+<p>At the beginning of the lesson, each student holds their hand at $ 0 $ . The teacher wants to ask some topics. It goes like this:</p>
+<ul>
+<li>The teacher asks the topic $ k $ .</li>
+<li>If the student has learned topic $ k $ , then he raises his hand by $ 1 $ , otherwise he lower it by $ 1 $ .</li>
+</ul>
+<p>Each topic Zinaida Viktorovna can ask no more than one time.</p>
+<p>Find the maximum difference of the heights of the highest and the lowest hand that can be in class after the survey.</p>
+<p>Note that the student’s hand can go below $ 0 $ .</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 10^4 $ ). The description of the test cases follows.</p>
+<p>The first line of each test case contains two integers $ n $ and $ m $ ( $ 2 \le n \le 10^5, 1 \le m \le 10^9 $ ) — the number of students and the number of topics, respectively.</p>
+<p>Each of the next $ n $ lines of each test case contain two integers $ l_i $ and $ r_i $ ( $ 1 \le l_i \le r_i \le m $ ) — the endpoints of the segment of topics that $ i $ -th student has learned.</p>
+<p>It is guaranteed that the sum of $ n $ over all test cases does not exceed $ 10^5 $ .</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, print one integer — the maximum difference of the heights of the highest and the lowest hand that can be in the class after the survey.</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">4 8</span><br><span class="line">2 6</span><br><span class="line">4 8</span><br><span class="line">2 7</span><br><span class="line">1 5</span><br><span class="line">3 3</span><br><span class="line">1 3</span><br><span class="line">2 3</span><br><span class="line">2 2</span><br><span class="line">3 5</span><br><span class="line">1 5</span><br><span class="line">1 5</span><br><span class="line">1 5</span><br><span class="line">3 5</span><br><span class="line">1 1</span><br><span class="line">3 3</span><br><span class="line">5 5</span><br><span class="line">4 7</span><br><span class="line">1 7</span><br><span class="line">1 3</span><br><span class="line">3 3</span><br><span class="line">4 5</span><br><span class="line">2 4</span><br><span class="line">1 3</span><br><span class="line">2 4</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">4</span><br><span class="line">0</span><br><span class="line">2</span><br><span class="line">12</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
+
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>为了差值最大化, 我们肯定要找一段自己有的, 这样子自己可以加分, 别人就要减分, 是最赚的</p>
+<p>对于段与段之间的关系, 我们进行分类讨论</p>
+<ul>
+<li><p>包含与被包含</p>
+<p>很明显自己有的别人没有的部分 $&#x3D;(r2-r1)+(l1-l2)&#x3D;(r2-l2)-(r1-l1)$, 所以我们分别维护一个最大的 还有最小的 $r-l$ 就可以了, 然后两个的差值就是这种情况的的最优答案</p>
+<p>我们不用判断两段之间是否满足这种情况, 因为如果不满足我们在另一种情况讨论, 结果肯定会比这个计算结果要优, 我们取最大值的时候就会自动排除不符合的情况的</p>
+</li>
+<li><p>相交或者分离</p>
+<p>对于这种情况, 如果是相交, 那么自己有别人没有的就是右边突出来的一段 $&#x3D;r1-r2$, 如果是相离, 那就是 $r1-l1+1$, 为了是这一部分最长, 我们找到最小的那个 $r$ 即可, 让别的 $r$ 来减去即可</p>
+<p>不要忘记考虑左边也会突出来一段, 与讨论右边段类似, 我们找到最大的 $l$ 让他减去其他的 $l$ 即可, 当然也要考虑相离的情况</p>
+<p>和计算”包含”一样, 对所有的数求, 不判断是否满足这个关系, 因为如果是包含, 以这种计算方式计算出来的结果不会优于”包含”计算结果, 不会对答案产生影响</p>
+</li>
+</ul>
+<p>然后对于这两种分类求出来的最大值再合在一起求个最大值即可, 主要的切入点在这个分类讨论上, 没有用到什么很高级的算法</p>
+<p>所以就算是难度系数比我目前的高, 也不一定就会用到很高级的算法, 还是思维上的难度</p>
+<p><strong>!</strong>: 还是那句话, 到了 10^9^, 开long long</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line">	ll l, r;</span><br><span class="line">&#125;a[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		ll ans = <span class="number">0</span>;</span><br><span class="line">		ll n, m; cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">		ll minr = <span class="number">1e9</span>, maxl = <span class="number">-1e9</span>; </span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; a[i].l &gt;&gt; a[i].r;</span><br><span class="line">			minr = <span class="built_in">min</span>(minr, a[i].r), maxl = <span class="built_in">max</span>(maxl, a[i].l);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//包含</span></span><br><span class="line">		ll maxn = <span class="number">-1e9</span>, minn = <span class="number">1e9</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">		&#123;</span><br><span class="line">			maxn = <span class="built_in">max</span>(maxn, a[i].r - a[i].l);</span><br><span class="line">			minn = <span class="built_in">min</span>(minn, a[i].r - a[i].l);</span><br><span class="line">		&#125;</span><br><span class="line">		ans = maxn - minn;</span><br><span class="line">		<span class="comment">//右边突出来 </span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i].l &gt; minr) ans = <span class="built_in">max</span>(ans, a[i].r - a[i].l + <span class="number">1</span>);</span><br><span class="line">			<span class="keyword">else</span> ans = <span class="built_in">max</span>(ans, a[i].r - minr);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//左边突出来</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(a[i].r &lt; maxl) ans = <span class="built_in">max</span>(ans, a[i].r - a[i].l + <span class="number">1</span>);</span><br><span class="line">			<span class="keyword">else</span> ans = <span class="built_in">max</span>(ans, maxl - a[i].l);</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; ans * <span class="number">2</span> &lt;&lt; endl; 	<span class="comment">//自己有别人没有, 自己加1别人就要减1, 所以要这一段的值要乘2</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 

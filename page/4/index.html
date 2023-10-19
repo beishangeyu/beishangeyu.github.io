@@ -181,133 +181,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1818B%20Indivisible/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_ava.png">
-      <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eyu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/09/17/CF1818B%20Indivisible/" class="post-title-link" itemprop="url">CF1818B</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-17 21:06:02" itemprop="dateModified" datetime="2023-10-17T21:06:02+08:00">2023-10-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="CF1818B-Indivisible"><a href="#CF1818B-Indivisible" class="headerlink" title="CF1818B Indivisible"></a>CF1818B Indivisible</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给定一个整数 $n$。</p>
-<p>你需要构造一个一个长度为 $n$ 的排列 $A$，使得对于任意一对 $l,r$（$1\le l&lt;r\le n$），都满足 $A_l+A_{l+1}+\dots+A_r$ 不可以被 $r-l+1$ 整除。</p>
-<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>输入一个 $t(1\le t\le 100)$ 表示数据组数。</p>
-<p>每组数据一行一个整数 $n(1\le n\le100)$，即排列的长度。</p>
-<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>对于每组数据，若所求排列不存在，输出 <code>-1 </code>, 否则输出任意一个合法的排列。</p>
-<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>You’re given a positive integer $ n $ .</p>
-<p>Find a permutation $ a_1, a_2, \dots, a_n $ such that for any $ 1 \leq l &lt; r \leq n $ , the sum $ a_l + a_{l+1} + \dots + a_r $ is not divisible by $ r-l+1 $ .</p>
-<p>A permutation of length $ n $ is an array consisting of $ n $ distinct integers from $ 1 $ to $ n $ in arbitrary order. For example, $ [2,3,1,5,4] $ is a permutation, but $ [1,2,2] $ is not a permutation ( $ 2 $ appears twice in the array), and $ [1,3,4] $ is also not a permutation ( $ n&#x3D;3 $ but there is $ 4 $ in the array).</p>
-<h2 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 100 $ ). Description of the test cases follows.</p>
-<p>The first line of each test case contain a single integer $ n $ ( $ 1 \leq n \leq 100 $ ) — the size of the desired permutation.</p>
-<h2 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, if there is no such permutation print $ -1 $ .</p>
-<p>Otherwise, print $ n $ distinct integers $ p_1, p_{2}, \dots, p_n $ ( $ 1 \leq p_i \leq n $ ) — a permutation satisfying the condition described in the statement.</p>
-<p>If there are multiple solutions, print any.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td></tr></table></figure>
-
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">1 2</span><br><span class="line">-1</span><br></pre></td></tr></table></figure>
-
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>In the first example, there are no valid pairs of $ l &lt; r $ , meaning that the condition is true for all such pairs.</p>
-<p>In the second example, the only valid pair is $ l&#x3D;1 $ and $ r&#x3D;2 $ , for which $ a_1 + a_2 &#x3D; 1+2&#x3D;3 $ is not divisible by $ r-l+1&#x3D;2 $ .</p>
-<p>in the third example, for $ l&#x3D;1 $ and $ r&#x3D;3 $ the sum $ a_1+a_2+a_3 $ is always $ 6 $ , which is divisible by $ 3 $ .</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>当 $n &#x3D; 1$ 时, 输出1</p>
-<p>当 $n$ 为非1的奇数时, 整个区间的和是$\frac{(1 + n)\times n}{2}$, 除以 $n$ 剩下 $\frac{1+n}{2}$ , $n+1$ 是偶数, 所以当 $n$ 为非1奇数时, 输出-1</p>
-<p>当n为偶数时, 我们构造出的合法的序列要满足两个条件</p>
-<ul>
-<li><strong>相邻的数奇偶性不能一样, 这样当区间长度为2时不满足条件</strong></li>
-<li><strong>三个连续的数不能放一块, 不然肯定可以被3整除</strong></li>
-</ul>
-<p>在满足以上两种情况的条件下, 我们尝试打表找规律, 打表代码也在代码部分给出</p>
-<p>抽出每个输入对应输出的<strong>第一个</strong>合法方案, 尝试找规律</p>
-<p>输入:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">6</span><br><span class="line">8</span><br></pre></td></tr></table></figure>
-
-<p>输出:</p>
-<figure class="highlight tap"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//以下为合法结果之1</span><br><span class="line">2<span class="number"> 1 </span>4 3</span><br><span class="line">2<span class="number"> 1 </span>4<span class="number"> 3 </span>6 5</span><br><span class="line">2<span class="number"> 1 </span>4<span class="number"> 3 </span>6<span class="number"> 5 </span>8 7</span><br></pre></td></tr></table></figure>
-
-<p>我们猜测: 当 i 为奇数时, a[i] 为 i + 1, 当 i 为偶数时, a[i] 为 i - 1</p>
-<p>我们分以下两种情况讨论</p>
-<ul>
-<li>当 l 和 r 奇偶性不同时</li>
-</ul>
-<p>  在区间[l, r]上 $sum &#x3D; \frac{(a[l] + a[r])\times(l+r-1)}{2}$ , 在除以 $(l+r-1)$ 之后剩下 $\frac{a[l]+a[r]}{2}$ </p>
-<p>  根据规则 $a[l] + a[r] &#x3D; l + r$ , 明显结果是奇数, 合法</p>
-<ul>
-<li><p>当 l 和 r 奇偶性相同时</p>
-<p>根据规则 $a[l] + a[r] &#x3D; l + r \pm 1$ , 在区间[l, r]上 $sum &#x3D; \frac{(l+r\pm1)\times(l+r-1)}{2}$ , 在除以$(l+r-1)$ 之后剩下 $\frac{l+r\pm1}{2}$ , $l+r$ 是偶数, $\pm1$ 之后变成奇数, 也合法</p>
-</li>
-</ul>
-<p>综上, 这种构造方法是合法的</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><h3 id="打表代码"><a href="#打表代码" class="headerlink" title="打表代码"></a>打表代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> f[<span class="number">10010</span>];</span><br><span class="line"><span class="type">bool</span> st[<span class="number">10010</span>];</span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="comment">//判断是否合法</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">check</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (f[i] % <span class="number">2</span> == f[i + <span class="number">1</span>] % <span class="number">2</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">2</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">abs</span>(f[i] - f[i + <span class="number">1</span>]) == <span class="built_in">abs</span>(f[i + <span class="number">1</span>] - f[i + <span class="number">2</span>]) &amp;&amp; <span class="built_in">abs</span>(f[i] - f[i + <span class="number">1</span>]) == <span class="number">1</span>)</span><br><span class="line">			<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//递归求每一种方案</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">fun</span><span class="params">(<span class="type">int</span> u)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (u == n)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (<span class="built_in">check</span>())</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">				cout &lt;&lt; f[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">			cout &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (!st[i])</span><br><span class="line">		&#123;</span><br><span class="line">			f[u] = i;</span><br><span class="line">			st[i] = <span class="literal">true</span>;</span><br><span class="line">			<span class="built_in">fun</span>(u + <span class="number">1</span>);</span><br><span class="line">			st[i] = <span class="literal">false</span>;</span><br><span class="line">			f[u] = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="built_in">fun</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h3 id="解题代码"><a href="#解题代码" class="headerlink" title="解题代码"></a>解题代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t);</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">		<span class="keyword">if</span> (n == <span class="number">1</span>)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot; 1\n&quot;</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (n % <span class="number">2</span>)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot; -1\n&quot;</span>);</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (i % <span class="number">2</span>)</span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, i + <span class="number">1</span>);</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, i - <span class="number">1</span>);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1824A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -376,6 +249,144 @@
 <p>当 <code>m = 8</code> 然后观众是 <code>-1 -1 -1 3  -1 -2</code> 的时候, 舍弃观众2让观众1从m往左填是最优</p>
 <p>综上我们要计算只采用观众1和观众3还有只采用观众2和观众3的结果, 然后再枚举每个观众三作为分水岭, 分别向左向右填的结果, 所有结果取max即可</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t);</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n, m;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;m);</span><br><span class="line">		<span class="type">int</span> bk[N] = &#123; <span class="number">0</span> &#125;;	<span class="comment">//桶</span></span><br><span class="line">		<span class="type">int</span> k1, k2, k3;</span><br><span class="line">		k1 = k2 = k3 = <span class="number">0</span>;	<span class="comment">//三种观众的个数</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="type">int</span> x;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;x);</span><br><span class="line">			<span class="keyword">if</span> (x &gt; <span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (!bk[x])</span><br><span class="line">				&#123;</span><br><span class="line">					k3++;</span><br><span class="line">					bk[x] = <span class="number">1</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (x == <span class="number">-1</span>)</span><br><span class="line">				k1++;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				k2++;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="type">int</span> ret = <span class="number">0</span>;</span><br><span class="line">		<span class="type">int</span> ans1 = <span class="built_in">min</span>(m, k1 + k3);	<span class="comment">//只让观众1和3入场</span></span><br><span class="line">		<span class="type">int</span> ans2 = <span class="built_in">min</span>(m, k2 + k3);	<span class="comment">//只让观众2和3入场</span></span><br><span class="line">		ret = <span class="built_in">max</span>(ans2, ans1);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			bk[i] += bk[i - <span class="number">1</span>];	<span class="comment">//前缀和 表示从1到i有几个观众三预定好了座位</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//枚举每个点 以此为分水岭向左右延伸</span></span><br><span class="line">		<span class="type">int</span> ans3 = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= m; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//如果这个位置有观众三</span></span><br><span class="line">			<span class="keyword">if</span> (bk[i] &gt; bk[i - <span class="number">1</span>])</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="type">int</span> l = <span class="built_in">min</span>(i - <span class="number">1</span> - bk[i - <span class="number">1</span>], k1), r = <span class="built_in">min</span>(m - i - (bk[m] - bk[i]), k2);</span><br><span class="line">				ans3 = <span class="built_in">max</span>(ans3, l + r + k3);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		ret = <span class="built_in">max</span>(ret, ans3);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot; %d\n&quot;</span>, ret);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1823B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/m_ava.png">
+      <meta itemprop="name" content="beishangeyu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eyu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/17/CF1823B/" class="post-title-link" itemprop="url">CF1823B</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-17 21:05:27" itemprop="dateModified" datetime="2023-10-17T21:05:27+08:00">2023-10-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Sort-with-Step"><a href="#Sort-with-Step" class="headerlink" title="Sort with Step"></a>Sort with Step</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>给定一个 $1$ 到 $n$ 的排列 $p$ 和一个正整数 $k$。</p>
+<p>你可以对 $p$ 进行若干次操作，每次操作交换 $p_i$ 和 $p_j$，其中 $|i-j|&#x3D;k$。你的目标是使得 $p$ 变为升序。</p>
+<p>除此之外，在开始你的操作之前，你还可以<strong>预先交换</strong>任意两个 $p_i$ 和 $p_j$ 一次。</p>
+<p>你的任务是判断：</p>
+<ol>
+<li>能否在不用预先交换的情况下，使得 $p$ 变为升序；</li>
+<li>如果不能，能否在预先交换一次的情况下，使得 $p$ 变为升序。</li>
+</ol>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>本题有<strong>多组数据</strong>。第一行输入数据组数 $t$（$1\le t\le10^4$）。</p>
+<p>对于每组数据，第一行输入 $n$ 和 $k$，第二行输入 $n$ 个整数，其中第 $i$ 个整数表示 $p_i$。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>对于每组数据：</p>
+<ul>
+<li>如果满足条件 1 输出一行 <code>0</code>；</li>
+<li>如果不满足条件 1 但满足条件 2 输出一行 <code>1</code>；</li>
+<li>如果条件 1, 2 都不满足输出一行 <code>-1</code>。</li>
+</ul>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>$1\le t\le10^4$，$2\le n\le2\times10^5$，$1\le k\le n-1$，$1\le p_i\le n$。</p>
+<p>每组数据的 $n$ 的总和 $\sum n\le2\times10^5$。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Let’s define a permutation of length $ n $ as an array $ p $ of length $ n $ , which contains every number from $ 1 $ to $ n $ exactly once.</p>
+<p>You are given a permutation $ p_1, p_2, \dots, p_n $ and a number $ k $ . You need to sort this permutation in the ascending order. In order to do it, you can repeat the following operation any number of times (possibly, zero):</p>
+<ul>
+<li>pick two elements of the permutation $ p_i $ and $ p_j $ such that $ |i - j| &#x3D; k $ , and swap them.</li>
+</ul>
+<p>Unfortunately, some permutations can’t be sorted with some fixed numbers $ k $ . For example, it’s impossible to sort $ [2, 4, 3, 1] $ with $ k &#x3D; 2 $ .</p>
+<p>That’s why, before starting the sorting, you can make at most one preliminary exchange:</p>
+<ul>
+<li>choose any pair $ p_i $ and $ p_j $ and swap them.</li>
+</ul>
+<p>Your task is to:</p>
+<ol>
+<li>check whether is it possible to sort the permutation without any preliminary exchanges,</li>
+<li>if it’s not, check, whether is it possible to sort the permutation using exactly one preliminary exchange.</li>
+</ol>
+<p>For example, if $ k &#x3D; 2 $ and permutation is $ [2, 4, 3, 1] $ , then you can make a preliminary exchange of $ p_1 $ and $ p_4 $ , which will produce permutation $ [1, 4, 3, 2] $ , which is possible to sort with given $ k $ .</p>
+<h2 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 10^4 $ ). The description of the test cases follows.</p>
+<p>The first line of each test case contains two integers $ n $ and $ k $ ( $ 2 \le n \le 2 \cdot 10^5 $ ; $ 1 \le k \le n - 1 $ ) — length of the permutation, and a distance between elements that can be swapped.</p>
+<p>The second line of each test case contains $ n $ integers $ p_1, p_2, \dots, p_n $ ( $ 1 \le p_i \le n $ ) — elements of the permutation $ p $ .</p>
+<p>It is guaranteed that the sum of $ n $ over all test cases does not exceed $ 2 \cdot 10 ^ 5 $ .</p>
+<h2 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case print</p>
+<ul>
+<li>0, if it is possible to sort the permutation without preliminary exchange;</li>
+<li>1, if it is possible to sort the permutation with one preliminary exchange, but not possible without preliminary exchange;</li>
+<li>-1, if it is not possible to sort the permutation with at most one preliminary exchange.</li>
+</ul>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">4 1</span><br><span class="line">3 1 2 4</span><br><span class="line">4 2</span><br><span class="line">3 4 1 2</span><br><span class="line">4 2</span><br><span class="line">3 1 4 2</span><br><span class="line">10 3</span><br><span class="line">4 5 9 1 8 6 10 2 3 7</span><br><span class="line">10 3</span><br><span class="line">4 6 9 1 8 5 10 2 3 7</span><br><span class="line">10 3</span><br><span class="line">4 6 9 1 8 5 10 3 2 7</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">-1</span><br></pre></td></tr></table></figure>
+
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>In the first test case, there is no need in preliminary exchange, as it is possible to swap $ (p_1, p_2) $ and then $ (p_2, p_3) $ .</p>
+<p>In the second test case, there is no need in preliminary exchange, as it is possible to swap $ (p_1, p_3) $ and then $ (p_2, p_4) $ .</p>
+<p>In the third test case, you need to apply preliminary exchange to $ (p_2, p_3) $ . After that the permutation becomes $ [3, 4, 1, 2] $ and can be sorted with $ k &#x3D; 2 $ .</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>我们可以开一次挂, 交换任意的两个数</p>
+<p>序列a的元素只有1~n, 且没有重复, 那么成功排序后值为 i 的元素位置也是 i (下标从1开始), 也即对于 a[i] 而言, i是起点位置, a[i] 是目的位置, 如果 <strong>a[i] - i 是 k 的整数倍</strong>, 那么他就肯定可以通过和<strong>距离为 k 的数交换最终到达目的位置</strong>, 称为合法数</p>
+<ul>
+<li><p>如果所有的数都是合法数, 那么我们不需要开挂就能sort成功</p>
+</li>
+<li><p>如果不合法数 $\ge 3$ , 那么肯定没办法sort, 输出-1</p>
+</li>
+<li><p>如果有两个不合法数, 我们交换这两个数看是否能合法</p>
+</li>
+<li><p>如果有一个不合法数, 我们遍历序列a, 看有没有哪个数能跟他换</p>
+</li>
+</ul>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"><span class="type">int</span> b[N];	<span class="comment">//记录哪些不合法</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t);</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n, k;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;k);</span><br><span class="line">		<span class="type">int</span> un = <span class="number">0</span>;		<span class="comment">//不合法的人数</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">			<span class="keyword">if</span> (<span class="built_in">abs</span>(a[i] - i) % k)</span><br><span class="line">			&#123;</span><br><span class="line">				b[++un] = i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (un &gt;= <span class="number">3</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;  -1\n&quot;</span>);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(un == <span class="number">2</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="type">int</span> sta1 = b[<span class="number">1</span>], ed1 = a[b[<span class="number">1</span>]];</span><br><span class="line">			<span class="type">int</span> sta2 = b[<span class="number">2</span>], ed2 = a[b[<span class="number">2</span>]];</span><br><span class="line">			<span class="keyword">if</span> (<span class="built_in">abs</span>(ed1 - sta2) % k == <span class="number">0</span> &amp;&amp; <span class="built_in">abs</span>(ed2 - sta1) % k == <span class="number">0</span>)</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;  1\n&quot;</span>);</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;  -1\n&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (un == <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;  0\n&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n + <span class="number">1</span>; i++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (i == n + <span class="number">1</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">&quot;  -1\n&quot;</span>);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="type">int</span> sta1 = b[<span class="number">1</span>], ed1 = a[b[<span class="number">1</span>]];</span><br><span class="line">				<span class="type">int</span> sta2 = i, ed2 = a[i];</span><br><span class="line">				<span class="keyword">if</span> (<span class="built_in">abs</span>(ed2 - ed1) % k == <span class="number">0</span>)	<span class="comment">//是化简之后的结果</span></span><br><span class="line">				&#123;</span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">&quot;  1\n&quot;</span>);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -721,85 +732,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1826C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_ava.png">
-      <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eyu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/09/17/CF1826C/" class="post-title-link" itemprop="url">CF1826C</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-17 21:04:56" itemprop="dateModified" datetime="2023-10-17T21:04:56+08:00">2023-10-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="CF1826C"><a href="#CF1826C" class="headerlink" title="CF1826C"></a>CF1826C</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>n个程序员, m个算法</p>
-<p>每一轮, n个程序员对剩余算法投票, 只有票数最多的算法会被保留, 可能不止保留一个</p>
-<p>问有没有可能无限进行, 输出yes代表一定会结束, 输出no代表有可能无限进行下去</p>
-<h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>$t\le10^{5}$, $1\le n,m\le10^{6}$</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>要想不结束, 可以让 $n$ 平均分配到 $k$ 个选项上, 我们找出 $n$ 的最小因数, 看它是否小于 $m$ 即可判断</p>
-<p>复杂度为 $O(n)$ </p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1826D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1070,6 +1002,134 @@
 </li>
 </ul>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">5e3</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">int</span> b[N];</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="type">int</span> v, id;</span><br><span class="line">&#125;a[N];</span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(A p, A q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> p.v &lt; q.v;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t);</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i].v);</span><br><span class="line">			a[i].id = i;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">sort</span>(a + <span class="number">1</span>, a + n + <span class="number">1</span>, cmp);	<span class="comment">//要从下标为1开始排</span></span><br><span class="line"></span><br><span class="line">		<span class="comment">//按排序映射成1~n 方便处理</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//要放在本来的位置</span></span><br><span class="line">			b[a[i].id] = i;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//最大代价就是每一个子区间都要排序</span></span><br><span class="line">		ll mc = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++) mc += i * (n - i);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//枚举每一个可以断开的点</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="type">int</span> sum[N] = &#123; <span class="number">0</span> &#125;;</span><br><span class="line">			<span class="comment">//找出以 i + 1 为起点的区间内的最小值 并记录有几段区间的最小值是这个数</span></span><br><span class="line">			<span class="type">int</span> minv = <span class="number">1e9</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> j = i + <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">			&#123;</span><br><span class="line">				minv = <span class="built_in">min</span>(minv, b[j]);</span><br><span class="line">				sum[minv]++;	<span class="comment">//这里sum[q]表示以q为最小值的区间个数</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> j = n; j &gt;= <span class="number">1</span>; j--)</span><br><span class="line">			&#123;</span><br><span class="line">				sum[j] += sum[j + <span class="number">1</span>];	<span class="comment">//这里sum[q]表示最小值大于等于q的区间个数, 是类似前缀和方式</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="type">int</span> maxv = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> j = i; j &gt; <span class="number">0</span>; j--)</span><br><span class="line">			&#123;</span><br><span class="line">				maxv = <span class="built_in">max</span>(maxv, b[j]);</span><br><span class="line">				mc -= sum[maxv + <span class="number">1</span>];	<span class="comment">//因为b内只有 1~n 且没有重复元素, 所以直接+1就可以表示了</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot; %lld\n&quot;</span>, mc);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1828A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/m_ava.png">
+      <meta itemprop="name" content="beishangeyu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eyu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/17/CF1828A/" class="post-title-link" itemprop="url">CF1828A</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-17 21:04:29" itemprop="dateModified" datetime="2023-10-17T21:04:29+08:00">2023-10-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Divisible-Array"><a href="#Divisible-Array" class="headerlink" title="Divisible Array"></a>Divisible Array</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>构造一个长度为 $n$ 的序列 $a$ 满足以下条件。</p>
+<ul>
+<li>对于每个元素 $a_i$ 满足 $a_i \le 1000$。</li>
+<li>对于每个元素 $a_i$ 满足 $a_i \equiv 0 \pmod i$。即每个元素 $a_i$ 能被 $i$ 整除。</li>
+<li>满足 $\sum_{i &#x3D; 1}^{n} a_i \equiv 0 \pmod n$。即所有元素之和能被 $n$ 整除。</li>
+</ul>
+<p>$n \leq 200$。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You are given a positive integer $ n $ . Please find an array $ a_1, a_2, \ldots, a_n $ that is perfect.</p>
+<p>A perfect array $ a_1, a_2, \ldots, a_n $ satisfies the following criteria:</p>
+<ul>
+<li>$ 1 \le a_i \le 1000 $ for all $ 1 \le i \le n $ .</li>
+<li>$ a_i $ is divisible by $ i $ for all $ 1 \le i \le n $ .</li>
+<li>$ a_1 + a_2 + \ldots + a_n $ is divisible by $ n $ .</li>
+</ul>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 200 $ ). The description of the test cases follows.</p>
+<p>The only line of each test case contains a single positive integer $ n $ ( $ 1 \le n \le 200 $ ) — the length of the array $ a $ .</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output an array $ a_1, a_2, \ldots, a_n $ that is perfect.</p>
+<p>We can show that an answer always exists. If there are multiple solutions, print any.</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2 4</span><br><span class="line">1 2 3</span><br><span class="line">2 8 6 4</span><br><span class="line">3 4 9 4 5</span><br><span class="line">1 10 18 8 5 36</span><br><span class="line">3 6 21 24 10 6 14</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>切入点在任何数都可以整除1, 所以第一个位置上可以放大于等于1的任何数字(题目要求元素要大于等于1)</p>
+<p>要求 <code>a[i] % i == 0 &amp;&amp; (a[1] + a[2] + ... + a[n]) % n == 0</code><br>任何数都能被1整除，那我们让 <code>a[i] = i</code>，最后的差由 <code>a[1]</code> 来补齐，又因为要求 <code>a[i] &gt;= 1</code>，避免<code>a[1] == 0</code> 的情况出现，我们令 <code>a[1] += n</code>，这样总和仍能被n整除</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code class="cpp">#include &lt;iostream&gt;
+using namespace std;
+const int N = 210;
+int main()
+&#123;
+    int t;
+    scanf(&quot;%d&quot;, &amp;t);
+    while (t--)
+    &#123;
+        int n;
+        scanf(&quot;%d&quot;, &amp;n);
+        if (n == 1)
+        &#123;
+            printf(&quot;1\n&quot;);
+            continue;
+        &#125;
+        int res = (n - 1) * (n + 2) / 2;
+        printf(&quot;%d &quot;, 2 * n - (res % n));
+        for (int i = 2; i &lt;= n; i++)
+            printf(&quot;%d &quot;, i);
+        printf(&quot;\n&quot;);
+    &#125;
+&#125;
+</code></pre>
+
       
     </div>
 

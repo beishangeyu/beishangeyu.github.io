@@ -181,6 +181,115 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1798C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/m_ava.png">
+      <meta itemprop="name" content="beishangeyu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eyu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/17/CF1798C/" class="post-title-link" itemprop="url">CF1798C</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-18 12:52:53" itemprop="dateModified" datetime="2023-10-18T12:52:53+08:00">2023-10-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Candy-Store"><a href="#Candy-Store" class="headerlink" title="Candy Store"></a>Candy Store</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>有 $n$ 种糖，第 $i$ 种糖有 $a_i$ 块，每块 $b_i$ 元。对每种糖，你要选择一个 $d_i | a_i$，然后每 $d_i$ 块糖装进一个袋子。</p>
+<p>现在把糖摆上货架，第 $i$ 类糖的价签上的价格 $c_i$ 是一袋子 $i$ 类糖的价值，即 $c_i &#x3D; d_i \times b_i$。</p>
+<p>对于货架上一个区间 $[l, r]$，如果他们的价签相同，即 $c_l &#x3D; c_{l + 1} &#x3D; \dots &#x3D; c_r$，则他们可以共用一个价签。</p>
+<p>请问最少需要多少价签？</p>
+<p>多组数据，保证 $n$ 之和不超过 $2 \times 10^5$，$1 \leq a_i \leq 10^9$，$1 \leq b_i \leq 10^4$。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>The store sells $ n $ types of candies with numbers from $ 1 $ to $ n $ . One candy of type $ i $ costs $ b_i $ coins. In total, there are $ a_i $ candies of type $ i $ in the store.</p>
+<p>You need to pack all available candies in packs, each pack should contain only one type of candies. Formally, for each type of candy $ i $ you need to choose the integer $ d_i $ , denoting the number of type $ i $ candies in one pack, so that $ a_i $ is divided without remainder by $ d_i $ .</p>
+<p>Then the cost of one pack of candies of type $ i $ will be equal to $ b_i \cdot d_i $ . Let’s denote this cost by $ c_i $ , that is, $ c_i &#x3D; b_i \cdot d_i $ .</p>
+<p>After packaging, packs will be placed on the shelf. Consider the cost of the packs placed on the shelf, in order $ c_1, c_2, \ldots, c_n $ . Price tags will be used to describe costs of the packs. One price tag can describe the cost of all packs from $ l $ to $ r $ inclusive if $ c_l &#x3D; c_{l+1} &#x3D; \ldots &#x3D; c_r $ . Each of the packs from $ 1 $ to $ n $ must be described by at least one price tag. For example, if $ c_1, \ldots, c_n &#x3D; [4, 4, 2, 4, 4] $ , to describe all the packs, a $ 3 $ price tags will be enough, the first price tag describes the packs $ 1, 2 $ , the second: $ 3 $ , the third: $ 4, 5 $ .</p>
+<p>You are given the integers $ a_1, b_1, a_2, b_2, \ldots, a_n, b_n $ . Your task is to choose integers $ d_i $ so that $ a_i $ is divisible by $ d_i $ for all $ i $ , and the required number of price tags to describe the values of $ c_1, c_2, \ldots, c_n $ is the minimum possible.</p>
+<p>For a better understanding of the statement, look at the illustration of the first test case of the first test:</p>
+<p>Let’s repeat the meaning of the notation used in the problem:</p>
+<p> $ a_i $ — the number of candies of type $ i $ available in the store.</p>
+<p> $ b_i $ — the cost of one candy of type $ i $ .</p>
+<p> $ d_i $ — the number of candies of type $ i $ in one pack.</p>
+<p> $ c_i $ — the cost of one pack of candies of type $ i $ is expressed by the formula $ c_i &#x3D; b_i \cdot d_i $ .</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 100,000 $ ). Description of the test cases follows.</p>
+<p>The first line of each test case contains a single integer $ n $ ( $ 2 \le n \le 200,000 $ ) — the number of types of candies.</p>
+<p>Each of the next $ n $ lines of each test case contains two integers $ a_i $ and $ b_i $ ( $ 1 \le a_i \le 10^9 $ , $ 1 \le b_i \le 10,000 $ ) — the number of candies and the cost of one candy of type $ i $ , respectively.</p>
+<p>It is guaranteed that the sum of $ n $ over all test cases does not exceed $ 200,000 $ .</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output the minimum number of price tags required to describe the costs of all packs of candies in the store.</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">4</span><br><span class="line">20 3</span><br><span class="line">6 2</span><br><span class="line">14 5</span><br><span class="line">20 7</span><br><span class="line">3</span><br><span class="line">444 5</span><br><span class="line">2002 10</span><br><span class="line">2020 2</span><br><span class="line">5</span><br><span class="line">7 7</span><br><span class="line">6 5</span><br><span class="line">15 2</span><br><span class="line">10 3</span><br><span class="line">7 7</span><br><span class="line">5</span><br><span class="line">10 1</span><br><span class="line">11 5</span><br><span class="line">5 1</span><br><span class="line">2 2</span><br><span class="line">8 2</span><br><span class="line">6</span><br><span class="line">7 12</span><br><span class="line">12 3</span><br><span class="line">5 3</span><br><span class="line">9 12</span><br><span class="line">9 3</span><br><span class="line">1000000000 10000</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>In the first test case, you can choose $ d_1 &#x3D; 4 $ , $ d_2 &#x3D; 6 $ , $ d_3 &#x3D; 7 $ , $ d_4 &#x3D; 5 $ . Then the cost of packs will be equal to $ [12, 12, 35, 35] $ . $ 2 $ price tags are enough to describe them, the first price tag for $ c_1, c_2 $ and the second price tag for $ c_3, c_4 $ . It can be shown that with any correct choice of $ d_i $ , at least $ 2 $ of the price tag will be needed to describe all the packs. Also note that this example is illustrated by a picture in the statement.</p>
+<p>In the second test case, with $ d_1 &#x3D; 4 $ , $ d_2 &#x3D; 2 $ , $ d_3 &#x3D; 10 $ , the costs of all packs will be equal to $ 20 $ . Thus, $ 1 $ price tag is enough to describe all the packs. Note that $ a_i $ is divisible by $ d_i $ for all $ i $ , which is necessary condition.</p>
+<p>In the third test case, it is not difficult to understand that one price tag can be used to describe $ 2 $ nd, $ 3 $ rd and $ 4 $ th packs. And additionally a price tag for pack $ 1 $ and pack $ 5 $ . Total: $ 3 $ price tags.</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p><strong>引入</strong>: $a|b$ 表示 $b$ 可以被 $a$ 整除</p>
+<p>假设区间 $[l,r]$ 可以共用一个价签, 那么就有 $c_i&#x3D;b_l\times d_l+b_{l+1}\times d_{l+1}+…$ , 也就意味着在 $[l,r]$ 上 $b_i|c$ , 那么$c$ 肯定是 $b_l$ 到 $b_r$ 上所有 $b$ 的最小公倍数lcm的倍数, 也就有 $lcm(b_l,b_{l+1},…b_r)|c$ </p>
+<p>再看 $d_i$ , 明显有 $b_i|a_i$ , 而 $d_i&#x3D;\frac{c}{b_i}$ , 就有 $\frac{c}{b_i}|a_i$ , 就有 $c|a_ib_i$ , $c$ 能被 $l$ 到 $r$ 上所有的 $ab$ 整除, 那么他肯定也能被所有 $ab$ 的最大gcd整除, 即$c|gcd(a_lb_l,a_{l+1}b{l+1},…)$ , $c$ 不会比这个gcd大, 因为如果比这个gcd大了那么gcd就会是 $c$</p>
+<p>$c$ 能整除lcm, gcd能整除 $c$ , 那么如果gcd能整除lcm, 就能确定有一个合法的 $c$</p>
+<p>而区间的选法运用贪心的思想, 仅可能的取多糖果, <strong>为什么这样子是正确的呢?</strong> 可以用简单的说明去帮助理解, 我们区间内糖果越多, 对于gcd和lcm的要求就越严格, 越严格就越难合法, 所以不尽可能的多取而留给下一区间, 不会让下一区间的长度变长</p>
+<p><strong>!</strong>: a开到了 $10^9$ , 过程中的乘法会爆int, 要开 long long</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line">ll a[N], b[N];</span><br><span class="line"><span class="function">ll <span class="title">gcd</span><span class="params">(ll a, ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> b ? <span class="built_in">gcd</span>(b, a % b) : a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">lcm</span><span class="params">(ll a, ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (a * b) / <span class="built_in">gcd</span>(a, b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">			cin &gt;&gt; a[i] &gt;&gt; b[i];</span><br><span class="line">		</span><br><span class="line">		ll A = a[<span class="number">0</span>] * b[<span class="number">0</span>], B = b[<span class="number">0</span>];</span><br><span class="line">		<span class="type">int</span> ans = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			A = <span class="built_in">gcd</span>(A, a[i] * b[i]), B = <span class="built_in">lcm</span>(B, b[i]);</span><br><span class="line">			<span class="keyword">if</span> (A % B)</span><br><span class="line">			&#123;</span><br><span class="line">				ans++;</span><br><span class="line">				A = a[i] * b[i], B = b[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1805A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -291,7 +400,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1798C/">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1805C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/m_ava.png">
@@ -305,7 +414,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/09/17/CF1798C/" class="post-title-link" itemprop="url">CF1798C</a>
+            <a href="/2023/09/17/CF1805C/" class="post-title-link" itemprop="url">CF1805C</a>
         </h2>
 
         <div class="post-meta">
@@ -322,7 +431,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-18 12:52:53" itemprop="dateModified" datetime="2023-10-18T12:52:53+08:00">2023-10-18</time>
+                <time title="修改时间：2023-10-18 12:52:32" itemprop="dateModified" datetime="2023-10-18T12:52:32+08:00">2023-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -345,149 +454,26 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Candy-Store"><a href="#Candy-Store" class="headerlink" title="Candy Store"></a>Candy Store</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>有 $n$ 种糖，第 $i$ 种糖有 $a_i$ 块，每块 $b_i$ 元。对每种糖，你要选择一个 $d_i | a_i$，然后每 $d_i$ 块糖装进一个袋子。</p>
-<p>现在把糖摆上货架，第 $i$ 类糖的价签上的价格 $c_i$ 是一袋子 $i$ 类糖的价值，即 $c_i &#x3D; d_i \times b_i$。</p>
-<p>对于货架上一个区间 $[l, r]$，如果他们的价签相同，即 $c_l &#x3D; c_{l + 1} &#x3D; \dots &#x3D; c_r$，则他们可以共用一个价签。</p>
-<p>请问最少需要多少价签？</p>
-<p>多组数据，保证 $n$ 之和不超过 $2 \times 10^5$，$1 \leq a_i \leq 10^9$，$1 \leq b_i \leq 10^4$。</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>The store sells $ n $ types of candies with numbers from $ 1 $ to $ n $ . One candy of type $ i $ costs $ b_i $ coins. In total, there are $ a_i $ candies of type $ i $ in the store.</p>
-<p>You need to pack all available candies in packs, each pack should contain only one type of candies. Formally, for each type of candy $ i $ you need to choose the integer $ d_i $ , denoting the number of type $ i $ candies in one pack, so that $ a_i $ is divided without remainder by $ d_i $ .</p>
-<p>Then the cost of one pack of candies of type $ i $ will be equal to $ b_i \cdot d_i $ . Let’s denote this cost by $ c_i $ , that is, $ c_i &#x3D; b_i \cdot d_i $ .</p>
-<p>After packaging, packs will be placed on the shelf. Consider the cost of the packs placed on the shelf, in order $ c_1, c_2, \ldots, c_n $ . Price tags will be used to describe costs of the packs. One price tag can describe the cost of all packs from $ l $ to $ r $ inclusive if $ c_l &#x3D; c_{l+1} &#x3D; \ldots &#x3D; c_r $ . Each of the packs from $ 1 $ to $ n $ must be described by at least one price tag. For example, if $ c_1, \ldots, c_n &#x3D; [4, 4, 2, 4, 4] $ , to describe all the packs, a $ 3 $ price tags will be enough, the first price tag describes the packs $ 1, 2 $ , the second: $ 3 $ , the third: $ 4, 5 $ .</p>
-<p>You are given the integers $ a_1, b_1, a_2, b_2, \ldots, a_n, b_n $ . Your task is to choose integers $ d_i $ so that $ a_i $ is divisible by $ d_i $ for all $ i $ , and the required number of price tags to describe the values of $ c_1, c_2, \ldots, c_n $ is the minimum possible.</p>
-<p>For a better understanding of the statement, look at the illustration of the first test case of the first test:</p>
-<p>Let’s repeat the meaning of the notation used in the problem:</p>
-<p> $ a_i $ — the number of candies of type $ i $ available in the store.</p>
-<p> $ b_i $ — the cost of one candy of type $ i $ .</p>
-<p> $ d_i $ — the number of candies of type $ i $ in one pack.</p>
-<p> $ c_i $ — the cost of one pack of candies of type $ i $ is expressed by the formula $ c_i &#x3D; b_i \cdot d_i $ .</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 100,000 $ ). Description of the test cases follows.</p>
-<p>The first line of each test case contains a single integer $ n $ ( $ 2 \le n \le 200,000 $ ) — the number of types of candies.</p>
-<p>Each of the next $ n $ lines of each test case contains two integers $ a_i $ and $ b_i $ ( $ 1 \le a_i \le 10^9 $ , $ 1 \le b_i \le 10,000 $ ) — the number of candies and the cost of one candy of type $ i $ , respectively.</p>
-<p>It is guaranteed that the sum of $ n $ over all test cases does not exceed $ 200,000 $ .</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output the minimum number of price tags required to describe the costs of all packs of candies in the store.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">4</span><br><span class="line">20 3</span><br><span class="line">6 2</span><br><span class="line">14 5</span><br><span class="line">20 7</span><br><span class="line">3</span><br><span class="line">444 5</span><br><span class="line">2002 10</span><br><span class="line">2020 2</span><br><span class="line">5</span><br><span class="line">7 7</span><br><span class="line">6 5</span><br><span class="line">15 2</span><br><span class="line">10 3</span><br><span class="line">7 7</span><br><span class="line">5</span><br><span class="line">10 1</span><br><span class="line">11 5</span><br><span class="line">5 1</span><br><span class="line">2 2</span><br><span class="line">8 2</span><br><span class="line">6</span><br><span class="line">7 12</span><br><span class="line">12 3</span><br><span class="line">5 3</span><br><span class="line">9 12</span><br><span class="line">9 3</span><br><span class="line">1000000000 10000</span><br></pre></td></tr></table></figure>
+          <h1 id="Place-for-a-Selfie"><a href="#Place-for-a-Selfie" class="headerlink" title="Place for a Selfie"></a>Place for a Selfie</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>给定 $n$ 个正比例函数 $y&#x3D;kx$，再给出 $m$ 个下凸二次函数 $y&#x3D;ax^2+bx+c(a&gt;0)$，对于每个二次函数，从给定中找出一个一次函数，使得两函数图像没有交点。</p>
+<p>$\sum n,\sum m\le 10^5$，$a,|b|,|c|,|k|\le 10^8$。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>The universe is a coordinate plane. There are $ n $ space highways, each of which is a straight line $ y&#x3D;kx $ passing through the origin $ (0, 0) $ . Also, there are $ m $ asteroid belts on the plane, which we represent as open upwards parabolas, i. e. graphs of functions $ y&#x3D;ax^2+bx+c $ , where $ a &gt; 0 $ .</p>
+<p>You want to photograph each parabola. To do this, for each parabola you need to choose a line that does not intersect this parabola and does not touch it. You can select the same line for different parabolas. Please find such a line for each parabola, or determine that there is no such line.</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 10^4 $ ). The description of the test cases follows.</p>
+<p>The first line of each test case contains $ 2 $ integers $ n $ and $ m $ ( $ 1 \le n, m \le 10^5 $ ) —the number of lines and parabolas, respectively.</p>
+<p>Each of the next $ n $ lines contains one integer $ k $ ( $ |k| \le 10^8 $ ), denoting a line that is described with the equation $ y&#x3D;kx $ . The lines are not necessarily distinct, $ k $ can be equal to $ 0 $ .</p>
+<p>Each of the next $ m $ lines contains $ 3 $ integers $ a $ , $ b $ , and $ c $ ( $ a, |b|, |c| \le 10^8 $ , $ a &gt; 0 $ ) — coefficients of equations of the parabolas $ ax^2+bx+c $ . The parabolas are not necessarily distinct.</p>
+<p>It is guaranteed that the sum $ n $ over all test cases does not exceed $ 10^5 $ , and the sum $ m $ over all test cases also does not exceed $ 10^5 $ .</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output the answers for each parabola in the given order. If there is a line that does not intersect the given parabola and doesn’t touch it, print on a separate line the word “YES”, and then on a separate line the number $ k $ — the coefficient of this line. If there are several answers, print any of them. If the line does not exist, print one word “NO”.</p>
+<p>You can output the answer in any case (upper or lower). For example, the strings “yEs”, “yes”, “Yes”, and “YES” will be recognized as positive responses.</p>
+<p>The empty lines in the output in the example are given only for illustration, you do not need to output them (but you can).</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 2</span><br><span class="line">1</span><br><span class="line">1 -1 2</span><br><span class="line">1 -1 3</span><br><span class="line">2 2</span><br><span class="line">1</span><br><span class="line">4</span><br><span class="line">1 2 1</span><br><span class="line">2 5 1</span><br><span class="line">1 1</span><br><span class="line">0</span><br><span class="line">1 0 0</span><br><span class="line">1 1</span><br><span class="line">100000000</span><br><span class="line">100000000 100000000 100000000</span><br><span class="line">2 3</span><br><span class="line">0</span><br><span class="line">2</span><br><span class="line">2 2 1</span><br><span class="line">1 -2 1</span><br><span class="line">1 -2 -1</span><br></pre></td></tr></table></figure>
 
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">1</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">1</span><br><span class="line">YES</span><br><span class="line">1</span><br><span class="line"></span><br><span class="line">YES</span><br><span class="line">1</span><br><span class="line">YES</span><br><span class="line">4</span><br><span class="line"></span><br><span class="line">NO</span><br><span class="line"></span><br><span class="line">YES</span><br><span class="line">100000000</span><br><span class="line"></span><br><span class="line">YES</span><br><span class="line">0</span><br><span class="line">NO</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
 
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>In the first test case, you can choose $ d_1 &#x3D; 4 $ , $ d_2 &#x3D; 6 $ , $ d_3 &#x3D; 7 $ , $ d_4 &#x3D; 5 $ . Then the cost of packs will be equal to $ [12, 12, 35, 35] $ . $ 2 $ price tags are enough to describe them, the first price tag for $ c_1, c_2 $ and the second price tag for $ c_3, c_4 $ . It can be shown that with any correct choice of $ d_i $ , at least $ 2 $ of the price tag will be needed to describe all the packs. Also note that this example is illustrated by a picture in the statement.</p>
-<p>In the second test case, with $ d_1 &#x3D; 4 $ , $ d_2 &#x3D; 2 $ , $ d_3 &#x3D; 10 $ , the costs of all packs will be equal to $ 20 $ . Thus, $ 1 $ price tag is enough to describe all the packs. Note that $ a_i $ is divisible by $ d_i $ for all $ i $ , which is necessary condition.</p>
-<p>In the third test case, it is not difficult to understand that one price tag can be used to describe $ 2 $ nd, $ 3 $ rd and $ 4 $ th packs. And additionally a price tag for pack $ 1 $ and pack $ 5 $ . Total: $ 3 $ price tags.</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p><strong>引入</strong>: $a|b$ 表示 $b$ 可以被 $a$ 整除</p>
-<p>假设区间 $[l,r]$ 可以共用一个价签, 那么就有 $c_i&#x3D;b_l\times d_l+b_{l+1}\times d_{l+1}+…$ , 也就意味着在 $[l,r]$ 上 $b_i|c$ , 那么$c$ 肯定是 $b_l$ 到 $b_r$ 上所有 $b$ 的最小公倍数lcm的倍数, 也就有 $lcm(b_l,b_{l+1},…b_r)|c$ </p>
-<p>再看 $d_i$ , 明显有 $b_i|a_i$ , 而 $d_i&#x3D;\frac{c}{b_i}$ , 就有 $\frac{c}{b_i}|a_i$ , 就有 $c|a_ib_i$ , $c$ 能被 $l$ 到 $r$ 上所有的 $ab$ 整除, 那么他肯定也能被所有 $ab$ 的最大gcd整除, 即$c|gcd(a_lb_l,a_{l+1}b{l+1},…)$ , $c$ 不会比这个gcd大, 因为如果比这个gcd大了那么gcd就会是 $c$</p>
-<p>$c$ 能整除lcm, gcd能整除 $c$ , 那么如果gcd能整除lcm, 就能确定有一个合法的 $c$</p>
-<p>而区间的选法运用贪心的思想, 仅可能的取多糖果, <strong>为什么这样子是正确的呢?</strong> 可以用简单的说明去帮助理解, 我们区间内糖果越多, 对于gcd和lcm的要求就越严格, 越严格就越难合法, 所以不尽可能的多取而留给下一区间, 不会让下一区间的长度变长</p>
-<p><strong>!</strong>: a开到了 $10^9$ , 过程中的乘法会爆int, 要开 long long</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line">ll a[N], b[N];</span><br><span class="line"><span class="function">ll <span class="title">gcd</span><span class="params">(ll a, ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> b ? <span class="built_in">gcd</span>(b, a % b) : a;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function">ll <span class="title">lcm</span><span class="params">(ll a, ll b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (a * b) / <span class="built_in">gcd</span>(a, b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">			cin &gt;&gt; a[i] &gt;&gt; b[i];</span><br><span class="line">		</span><br><span class="line">		ll A = a[<span class="number">0</span>] * b[<span class="number">0</span>], B = b[<span class="number">0</span>];</span><br><span class="line">		<span class="type">int</span> ans = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			A = <span class="built_in">gcd</span>(A, a[i] * b[i]), B = <span class="built_in">lcm</span>(B, b[i]);</span><br><span class="line">			<span class="keyword">if</span> (A % B)</span><br><span class="line">			&#123;</span><br><span class="line">				ans++;</span><br><span class="line">				A = a[i] * b[i], B = b[i];</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1805D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_ava.png">
-      <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eyu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/09/17/CF1805D/" class="post-title-link" itemprop="url">CF1805D</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-17 21:07:20" itemprop="dateModified" datetime="2023-10-17T21:07:20+08:00">2023-10-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="A-Wide-Wide-Graph"><a href="#A-Wide-Wide-Graph" class="headerlink" title="A Wide, Wide Graph"></a>A Wide, Wide Graph</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>给定一棵 $n$（$2\leq n\leq 10^5$）个节点的无根树，对于每个 $k$（$1\leq k \leq n$），定义一个无向图 $G_k$，其中由边连接的两个节点 $u$ 和 $v$ 的距离至少为 $k$。请你计算 $G_k$ 的连通块个数。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行包含整数 $n$。</p>
-<p>接下来 $n-1$ 行，每行包含两个整数 $u$ 和 $v$，表示树上的一条无向边。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出共 $n$ 行，每行一个整数，表示 $G_k$ 的连通块个数。</p>
-<h2 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h2><p>$2\leq n\leq 10^5$</p>
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>第一个样例中，当$k&#x3D;1$时，所有的点都连通；当$k&#x3D;4$时，只有$(4,6)$和$(5,6)$两条边连通，所以连通块个数为4。</p>
-<p>第二个样例中，当$k&#x3D;3$时，节点1、4、5构成一个连通块，其余两个节点分别为一个连通块。</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You are given a tree (a connected graph without cycles) with $ n $ vertices.</p>
-<p>Consider a fixed integer $ k $ . Then, the graph $ G_k $ is an undirected graph with $ n $ vertices, where an edge between vertices $ u $ and $ v $ exists if and only if the distance between vertices $ u $ and $ v $ in the given tree is at least $ k $ .</p>
-<p>For each $ k $ from $ 1 $ to $ n $ , print the number of connected components in the graph $ G_k $ .</p>
-<h2 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h2><p>The first line contains the integer $ n $ ( $ 2 \le n \le 10^5 $ ) — the number of vertices in the graph.</p>
-<p>Each of the next $ n-1 $ lines contains two integers $ u $ and $ v $ ( $ 1 \le u, v \le n $ ), denoting an edge between vertices $ u $ and $ v $ in the tree. It is guaranteed that these edges form a valid tree.</p>
-<h2 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h2><p>Output $ n $ integers: the number of connected components in the graph $ G_k $ for each $ k $ from $ 1 $ to $ n $ .</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">2 4</span><br><span class="line">2 5</span><br><span class="line">3 6</span><br></pre></td></tr></table></figure>
-
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 1 2 4 6 6</span><br></pre></td></tr></table></figure>
-
-<h2 id="样例-2"><a href="#样例-2" class="headerlink" title="样例 #2"></a>样例 #2</h2><h3 id="样例输入-2"><a href="#样例输入-2" class="headerlink" title="样例输入 #2"></a>样例输入 #2</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 2</span><br><span class="line">2 3</span><br><span class="line">3 4</span><br><span class="line">3 5</span><br></pre></td></tr></table></figure>
-
-<h3 id="样例输出-2"><a href="#样例输出-2" class="headerlink" title="样例输出 #2"></a>样例输出 #2</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 1 3 5 5</span><br></pre></td></tr></table></figure>
-
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p><strong>引入1</strong>: 对树上任意一个点, 与之距离最远的每一个点, 至少有一个直径的端点</p>
-<p>题目要求当两个点距离 $\ge k$ 的时候这两个点才可以连通, 我们就考虑 $k$ 最大可以取到哪里, 树上最远的距离就是直径 $d$ , 那么当 $k &gt; d$ 的时候所有点自己是一个连通块</p>
-<p>当 $k &#x3D; 1$ 的时候, 所有的点属于一个连通块, 当 $k &#x3D; 2$ 的时候, 那些距离最远取到1的点要被摘出去, 然后剩下合法的点属于一个连通块, 也就是说有这样一个性质: <strong>最多只有一个包含多个点的连通块</strong> </p>
-<p>记点 $i$ 的最远距离为 $D_i$ , 我们可以在 dfs 的时候预处理出来有多少个点最远距离是 $D_i$, 且 $k &#x3D; 1$ 时, 连通块的数量是1, 我们就可以一路推下去, $k &#x3D; D$ 的时候, 连通块数量 +&#x3D; D对应的点的数量</p>
-<p><strong>引入2</strong>: 求树的直径的方法</p>
-<ul>
-<li><p>先从任意点 $t$ 开始 dfs, 找到离 $t$ 最远的点 $x$</p>
-</li>
-<li><p>然后从 $x$ 开始 dfs, 找到离 $x$ 最远的点 $y$</p>
-</li>
-</ul>
-<p>这样 $x$ 和 $y$ 就是直径的两个端点, 在本题中 dfs 时顺便还可以求出任意点 $i$ 到 $x$ 或者 $y$ 的距离</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> h[N], e[N * <span class="number">2</span>], ne[N * <span class="number">2</span>], idx;		<span class="comment">//存图</span></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> p;	<span class="comment">//直径端点</span></span><br><span class="line"><span class="type">int</span> dis1[N], dis2[N];	<span class="comment">//dis1[i]表示点i到直径其中一个端点的距离, dis2同理</span></span><br><span class="line"><span class="type">int</span> cnt[N];		<span class="comment">//cnt[1]表示D为1的点有多少个</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	e[idx] = b, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs1</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> last)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	dis1[x] = dis1[last] + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (dis1[x] &gt; dis1[p]) p = x;	<span class="comment">//找出距离最远的点</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = h[x]; i != <span class="number">-1</span>; i = ne[i])</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> t = e[i];</span><br><span class="line">		<span class="keyword">if</span>(t != last)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">dfs1</span>(t, x);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs2</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> last)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	dis2[x] = dis2[last] + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = h[x]; i != <span class="number">-1</span>; i = ne[i])</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> t = e[i];</span><br><span class="line">		<span class="keyword">if</span> (t != last)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">dfs2</span>(t, x);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> a, b;</span><br><span class="line">		cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">		<span class="built_in">add</span>(a, b), <span class="built_in">add</span>(b, a);	<span class="comment">//无向边</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//两次dfs求直径</span></span><br><span class="line">	<span class="built_in">dfs1</span>(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">	<span class="built_in">dfs1</span>(p, <span class="number">0</span>);</span><br><span class="line">	<span class="comment">//另一个dfs求到一个端点的距离, 另一个距离在第一种dfs中已经求出来了</span></span><br><span class="line">	<span class="built_in">dfs2</span>(p, <span class="number">0</span>);		<span class="comment">//此时p已经更新为另一个端点了</span></span><br><span class="line">	<span class="comment">//预处理每个D对应几个点</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(i != p)		<span class="comment">//两个端点不能重复计算, cnt[i]表示要摘出来的点的个数, 摘剩一个点那个点就不用摘了</span></span><br><span class="line">			cnt[<span class="built_in">max</span>(dis1[i], dis2[i]) - <span class="number">1</span>]++;	<span class="comment">//dfs的开始点距离应该是0, 所以实际距离要减去1</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//枚举k</span></span><br><span class="line">	<span class="type">int</span> ans = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt;= n; k++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (k == <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		ans += cnt[k - <span class="number">1</span>];</span><br><span class="line">		cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>没有交点, 即是 $ax^2 + bx + c &#x3D; kx$ , 即是方程 $ax^2+(b-k)x+c &#x3D; 0$ 无解, 即是 $\triangle &lt;0$ , </p>
+<p>$\triangle&#x3D; b^2-4ac-(2bk-k^2)$ , $a$ $b$ $c$ 已知, 要让 $\triangle$ 尽可能小, 让 $2bk-k^2$ 尽可能大就好了, 又因为这个是一个开口向下的二次函数, 我们可以用 <strong>二分法</strong> 找到使这个函数最大的 k , 然后代入 $\triangle$ 看是否小于0即可</p>
+<p>k要记得去重, 记得要用 <code>long long</code> 去存, 会爆int</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;	<span class="comment">//a, b, c, k 均到 1e8, int会爆, 又因为有负数, 不能用ULL, 只能用LL</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line">LL k[N];</span><br><span class="line">LL n, m;</span><br><span class="line">LL a, b, c;</span><br><span class="line"><span class="function">LL <span class="title">cal</span><span class="params">(LL t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (t &lt; <span class="number">0</span> || t &gt;= n) <span class="keyword">return</span> <span class="number">-1e9</span>;</span><br><span class="line">	t = k[t];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">2</span> * b * t - t * t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">			cin &gt;&gt; k[i];</span><br><span class="line">		<span class="comment">//sort 去重</span></span><br><span class="line">		<span class="built_in">sort</span>(k, k + n);</span><br><span class="line">		n = <span class="built_in">unique</span>(k, k + n) - k;	<span class="comment">//n是去重之后数组的长度</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line"></span><br><span class="line">			LL l = <span class="number">0</span>, r = n, ans = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">while</span> (l &lt; r)</span><br><span class="line">			&#123;</span><br><span class="line">				LL mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">				<span class="comment">//if (cal(mid) &gt;= cal(mid - 1) &amp;&amp; cal(mid) &gt;= cal(mid + 1))</span></span><br><span class="line">				<span class="comment">//&#123;</span></span><br><span class="line">				<span class="comment">//	ans = mid;</span></span><br><span class="line">				<span class="comment">//	break;</span></span><br><span class="line">				<span class="comment">//&#125;</span></span><br><span class="line">				<span class="keyword">if</span> (<span class="built_in">cal</span>(mid) &gt; <span class="built_in">cal</span>(mid - <span class="number">1</span>) &amp;&amp; <span class="built_in">cal</span>(mid) &lt; <span class="built_in">cal</span>(mid + <span class="number">1</span>)) l = mid + <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> r = mid;</span><br><span class="line">			&#125;</span><br><span class="line">			LL res = b * b - <span class="number">4</span> * a * c - (<span class="built_in">cal</span>(l));</span><br><span class="line">			<span class="keyword">if</span> (res &lt; <span class="number">0</span>)</span><br><span class="line">				cout &lt;&lt; <span class="string">&quot;yes&quot;</span> &lt;&lt; endl &lt;&lt; k[l] &lt;&lt; endl;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				cout &lt;&lt; <span class="string">&quot;no&quot;</span> &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -611,7 +597,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1802B/">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1805D/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/m_ava.png">
@@ -625,7 +611,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/09/17/CF1802B/" class="post-title-link" itemprop="url">CF1802B</a>
+            <a href="/2023/09/17/CF1805D/" class="post-title-link" itemprop="url">CF1805D</a>
         </h2>
 
         <div class="post-meta">
@@ -642,7 +628,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-18 12:52:43" itemprop="dateModified" datetime="2023-10-18T12:52:43+08:00">2023-10-18</time>
+                <time title="修改时间：2023-10-17 21:07:20" itemprop="dateModified" datetime="2023-10-17T21:07:20+08:00">2023-10-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -665,50 +651,40 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Settlement-of-Guinea-Pigs"><a href="#Settlement-of-Guinea-Pigs" class="headerlink" title="Settlement of Guinea Pigs"></a>Settlement of Guinea Pigs</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>Dasha 很喜欢豚鼠，她在 $n$ 天内要不是买豚鼠，要不是请医生来看豚鼠。</p>
-<p>Dasha 和宠物店都无法分辨豚鼠的性别（思考人生），只能在医生来查看豚鼠的时候为这些豚鼠做性别鉴定。</p>
-<p>为了豚鼠，Dasha 打算给它们买一些笼子，但宠物店里卖的笼子只能放最多 $2$ 只豚鼠。由于她不想让她的豚鼠遭受道德伤害，一个笼子里只能放同一种性别的豚鼠。</p>
-<p>求 Dasha 最少需要买多少个笼子。</p>
-<p>这个翻译由 @ztrztr 提供</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Dasha loves guinea pigs very much. In this regard, she decided to settle as many guinea pigs at home as possible and developed a plan for the next $ n $ days. Every day, she will either buy a new guinea pig or call a doctor to examine all her pets.</p>
-<p>Unfortunately, the store where she was going to buy guinea pigs does not understand them. Therefore, it cannot determine their gender. Dasha can’t do it either. The only one who can help is a doctor.</p>
-<p>To keep guinea pigs, aviaries are needed. Dasha plans to buy them in the same store. Unfortunately, only one species is sold there — a double aviary. No more than two guinea pigs can live in it.</p>
-<p>Since Dasha does not want to cause moral injury to her pets — she will not settle two guinea pigs of different genders in one aviary.</p>
-<p>Help Dasha calculate how many aviaries in the worst case you need to buy so that you can be sure that at no moment of time do two guinea pigs of different genders live in the same aviary.</p>
-<p>As part of this task, we believe that guinea pigs have only two genders — male and female.</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>The first line of input data contains one number $ t $ ( $ 1 \leqslant t \leqslant 10^5 $ ) — the number of input data sets.</p>
-<p>The first line of each input data set contains one number $ n $ ( $ 1 \leqslant n \leqslant 10^5 $ ) — the number of days Dasha has a plan for.</p>
-<p>The next line contains $ n $ numbers $ b_1, b_2, b_3, \ldots, b_n $ ( $ 1 \leqslant b_i \leqslant 2 $ ) — Dasha’s plan. If $ b_i &#x3D; 1 $ , then on the $ i $ th day, Dasha will buy a new guinea pig. If $ b_i &#x3D; 2 $ , then on the $ i $ th day, a doctor will come to Dasha and help determine the sex of all guinea pigs that Dasha already has.</p>
-<p>It is guaranteed that the sum of $ n $ for all input data sets does not exceed $ 10^5 $ .</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each set of input data, output one number — the minimum number of aviaries Dasha needs to buy so that no matter what the genders of the pigs turn out to be, we can settle them so that at no point in time do two guinea pigs of different genders live together.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">3</span><br><span class="line">1 1 1</span><br><span class="line">3</span><br><span class="line">2 2 2</span><br><span class="line">5</span><br><span class="line">1 1 1 2 1</span><br><span class="line">10</span><br><span class="line">1 2 1 2 1 2 1 2 1 2</span><br><span class="line">20</span><br><span class="line">1 2 1 1 1 1 1 2 1 2 1 2 2 1 1 1 1 1 1 1</span><br><span class="line">20</span><br><span class="line">2 1 1 2 1 1 2 1 2 2 1 1 1 2 2 1 1 1 1 2</span><br></pre></td></tr></table></figure>
+          <h1 id="A-Wide-Wide-Graph"><a href="#A-Wide-Wide-Graph" class="headerlink" title="A Wide, Wide Graph"></a>A Wide, Wide Graph</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>给定一棵 $n$（$2\leq n\leq 10^5$）个节点的无根树，对于每个 $k$（$1\leq k \leq n$），定义一个无向图 $G_k$，其中由边连接的两个节点 $u$ 和 $v$ 的距离至少为 $k$。请你计算 $G_k$ 的连通块个数。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行包含整数 $n$。</p>
+<p>接下来 $n-1$ 行，每行包含两个整数 $u$ 和 $v$，表示树上的一条无向边。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出共 $n$ 行，每行一个整数，表示 $G_k$ 的连通块个数。</p>
+<h2 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h2><p>$2\leq n\leq 10^5$</p>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>第一个样例中，当$k&#x3D;1$时，所有的点都连通；当$k&#x3D;4$时，只有$(4,6)$和$(5,6)$两条边连通，所以连通块个数为4。</p>
+<p>第二个样例中，当$k&#x3D;3$时，节点1、4、5构成一个连通块，其余两个节点分别为一个连通块。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You are given a tree (a connected graph without cycles) with $ n $ vertices.</p>
+<p>Consider a fixed integer $ k $ . Then, the graph $ G_k $ is an undirected graph with $ n $ vertices, where an edge between vertices $ u $ and $ v $ exists if and only if the distance between vertices $ u $ and $ v $ in the given tree is at least $ k $ .</p>
+<p>For each $ k $ from $ 1 $ to $ n $ , print the number of connected components in the graph $ G_k $ .</p>
+<h2 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h2><p>The first line contains the integer $ n $ ( $ 2 \le n \le 10^5 $ ) — the number of vertices in the graph.</p>
+<p>Each of the next $ n-1 $ lines contains two integers $ u $ and $ v $ ( $ 1 \le u, v \le n $ ), denoting an edge between vertices $ u $ and $ v $ in the tree. It is guaranteed that these edges form a valid tree.</p>
+<h2 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h2><p>Output $ n $ integers: the number of connected components in the graph $ G_k $ for each $ k $ from $ 1 $ to $ n $ .</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">1 2</span><br><span class="line">1 3</span><br><span class="line">2 4</span><br><span class="line">2 5</span><br><span class="line">3 6</span><br></pre></td></tr></table></figure>
 
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">0</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">12</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 1 2 4 6 6</span><br></pre></td></tr></table></figure>
 
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>In the first set of input data, Dasha needs to put each guinea pig in a separate enclosure, since she does not know their gender.</p>
-<p>In the second set of input data, Dasha will buy $ 0 $ guinea pigs, which means she will need $ 0 $ aviaries.</p>
-<p>In the third set of input data, you even need $ 3 $ aviaries to put each guinea pig in a separate aviary before the doctor arrives at the $ 4 $ th day. When she finds out their gender, at least two guinea pigs will be of the same gender and they can be placed in one aviary, and the third in another aviary. Thus, she will have one free aviary in which she can settle a new guinea pig. So answer is $ 3 $ .</p>
-<p>In the fourth set of input data, we show that $ 4 $ is the optimal answer.</p>
-<p>To begin with, we note that the first four guinea pigs can be placed one at a time in an aviary. Then a doctor will come and determine their gender. Among these four guinea pigs there will be at least one pair of the same gender, because: either male guinea pigs are at least $ 2 $ , or they are not more than $ 1 $ , which means that the female is at least $ 3 $ . Now we can put this couple in one aviary, and the other two in separate ones. We will have one more empty aviary where we can put a new pig.</p>
-<p>Now let’s show that the answer is at least $ 4 $ . Let’s say that among the first $ 4 $ guinea pigs, $ 3 $ are female and $ 1 $ is male. We need at least $ 3 $ aviaries to settle them. Then, when we buy a new guinea pig, we will need another aviary in which we will put it, since we do not know its gender.</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>题目要求我们求出在任何情况下都适用的最少的笼子个数, 那我们就要考虑最坏的情况</p>
+<h2 id="样例-2"><a href="#样例-2" class="headerlink" title="样例 #2"></a>样例 #2</h2><h3 id="样例输入-2"><a href="#样例输入-2" class="headerlink" title="样例输入 #2"></a>样例输入 #2</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 2</span><br><span class="line">2 3</span><br><span class="line">3 4</span><br><span class="line">3 5</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-2"><a href="#样例输出-2" class="headerlink" title="样例输出 #2"></a>样例输出 #2</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1 1 3 5 5</span><br></pre></td></tr></table></figure>
+
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p><strong>引入1</strong>: 对树上任意一个点, 与之距离最远的每一个点, 至少有一个直径的端点</p>
+<p>题目要求当两个点距离 $\ge k$ 的时候这两个点才可以连通, 我们就考虑 $k$ 最大可以取到哪里, 树上最远的距离就是直径 $d$ , 那么当 $k &gt; d$ 的时候所有点自己是一个连通块</p>
+<p>当 $k &#x3D; 1$ 的时候, 所有的点属于一个连通块, 当 $k &#x3D; 2$ 的时候, 那些距离最远取到1的点要被摘出去, 然后剩下合法的点属于一个连通块, 也就是说有这样一个性质: <strong>最多只有一个包含多个点的连通块</strong> </p>
+<p>记点 $i$ 的最远距离为 $D_i$ , 我们可以在 dfs 的时候预处理出来有多少个点最远距离是 $D_i$, 且 $k &#x3D; 1$ 时, 连通块的数量是1, 我们就可以一路推下去, $k &#x3D; D$ 的时候, 连通块数量 +&#x3D; D对应的点的数量</p>
+<p><strong>引入2</strong>: 求树的直径的方法</p>
 <ul>
-<li><p>当豚鼠性别未知的时候, 肯定要一只豚鼠单独占用一个笼子</p>
+<li><p>先从任意点 $t$ 开始 dfs, 找到离 $t$ 最远的点 $x$</p>
 </li>
-<li><p>当豚鼠性别已知的时候, 我们要考虑在已知性别的豚鼠个数为 $k$ 的时候, 最多能用笼子个数记为 $q$</p>
-<p>$k&#x3D;1$ 的时候, $q&#x3D;1$; $k&#x3D;2$ 的时候, 两个豚鼠性别不同时笼子最多, $q&#x3D;2$; 当 $k&#x3D;3$ 的时候, 肯定有两个豚鼠性别一样, $q&#x3D;2$; 当 $k&#x3D;4$ 的时候, 两个雄性用1个, 还有一个雌性用1个, 再来一个雄性的时候笼子数最多, $q&#x3D;3$; 按照这个思路: $k&#x3D;5$, $q&#x3D;3$; $k&#x3D;6$, $q&#x3D;4$</p>
-<p>除了 $k$ 为1或者2的时候特殊, 其他 $k$ 为奇数的时候, $q&#x3D;\frac{k+1}{2}$ ; $k$ 为偶数, $q&#x3D;\frac{k+2}{2}$</p>
+<li><p>然后从 $x$ 开始 dfs, 找到离 $x$ 最远的点 $y$</p>
 </li>
 </ul>
-<p>我们维护以下几个变量</p>
-<ol>
-<li>未知性别的豚鼠个数</li>
-<li>已知性别的豚鼠个数</li>
-<li>空的笼子个数</li>
-<li>笼子总数</li>
-</ol>
-<p>遍历数组, 遇见1的时候未知豚鼠个数加1, 空笼子个数减一, 不够就要补一个空笼子, 笼子总数要加一; 遇见2的时候更新已知性别的豚鼠个数, 按照公式算出需要的笼子总数记为need, need小于现有笼子总数的时候, 更新空笼子&#x3D;现有笼子总数-need, need大于现有笼子总数时, 笼子总数加到need, 空笼子个数变成0</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> avb, num, unk, sum;	<span class="comment">//空的笼子 已知豚鼠 未知豚鼠 总的笼子</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		avb = num = unk = sum = <span class="number">0</span>;	<span class="comment">//多例记得清空</span></span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">			<span class="comment">//未知豚鼠个数加一, 需要一个空的笼子, 不够要补上</span></span><br><span class="line">			<span class="keyword">if</span> (t == <span class="number">1</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				unk++;</span><br><span class="line">				<span class="keyword">if</span> (avb &lt; <span class="number">1</span>) avb++, sum++;</span><br><span class="line"></span><br><span class="line">				avb--;		<span class="comment">//现在这个笼子被未知豚鼠占用了</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//更新已知豚鼠个数, 算出笼子, 可能空笼子会多, 也可能空笼子会少</span></span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				num += unk;</span><br><span class="line">				unk = <span class="number">0</span>;	<span class="comment">//记得要清空</span></span><br><span class="line">				<span class="type">int</span> need = <span class="number">0</span>;</span><br><span class="line">				<span class="keyword">if</span> (num == <span class="number">1</span>) need = <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (!num) need = <span class="number">0</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (num == <span class="number">2</span>) need = <span class="number">2</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (num % <span class="number">2</span>) need = (num + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (num % <span class="number">2</span> == <span class="number">0</span>) need = (num + <span class="number">2</span>) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">				<span class="comment">//需要的比总的笼子个数少</span></span><br><span class="line">				<span class="keyword">if</span> (need &lt;= sum)</span><br><span class="line">				&#123;</span><br><span class="line">					avb = sum - need;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					avb = <span class="number">0</span>, sum = need;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cout <span class="comment">/*&lt;&lt; &quot;****&quot;*/</span> &lt;&lt; sum &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样 $x$ 和 $y$ 就是直径的两个端点, 在本题中 dfs 时顺便还可以求出任意点 $i$ 到 $x$ 或者 $y$ 的距离</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> h[N], e[N * <span class="number">2</span>], ne[N * <span class="number">2</span>], idx;		<span class="comment">//存图</span></span><br><span class="line"><span class="type">int</span> n;</span><br><span class="line"><span class="type">int</span> p;	<span class="comment">//直径端点</span></span><br><span class="line"><span class="type">int</span> dis1[N], dis2[N];	<span class="comment">//dis1[i]表示点i到直径其中一个端点的距离, dis2同理</span></span><br><span class="line"><span class="type">int</span> cnt[N];		<span class="comment">//cnt[1]表示D为1的点有多少个</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">add</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	e[idx] = b, ne[idx] = h[a], h[a] = idx++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs1</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> last)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	dis1[x] = dis1[last] + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span> (dis1[x] &gt; dis1[p]) p = x;	<span class="comment">//找出距离最远的点</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = h[x]; i != <span class="number">-1</span>; i = ne[i])</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> t = e[i];</span><br><span class="line">		<span class="keyword">if</span>(t != last)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">dfs1</span>(t, x);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">dfs2</span><span class="params">(<span class="type">int</span> x, <span class="type">int</span> last)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	dis2[x] = dis2[last] + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = h[x]; i != <span class="number">-1</span>; i = ne[i])</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> t = e[i];</span><br><span class="line">		<span class="keyword">if</span> (t != last)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">dfs2</span>(t, x);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">memset</span>(h, <span class="number">-1</span>, <span class="keyword">sizeof</span> h);</span><br><span class="line">	cin &gt;&gt; n;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n - <span class="number">1</span>; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> a, b;</span><br><span class="line">		cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">		<span class="built_in">add</span>(a, b), <span class="built_in">add</span>(b, a);	<span class="comment">//无向边</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//两次dfs求直径</span></span><br><span class="line">	<span class="built_in">dfs1</span>(<span class="number">1</span>, <span class="number">0</span>);</span><br><span class="line">	<span class="built_in">dfs1</span>(p, <span class="number">0</span>);</span><br><span class="line">	<span class="comment">//另一个dfs求到一个端点的距离, 另一个距离在第一种dfs中已经求出来了</span></span><br><span class="line">	<span class="built_in">dfs2</span>(p, <span class="number">0</span>);		<span class="comment">//此时p已经更新为另一个端点了</span></span><br><span class="line">	<span class="comment">//预处理每个D对应几个点</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span>(i != p)		<span class="comment">//两个端点不能重复计算, cnt[i]表示要摘出来的点的个数, 摘剩一个点那个点就不用摘了</span></span><br><span class="line">			cnt[<span class="built_in">max</span>(dis1[i], dis2[i]) - <span class="number">1</span>]++;	<span class="comment">//dfs的开始点距离应该是0, 所以实际距离要减去1</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//枚举k</span></span><br><span class="line">	<span class="type">int</span> ans = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="type">int</span> k = <span class="number">1</span>; k &lt;= n; k++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (k == <span class="number">1</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		ans += cnt[k - <span class="number">1</span>];</span><br><span class="line">		cout &lt;&lt; ans &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -1053,6 +1029,124 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1802B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/m_ava.png">
+      <meta itemprop="name" content="beishangeyu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eyu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/17/CF1802B/" class="post-title-link" itemprop="url">CF1802B</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-18 12:52:43" itemprop="dateModified" datetime="2023-10-18T12:52:43+08:00">2023-10-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Settlement-of-Guinea-Pigs"><a href="#Settlement-of-Guinea-Pigs" class="headerlink" title="Settlement of Guinea Pigs"></a>Settlement of Guinea Pigs</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>Dasha 很喜欢豚鼠，她在 $n$ 天内要不是买豚鼠，要不是请医生来看豚鼠。</p>
+<p>Dasha 和宠物店都无法分辨豚鼠的性别（思考人生），只能在医生来查看豚鼠的时候为这些豚鼠做性别鉴定。</p>
+<p>为了豚鼠，Dasha 打算给它们买一些笼子，但宠物店里卖的笼子只能放最多 $2$ 只豚鼠。由于她不想让她的豚鼠遭受道德伤害，一个笼子里只能放同一种性别的豚鼠。</p>
+<p>求 Dasha 最少需要买多少个笼子。</p>
+<p>这个翻译由 @ztrztr 提供</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Dasha loves guinea pigs very much. In this regard, she decided to settle as many guinea pigs at home as possible and developed a plan for the next $ n $ days. Every day, she will either buy a new guinea pig or call a doctor to examine all her pets.</p>
+<p>Unfortunately, the store where she was going to buy guinea pigs does not understand them. Therefore, it cannot determine their gender. Dasha can’t do it either. The only one who can help is a doctor.</p>
+<p>To keep guinea pigs, aviaries are needed. Dasha plans to buy them in the same store. Unfortunately, only one species is sold there — a double aviary. No more than two guinea pigs can live in it.</p>
+<p>Since Dasha does not want to cause moral injury to her pets — she will not settle two guinea pigs of different genders in one aviary.</p>
+<p>Help Dasha calculate how many aviaries in the worst case you need to buy so that you can be sure that at no moment of time do two guinea pigs of different genders live in the same aviary.</p>
+<p>As part of this task, we believe that guinea pigs have only two genders — male and female.</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>The first line of input data contains one number $ t $ ( $ 1 \leqslant t \leqslant 10^5 $ ) — the number of input data sets.</p>
+<p>The first line of each input data set contains one number $ n $ ( $ 1 \leqslant n \leqslant 10^5 $ ) — the number of days Dasha has a plan for.</p>
+<p>The next line contains $ n $ numbers $ b_1, b_2, b_3, \ldots, b_n $ ( $ 1 \leqslant b_i \leqslant 2 $ ) — Dasha’s plan. If $ b_i &#x3D; 1 $ , then on the $ i $ th day, Dasha will buy a new guinea pig. If $ b_i &#x3D; 2 $ , then on the $ i $ th day, a doctor will come to Dasha and help determine the sex of all guinea pigs that Dasha already has.</p>
+<p>It is guaranteed that the sum of $ n $ for all input data sets does not exceed $ 10^5 $ .</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each set of input data, output one number — the minimum number of aviaries Dasha needs to buy so that no matter what the genders of the pigs turn out to be, we can settle them so that at no point in time do two guinea pigs of different genders live together.</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">3</span><br><span class="line">1 1 1</span><br><span class="line">3</span><br><span class="line">2 2 2</span><br><span class="line">5</span><br><span class="line">1 1 1 2 1</span><br><span class="line">10</span><br><span class="line">1 2 1 2 1 2 1 2 1 2</span><br><span class="line">20</span><br><span class="line">1 2 1 1 1 1 1 2 1 2 1 2 2 1 1 1 1 1 1 1</span><br><span class="line">20</span><br><span class="line">2 1 1 2 1 1 2 1 2 2 1 1 1 2 2 1 1 1 1 2</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">0</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">12</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
+
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>In the first set of input data, Dasha needs to put each guinea pig in a separate enclosure, since she does not know their gender.</p>
+<p>In the second set of input data, Dasha will buy $ 0 $ guinea pigs, which means she will need $ 0 $ aviaries.</p>
+<p>In the third set of input data, you even need $ 3 $ aviaries to put each guinea pig in a separate aviary before the doctor arrives at the $ 4 $ th day. When she finds out their gender, at least two guinea pigs will be of the same gender and they can be placed in one aviary, and the third in another aviary. Thus, she will have one free aviary in which she can settle a new guinea pig. So answer is $ 3 $ .</p>
+<p>In the fourth set of input data, we show that $ 4 $ is the optimal answer.</p>
+<p>To begin with, we note that the first four guinea pigs can be placed one at a time in an aviary. Then a doctor will come and determine their gender. Among these four guinea pigs there will be at least one pair of the same gender, because: either male guinea pigs are at least $ 2 $ , or they are not more than $ 1 $ , which means that the female is at least $ 3 $ . Now we can put this couple in one aviary, and the other two in separate ones. We will have one more empty aviary where we can put a new pig.</p>
+<p>Now let’s show that the answer is at least $ 4 $ . Let’s say that among the first $ 4 $ guinea pigs, $ 3 $ are female and $ 1 $ is male. We need at least $ 3 $ aviaries to settle them. Then, when we buy a new guinea pig, we will need another aviary in which we will put it, since we do not know its gender.</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>题目要求我们求出在任何情况下都适用的最少的笼子个数, 那我们就要考虑最坏的情况</p>
+<ul>
+<li><p>当豚鼠性别未知的时候, 肯定要一只豚鼠单独占用一个笼子</p>
+</li>
+<li><p>当豚鼠性别已知的时候, 我们要考虑在已知性别的豚鼠个数为 $k$ 的时候, 最多能用笼子个数记为 $q$</p>
+<p>$k&#x3D;1$ 的时候, $q&#x3D;1$; $k&#x3D;2$ 的时候, 两个豚鼠性别不同时笼子最多, $q&#x3D;2$; 当 $k&#x3D;3$ 的时候, 肯定有两个豚鼠性别一样, $q&#x3D;2$; 当 $k&#x3D;4$ 的时候, 两个雄性用1个, 还有一个雌性用1个, 再来一个雄性的时候笼子数最多, $q&#x3D;3$; 按照这个思路: $k&#x3D;5$, $q&#x3D;3$; $k&#x3D;6$, $q&#x3D;4$</p>
+<p>除了 $k$ 为1或者2的时候特殊, 其他 $k$ 为奇数的时候, $q&#x3D;\frac{k+1}{2}$ ; $k$ 为偶数, $q&#x3D;\frac{k+2}{2}$</p>
+</li>
+</ul>
+<p>我们维护以下几个变量</p>
+<ol>
+<li>未知性别的豚鼠个数</li>
+<li>已知性别的豚鼠个数</li>
+<li>空的笼子个数</li>
+<li>笼子总数</li>
+</ol>
+<p>遍历数组, 遇见1的时候未知豚鼠个数加1, 空笼子个数减一, 不够就要补一个空笼子, 笼子总数要加一; 遇见2的时候更新已知性别的豚鼠个数, 按照公式算出需要的笼子总数记为need, need小于现有笼子总数的时候, 更新空笼子&#x3D;现有笼子总数-need, need大于现有笼子总数时, 笼子总数加到need, 空笼子个数变成0</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> avb, num, unk, sum;	<span class="comment">//空的笼子 已知豚鼠 未知豚鼠 总的笼子</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		avb = num = unk = sum = <span class="number">0</span>;	<span class="comment">//多例记得清空</span></span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">			<span class="comment">//未知豚鼠个数加一, 需要一个空的笼子, 不够要补上</span></span><br><span class="line">			<span class="keyword">if</span> (t == <span class="number">1</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				unk++;</span><br><span class="line">				<span class="keyword">if</span> (avb &lt; <span class="number">1</span>) avb++, sum++;</span><br><span class="line"></span><br><span class="line">				avb--;		<span class="comment">//现在这个笼子被未知豚鼠占用了</span></span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//更新已知豚鼠个数, 算出笼子, 可能空笼子会多, 也可能空笼子会少</span></span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				num += unk;</span><br><span class="line">				unk = <span class="number">0</span>;	<span class="comment">//记得要清空</span></span><br><span class="line">				<span class="type">int</span> need = <span class="number">0</span>;</span><br><span class="line">				<span class="keyword">if</span> (num == <span class="number">1</span>) need = <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (!num) need = <span class="number">0</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (num == <span class="number">2</span>) need = <span class="number">2</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (num % <span class="number">2</span>) need = (num + <span class="number">1</span>) / <span class="number">2</span>;</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">if</span> (num % <span class="number">2</span> == <span class="number">0</span>) need = (num + <span class="number">2</span>) / <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">				<span class="comment">//需要的比总的笼子个数少</span></span><br><span class="line">				<span class="keyword">if</span> (need &lt;= sum)</span><br><span class="line">				&#123;</span><br><span class="line">					avb = sum - need;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					avb = <span class="number">0</span>, sum = need;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cout <span class="comment">/*&lt;&lt; &quot;****&quot;*/</span> &lt;&lt; sum &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1814A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1124,100 +1218,6 @@
 <p>In the fourth test case, you can take one coin with denomination $ k &#x3D; 8 $ .</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>问我们能否用面值为2的硬币和面值为k的硬币表示 n , 即是问是否存在非负整数 x 和 y 使得 $2\times x + k \times y &#x3D; n$ , 如果存在, 那么其中y个面值为硬币肯定可以拆出 x’ 个面值为2的硬币, 余数为 y’ , 我们只需要从0到1枚举 y’ , 看看 $n - y’\times k$ 是否是个偶数, 即是否可以被二整除即可</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> ULL;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		ULL n, k; cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">2</span>; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (i == <span class="number">2</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				cout &lt;&lt; <span class="string">&quot;no&quot;</span> &lt;&lt; endl;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			ULL v = n - i * k;</span><br><span class="line">			<span class="keyword">if</span> (v % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				cout &lt;&lt; <span class="string">&quot;yes&quot;</span> &lt;&lt; endl;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1805C/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_ava.png">
-      <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eyu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/09/17/CF1805C/" class="post-title-link" itemprop="url">CF1805C</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-18 12:52:32" itemprop="dateModified" datetime="2023-10-18T12:52:32+08:00">2023-10-18</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Place-for-a-Selfie"><a href="#Place-for-a-Selfie" class="headerlink" title="Place for a Selfie"></a>Place for a Selfie</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>给定 $n$ 个正比例函数 $y&#x3D;kx$，再给出 $m$ 个下凸二次函数 $y&#x3D;ax^2+bx+c(a&gt;0)$，对于每个二次函数，从给定中找出一个一次函数，使得两函数图像没有交点。</p>
-<p>$\sum n,\sum m\le 10^5$，$a,|b|,|c|,|k|\le 10^8$。</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>The universe is a coordinate plane. There are $ n $ space highways, each of which is a straight line $ y&#x3D;kx $ passing through the origin $ (0, 0) $ . Also, there are $ m $ asteroid belts on the plane, which we represent as open upwards parabolas, i. e. graphs of functions $ y&#x3D;ax^2+bx+c $ , where $ a &gt; 0 $ .</p>
-<p>You want to photograph each parabola. To do this, for each parabola you need to choose a line that does not intersect this parabola and does not touch it. You can select the same line for different parabolas. Please find such a line for each parabola, or determine that there is no such line.</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 10^4 $ ). The description of the test cases follows.</p>
-<p>The first line of each test case contains $ 2 $ integers $ n $ and $ m $ ( $ 1 \le n, m \le 10^5 $ ) —the number of lines and parabolas, respectively.</p>
-<p>Each of the next $ n $ lines contains one integer $ k $ ( $ |k| \le 10^8 $ ), denoting a line that is described with the equation $ y&#x3D;kx $ . The lines are not necessarily distinct, $ k $ can be equal to $ 0 $ .</p>
-<p>Each of the next $ m $ lines contains $ 3 $ integers $ a $ , $ b $ , and $ c $ ( $ a, |b|, |c| \le 10^8 $ , $ a &gt; 0 $ ) — coefficients of equations of the parabolas $ ax^2+bx+c $ . The parabolas are not necessarily distinct.</p>
-<p>It is guaranteed that the sum $ n $ over all test cases does not exceed $ 10^5 $ , and the sum $ m $ over all test cases also does not exceed $ 10^5 $ .</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output the answers for each parabola in the given order. If there is a line that does not intersect the given parabola and doesn’t touch it, print on a separate line the word “YES”, and then on a separate line the number $ k $ — the coefficient of this line. If there are several answers, print any of them. If the line does not exist, print one word “NO”.</p>
-<p>You can output the answer in any case (upper or lower). For example, the strings “yEs”, “yes”, “Yes”, and “YES” will be recognized as positive responses.</p>
-<p>The empty lines in the output in the example are given only for illustration, you do not need to output them (but you can).</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1 2</span><br><span class="line">1</span><br><span class="line">1 -1 2</span><br><span class="line">1 -1 3</span><br><span class="line">2 2</span><br><span class="line">1</span><br><span class="line">4</span><br><span class="line">1 2 1</span><br><span class="line">2 5 1</span><br><span class="line">1 1</span><br><span class="line">0</span><br><span class="line">1 0 0</span><br><span class="line">1 1</span><br><span class="line">100000000</span><br><span class="line">100000000 100000000 100000000</span><br><span class="line">2 3</span><br><span class="line">0</span><br><span class="line">2</span><br><span class="line">2 2 1</span><br><span class="line">1 -2 1</span><br><span class="line">1 -2 -1</span><br></pre></td></tr></table></figure>
-
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">1</span><br><span class="line">YES</span><br><span class="line">1</span><br><span class="line"></span><br><span class="line">YES</span><br><span class="line">1</span><br><span class="line">YES</span><br><span class="line">4</span><br><span class="line"></span><br><span class="line">NO</span><br><span class="line"></span><br><span class="line">YES</span><br><span class="line">100000000</span><br><span class="line"></span><br><span class="line">YES</span><br><span class="line">0</span><br><span class="line">NO</span><br><span class="line">NO</span><br></pre></td></tr></table></figure>
-
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>没有交点, 即是 $ax^2 + bx + c &#x3D; kx$ , 即是方程 $ax^2+(b-k)x+c &#x3D; 0$ 无解, 即是 $\triangle &lt;0$ , </p>
-<p>$\triangle&#x3D; b^2-4ac-(2bk-k^2)$ , $a$ $b$ $c$ 已知, 要让 $\triangle$ 尽可能小, 让 $2bk-k^2$ 尽可能大就好了, 又因为这个是一个开口向下的二次函数, 我们可以用 <strong>二分法</strong> 找到使这个函数最大的 k , 然后代入 $\triangle$ 看是否小于0即可</p>
-<p>k要记得去重, 记得要用 <code>long long</code> 去存, 会爆int</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL;	<span class="comment">//a, b, c, k 均到 1e8, int会爆, 又因为有负数, 不能用ULL, 只能用LL</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line">LL k[N];</span><br><span class="line">LL n, m;</span><br><span class="line">LL a, b, c;</span><br><span class="line"><span class="function">LL <span class="title">cal</span><span class="params">(LL t)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (t &lt; <span class="number">0</span> || t &gt;= n) <span class="keyword">return</span> <span class="number">-1e9</span>;</span><br><span class="line">	t = k[t];</span><br><span class="line">	<span class="keyword">return</span> <span class="number">2</span> * b * t - t * t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">			cin &gt;&gt; k[i];</span><br><span class="line">		<span class="comment">//sort 去重</span></span><br><span class="line">		<span class="built_in">sort</span>(k, k + n);</span><br><span class="line">		n = <span class="built_in">unique</span>(k, k + n) - k;	<span class="comment">//n是去重之后数组的长度</span></span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; a &gt;&gt; b &gt;&gt; c;</span><br><span class="line"></span><br><span class="line">			LL l = <span class="number">0</span>, r = n, ans = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">while</span> (l &lt; r)</span><br><span class="line">			&#123;</span><br><span class="line">				LL mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">				<span class="comment">//if (cal(mid) &gt;= cal(mid - 1) &amp;&amp; cal(mid) &gt;= cal(mid + 1))</span></span><br><span class="line">				<span class="comment">//&#123;</span></span><br><span class="line">				<span class="comment">//	ans = mid;</span></span><br><span class="line">				<span class="comment">//	break;</span></span><br><span class="line">				<span class="comment">//&#125;</span></span><br><span class="line">				<span class="keyword">if</span> (<span class="built_in">cal</span>(mid) &gt; <span class="built_in">cal</span>(mid - <span class="number">1</span>) &amp;&amp; <span class="built_in">cal</span>(mid) &lt; <span class="built_in">cal</span>(mid + <span class="number">1</span>)) l = mid + <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">else</span> r = mid;</span><br><span class="line">			&#125;</span><br><span class="line">			LL res = b * b - <span class="number">4</span> * a * c - (<span class="built_in">cal</span>(l));</span><br><span class="line">			<span class="keyword">if</span> (res &lt; <span class="number">0</span>)</span><br><span class="line">				cout &lt;&lt; <span class="string">&quot;yes&quot;</span> &lt;&lt; endl &lt;&lt; k[l] &lt;&lt; endl;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				cout &lt;&lt; <span class="string">&quot;no&quot;</span> &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       

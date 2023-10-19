@@ -181,119 +181,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1784A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_ava.png">
-      <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eyu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/09/17/CF1784A/" class="post-title-link" itemprop="url">CF1784A</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-17 20:59:42" itemprop="dateModified" datetime="2023-10-17T20:59:42+08:00">2023-10-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Monsters-easy-version"><a href="#Monsters-easy-version" class="headerlink" title="Monsters (easy version)"></a>Monsters (easy version)</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>你正在打游戏。</p>
-<p>现在有 $n$ 只怪物，第 $i$ 只有 $a_i$ 点血。</p>
-<p>你当然要把它们打死。你有两种攻击方式：</p>
-<ol>
-<li>选取任意一只怪物，扣除它 $1$ 点血。这种攻击方式可以无限次使用。</li>
-<li>使所有怪物各扣除 $1$ 点血，如果有怪物被这次攻击「杀死」了，就立即再进行一次这种攻击。<strong>注意，这种攻击方式每局只能用一次。</strong></li>
-</ol>
-<p>其中，「杀死」一只怪物需要让它的血量小于等于 $0$。被「杀死」的怪物立即退出游戏。</p>
-<p>你要求出「杀死」所有怪物使用攻击方式 1 的最小次数。</p>
-<p><strong>本题有多组数据。</strong></p>
-<p>第一行，一个整数 $t(t\leq10^4)$，代表数据组数。</p>
-<p>每组数据包含两行。第一行，一个整数 $n$，代表怪物数。第二行，$n$ 个整数 $a_i$，代表每只怪物的血量。</p>
-<p>保证 $1\leq n\leq2\cdot10^5,\sum n\leq 2\cdot10^5,1\leq a_i\leq n$。</p>
-<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>This is the easy version of the problem. In this version, you only need to find the answer once. In this version, hacks are not allowed.</p>
-<p>In a computer game, you are fighting against $ n $ monsters. Monster number $ i $ has $ a_i $ health points, all $ a_i $ are integers. A monster is alive while it has at least $ 1 $ health point.</p>
-<p>You can cast spells of two types:</p>
-<ol>
-<li>Deal $ 1 $ damage to any single alive monster of your choice.</li>
-<li>Deal $ 1 $ damage to all alive monsters. If at least one monster dies (ends up with $ 0 $ health points) as a result of this action, then repeat it (and keep repeating while at least one monster dies every time).</li>
-</ol>
-<p>Dealing $ 1 $ damage to a monster reduces its health by $ 1 $ .</p>
-<p>Spells of type 1 can be cast any number of times, while a spell of type 2 can be cast at most once during the game.</p>
-<p>What is the smallest number of times you need to cast spells of type 1 to kill all monsters?</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 10^4 $ ). The description of the test cases follows.</p>
-<p>Each test case consists of two lines. The first line contains a single integer $ n $ ( $ 1 \le n \le 2 \cdot 10^5 $ ) — the number of monsters.</p>
-<p>The second line contains $ n $ integers $ a_1, a_2, \ldots, a_n $ ( $ 1 \le a_i \le n $ ) — monsters’ health points.</p>
-<p>It is guaranteed that the sum of $ n $ over all test cases does not exceed $ 2 \cdot 10^5 $ .</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, print a single integer — the smallest number of times you need to cast spells of type 1 to kill all monsters.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3</span><br><span class="line">3 1 2</span><br><span class="line">6</span><br><span class="line">4 1 5 4 1 1</span><br></pre></td></tr></table></figure>
-
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
-
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>操作2让每个怪物血量-1, 每次只要有一个怪物血量被减到0, 操作二就会重复进行, 直到没有怪物因为操作二死亡, 我们很直观的可以感受到操作二是很值当的一个操作</p>
-<p>通过观察可以发现, 比如对于序列 1 2 3 4 5, 操作二会进行 5 + 1 次也就是6次, 那我们可以发现, 如果我们有一个以1开头且相邻元素的差值小于等于1的非递减序列, 我们操作二一共可以进行 (1 + 序列长度) 次, 因为操作二很值当, 我们希望操作二尽可能地进行得多一点, 那我们就希望可以有尽可能长的这样的序列, 为了方便叙述把这种序列称为<strong>好</strong>序列</p>
-<p>构建这样的好序列是否会优于不构建这样的序列呢, 我们举个例子看看, 比如 1 2 3 5 6 7 这个序列, 如果不构建好序列, 需要进行几次操作1呢? 先进行一次操作二, 1 2 3没了然后5 6 7变成1 2 3, 需要6次操作1; 如果构建好序列, 5变成4, 6变成5, 7变成6, 只需要进行3次操作一, 明显构建好序列是优于不构建好序列的</p>
-<p>那我们思路就是: 求出需要多少次操作1使得整个序列变成一个<strong>好</strong>序列</p>
-<p>具体做法是, 先对序列排序, 然后从头开始遍历, cost记录所有的操作1的操作次数, last记录上一个数是什么, lastcost记录对上一个数进行了几次操作1, 注意cost和lastcost最小也就是0, 然后当前数 cur 需要的操作1的次数 &#x3D; cur - last + lastcost - 1(要让操作1尽可能少, 上一个数变成2, 这个数就可以变成3, 所以代价会少1).</p>
-<p><strong>!</strong>: 考虑最坏情况每个数都是 $2\times10^5$ , 然后要变成从1到k, 粗略计算代价是 $2\times10^5\times2\times10^5$ , 是会爆int的, 要用long long存</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL; </span><br><span class="line">LL t, n, a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) cin &gt;&gt; a[i];</span><br><span class="line">		<span class="built_in">sort</span>(a, a + n);</span><br><span class="line">		LL cost = <span class="number">0</span>, last = <span class="number">-1</span>, lastcost = <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(!a[i]) <span class="keyword">continue</span>;</span><br><span class="line">			<span class="comment">//找到第一个非0的数</span></span><br><span class="line">			<span class="keyword">if</span>(last == <span class="number">-1</span> &amp;&amp; lastcost == <span class="number">-1</span>) last = a[i], lastcost = <span class="built_in">max</span>(<span class="number">0ll</span>, a[i] - <span class="number">1</span>), cost += </span><br><span class="line">                lastcost;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				LL t = a[i] - last + lastcost - <span class="number">1</span>; t = t &lt; <span class="number">0</span> ? <span class="number">0</span> : t; <span class="comment">//次数最小就是0</span></span><br><span class="line">				cost += t;</span><br><span class="line">				last = a[i], lastcost = t; </span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; cost &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1786B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -491,7 +378,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1789A/">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1784A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/m_ava.png">
@@ -505,7 +392,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/09/17/CF1789A/" class="post-title-link" itemprop="url">CF1789A</a>
+            <a href="/2023/09/17/CF1784A/" class="post-title-link" itemprop="url">CF1784A</a>
         </h2>
 
         <div class="post-meta">
@@ -522,7 +409,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-18 12:53:23" itemprop="dateModified" datetime="2023-10-18T12:53:23+08:00">2023-10-18</time>
+                <time title="修改时间：2023-10-19 11:28:21" itemprop="dateModified" datetime="2023-10-19T11:28:21+08:00">2023-10-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -545,38 +432,45 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Serval-and-Mocha’s-Array"><a href="#Serval-and-Mocha’s-Array" class="headerlink" title="Serval and Mocha’s Array"></a>Serval and Mocha’s Array</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>对于一个正整数数组 $ a $ ，如果 $ a $ 中所有元素的最大公约数不超过其长度，那么这个数组就是<strong>好</strong>的。</p>
-<p>对于一个至少有 $ 2 $ 个正整数的数组，如果其长度不小于 $ 2 $ 的所有前缀都是好的，那么这个数组就是<strong>完美</strong>的。</p>
-<p>例如：</p>
-<ul>
-<li>$ [3,6] $ 不好，因为$ \gcd(3,6)&#x3D;3 $大于其长度 $ 2 $ 。</li>
-<li>$ [1,2,4] $ 既好又完美，因为其长度不小于 $ 2 $ 的所有前缀，即 $ [1,2] $ 和 $ [1,2,4] $ ，都是好的。</li>
-<li>$ [3,6,1] $ 好但不完美，因为$ [3,6] $ 不好。</li>
-</ul>
-<p>给定一个含有 $ n $ 个正整数的数组，请你判断数组 $ a $ 是否可以<strong>通过重新排列 $ a $ 中的元素</strong>而<strong>变得完美</strong>。</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Mocha likes arrays, and Serval gave her an array consisting of positive integers as a gift.</p>
-<p>Mocha thinks that for an array of positive integers $ a $ , it is good iff the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Greatest_common_divisor">greatest common divisor</a> of all the elements in $ a $ is no more than its length. And for an array of at least $ 2 $ positive integers, it is beautiful iff all of its prefixes whose length is no less than $ 2 $ are good.</p>
-<p>For example:</p>
-<ul>
-<li>$ [3,6] $ is not good, because $ \gcd(3,6)&#x3D;3 $ is greater than its length $ 2 $ .</li>
-<li>$ [1,2,4] $ is both good and beautiful, because all of its prefixes whose length is no less than $ 2 $ , which are $ [1,2] $ and $ [1,2,4] $ , are both good.</li>
-<li>$ [3,6,1] $ is good but not beautiful, because $ [3,6] $ is not good.</li>
-</ul>
-<p>Now Mocha gives you the gift array $ a $ of $ n $ positive integers, and she wants to know whether array $ a $ could become beautiful by reordering the elements in $ a $ . It is allowed to keep the array $ a $ unchanged.</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1\leq t\leq 500 $ ). The description of the test cases follows.</p>
-<p>The first line of each test case contains a single integer $ n $ ( $ 2\leq n\leq 100 $ ) — the length of array $ a $ .</p>
-<p>The second line of each test case contains $ n $ integers $ a_1,a_2,\ldots,a_n $ ( $ 1\leq a_1,a_2,\ldots,a_n\leq 10^6 $ ) — the elements of array $ a $ .</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, print Yes if it is possible to reorder the elements in $ a $ to make it beautiful, and print No if not.</p>
-<p>You can output Yes and No in any case (for example, strings yEs, yes, Yes and YES will be recognized as a positive response).</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">2</span><br><span class="line">3 6</span><br><span class="line">3</span><br><span class="line">1 2 4</span><br><span class="line">3</span><br><span class="line">3 6 1</span><br><span class="line">3</span><br><span class="line">15 35 21</span><br><span class="line">4</span><br><span class="line">35 10 35 14</span><br><span class="line">5</span><br><span class="line">1261 227821 143 4171 1941</span><br></pre></td></tr></table></figure>
+          <h1 id="Monsters-easy-version"><a href="#Monsters-easy-version" class="headerlink" title="Monsters (easy version)"></a>Monsters (easy version)</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>你正在打游戏。</p>
+<p>现在有 $n$ 只怪物，第 $i$ 只有 $a_i$ 点血。</p>
+<p>你当然要把它们打死。你有两种攻击方式：</p>
+<ol>
+<li>选取任意一只怪物，扣除它 $1$ 点血。这种攻击方式可以无限次使用。</li>
+<li>使所有怪物各扣除 $1$ 点血，如果有怪物被这次攻击「杀死」了，就立即再进行一次这种攻击。<strong>注意，这种攻击方式每局只能用一次。</strong></li>
+</ol>
+<p>其中，「杀死」一只怪物需要让它的血量小于等于 $0$。被「杀死」的怪物立即退出游戏。</p>
+<p>你要求出「杀死」所有怪物使用攻击方式 1 的最小次数。</p>
+<p><strong>本题有多组数据。</strong></p>
+<p>第一行，一个整数 $t(t\leq10^4)$，代表数据组数。</p>
+<p>每组数据包含两行。第一行，一个整数 $n$，代表怪物数。第二行，$n$ 个整数 $a_i$，代表每只怪物的血量。</p>
+<p>保证 $1\leq n\leq2\cdot10^5,\sum n\leq 2\cdot10^5,1\leq a_i\leq n$。</p>
+<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>This is the easy version of the problem. In this version, you only need to find the answer once. In this version, hacks are not allowed.</p>
+<p>In a computer game, you are fighting against $ n $ monsters. Monster number $ i $ has $ a_i $ health points, all $ a_i $ are integers. A monster is alive while it has at least $ 1 $ health point.</p>
+<p>You can cast spells of two types:</p>
+<ol>
+<li>Deal $ 1 $ damage to any single alive monster of your choice.</li>
+<li>Deal $ 1 $ damage to all alive monsters. If at least one monster dies (ends up with $ 0 $ health points) as a result of this action, then repeat it (and keep repeating while at least one monster dies every time).</li>
+</ol>
+<p>Dealing $ 1 $ damage to a monster reduces its health by $ 1 $ .</p>
+<p>Spells of type 1 can be cast any number of times, while a spell of type 2 can be cast at most once during the game.</p>
+<p>What is the smallest number of times you need to cast spells of type 1 to kill all monsters?</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 10^4 $ ). The description of the test cases follows.</p>
+<p>Each test case consists of two lines. The first line contains a single integer $ n $ ( $ 1 \le n \le 2 \cdot 10^5 $ ) — the number of monsters.</p>
+<p>The second line contains $ n $ integers $ a_1, a_2, \ldots, a_n $ ( $ 1 \le a_i \le n $ ) — monsters’ health points.</p>
+<p>It is guaranteed that the sum of $ n $ over all test cases does not exceed $ 2 \cdot 10^5 $ .</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, print a single integer — the smallest number of times you need to cast spells of type 1 to kill all monsters.</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">3</span><br><span class="line">3 1 2</span><br><span class="line">6</span><br><span class="line">4 1 5 4 1 1</span><br></pre></td></tr></table></figure>
 
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">No</span><br><span class="line">Yes</span><br><span class="line">Yes</span><br><span class="line">No</span><br><span class="line">Yes</span><br><span class="line">Yes</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">4</span><br></pre></td></tr></table></figure>
 
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>首先我们要明确, 数越多, 对于 $gcd$ 越严格, 换句话说就是数越多, $gcd$ 只可能越来越小, 如果 $gcd(a_1, a_2, a_3….a_n)&#x3D;k$, 那么 $k$ 只会小于等于 $gcd(ai, aj)$ , 反过来也就是说 <strong>对于一段序列 $p$ 如果 $p$ 的 $\large gcd &#x3D; k$, 就不存在 $\large gcd(p_i, p_j)&lt;k$</strong> , 因为gcd不可能变大只可能变小</p>
-<p>定义一段序列为好当且仅当这段序列的 $gcd$ 小于等于序列长度, 无论如果都要解决长度为2的前缀, 所以我们需要两个数的 $gcd\le2$ , 又因为当序列变长时 $gcd$ 有不增加的性质, 所以如果有两个数的 $gcd&#x3D;2$ , 把他们放到开头, 就能保证序列 a 是完美的, 反之如果不存在这样两个数, 那么序列就不可能完美</p>
-<p>本题虽然不难, 但是能帮助我更好的理解 <strong>最大公因数</strong> 的一些性质</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> f[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">gcd</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123; <span class="keyword">return</span> b ? <span class="built_in">gcd</span>(b, a % b) : a; &#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">			cin &gt;&gt; f[i];</span><br><span class="line">		<span class="type">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (<span class="built_in">gcd</span>(f[i], f[j]) &lt;= <span class="number">2</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					flag = <span class="literal">true</span>; <span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (flag) cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">		<span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>操作2让每个怪物血量-1, 每次只要有一个怪物血量被减到0, 操作二就会重复进行, 直到没有怪物因为操作二死亡, 我们很直观的可以感受到操作二是很值当的一个操作</p>
+<p>通过观察可以发现, 比如对于序列 1 2 3 4 5, 操作二会进行 5 + 1 次也就是6次, 那我们可以发现, 如果我们有一个以1开头且相邻元素的差值小于等于1的非递减序列, 我们操作二一共可以进行 (1 + 序列长度) 次, 因为操作二很值当, 我们希望操作二尽可能地进行得多一点, 那我们就希望可以有尽可能长的这样的序列, 为了方便叙述把这种序列称为<strong>好</strong>序列</p>
+<p>构建这样的好序列是否会优于不构建这样的序列呢, 我们举个例子看看, 比如 1 2 3 5 6 7 这个序列, 如果不构建好序列, 需要进行几次操作1呢? 先进行一次操作二, 1 2 3没了然后5 6 7变成1 2 3, 需要6次操作1; 如果构建好序列, 5变成4, 6变成5, 7变成6, 只需要进行3次操作一, 明显构建好序列是优于不构建好序列的</p>
+<p>那我们思路就是: 求出需要多少次操作1使得整个序列变成一个<strong>好</strong>序列</p>
+<p>具体做法是, 先对序列排序, 然后从头开始遍历, cost记录所有的操作1的操作次数, last记录上一个数是什么, lastcost记录对上一个数进行了几次操作1, 注意cost和lastcost最小也就是0, 然后当前数 cur 需要的操作1的次数 &#x3D; cur - last + lastcost - 1(要让操作1尽可能少, 上一个数变成2, 这个数就可以变成3, 所以代价会少1).</p>
+<p><strong>!</strong>: 考虑最坏情况每个数都是 $2\times10^5$ , 然后要变成从1到k, 粗略计算代价是 $2\times10^5\times2\times10^5$ , 是会爆int的, 要用long long存</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> LL; </span><br><span class="line">LL t, n, a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i ++) cin &gt;&gt; a[i];</span><br><span class="line">		<span class="built_in">sort</span>(a, a + n);</span><br><span class="line">		LL cost = <span class="number">0</span>, last = <span class="number">-1</span>, lastcost = <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(!a[i]) <span class="keyword">continue</span>;</span><br><span class="line">			<span class="comment">//找到第一个非0的数</span></span><br><span class="line">			<span class="keyword">if</span>(last == <span class="number">-1</span> &amp;&amp; lastcost == <span class="number">-1</span>) last = a[i], lastcost = <span class="built_in">max</span>(<span class="number">0ll</span>, a[i] - <span class="number">1</span>), cost += </span><br><span class="line">                lastcost;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">			&#123;</span><br><span class="line">				LL t = a[i] - last + lastcost - <span class="number">1</span>; t = t &lt; <span class="number">0</span> ? <span class="number">0</span> : t; <span class="comment">//次数最小就是0</span></span><br><span class="line">				cost += t;</span><br><span class="line">				last = a[i], lastcost = t; </span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; cost &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -699,7 +593,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1793C/">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1793B/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/m_ava.png">
@@ -713,7 +607,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/09/17/CF1793C/" class="post-title-link" itemprop="url">CF1793C</a>
+            <a href="/2023/09/17/CF1793B/" class="post-title-link" itemprop="url">CF1793B</a>
         </h2>
 
         <div class="post-meta">
@@ -730,7 +624,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-18 12:53:09" itemprop="dateModified" datetime="2023-10-18T12:53:09+08:00">2023-10-18</time>
+                <time title="修改时间：2023-10-18 12:53:13" itemprop="dateModified" datetime="2023-10-18T12:53:13+08:00">2023-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -753,28 +647,38 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Dora-and-Search"><a href="#Dora-and-Search" class="headerlink" title="Dora and Search"></a>Dora and Search</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个长度为 $n$ 的排列 $a$ ，问是否存在正整数 $l,r$ 使得 $a_l,a_r$ 均不为 $a_{l…r}$ 中的最大值或最小值。</p>
-<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><p>第一行一个正整数 $t$ ，表示数据组数。接下来对于每组数据输入包括两行，第一行一个正整数 $n$ ，第二行 $n$ 个正整数代表排列 $a$ 。<br>对于每组数据，若存在符合要求的 $l,r$ ，输出任意一组。若不存在则输出 $-1$ 。</p>
-<h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3><p>$1\leqslant t \leqslant 10\ 000\ ,\ 1\leqslant \Sigma n \leqslant 200\ 000\ ,\ $ $a$ 是一个排列。</p>
-<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>As you know, the girl Dora is always looking for something. This time she was given a permutation, and she wants to find such a subsegment of it that none of the elements at its ends is either the minimum or the maximum of the entire subsegment. More formally, you are asked to find the numbers $ l $ and $ r $ $ (1 \leq l \leq r \leq n) $ such that $ a_l \neq \min(a_l, a_{l + 1}, \ldots, a_r) $ , $ a_l \neq \max(a_l, a_{l + 1}, \ldots, a_r) $ and $ a_r \neq \min(a_l, a_{l + 1}, \ldots, a_r) $ , $ a_r \neq \max(a_l, a_{l + 1}, \ldots, a_r) $ .</p>
-<p>A permutation of length $ n $ is an array consisting of $ n $ distinct integers from $ 1 $ to $ n $ in any order. For example, $ [2,3,1,5,4] $ is a permutation, but $ [1,2,2] $ is not a permutation ( $ 2 $ occurs twice in the array) and $ [1,3,4] $ is also not a permutation ( $ n&#x3D;3 $ , but $ 4 $ is present in the array).</p>
-<p>Help Dora find such a subsegment, or tell her that such a subsegment does not exist.</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test consists of multiple test cases. The first line contains a single integer $ t $ ( $ 1 \leq t \leq 10^4 $ ) — the number of test cases. Description of the test cases follows.</p>
-<p>For each test case, the first line contains one integer $ n $ ( $ 1 \leq n \leq 2 \cdot 10^5 $ ) — the length of permutation.</p>
-<p>The second line contains $ n $ distinct integers $ a_1, a_2, \ldots, a_n $ ( $ 1 \leq a_i \leq n $ ) — the elements of permutation.</p>
-<p>It is guarented that the sum of $ n $ over all test cases doesn’t exceed $ 2 \cdot 10^5 $ .</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output $ -1 $ if the desired subsegment does not exist.</p>
-<p>Otherwise, output two indexes $ l, r $ such that $ [a_{l}, a_{l + 1}, \ldots, a_{r}] $ satisfies all conditions.</p>
-<p>If there are several solutions, then output any of them.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">3</span><br><span class="line">1 2 3</span><br><span class="line">4</span><br><span class="line">2 1 4 3</span><br><span class="line">7</span><br><span class="line">1 3 2 4 6 5 7</span><br><span class="line">6</span><br><span class="line">2 3 6 5 4 1</span><br></pre></td></tr></table></figure>
+          <h1 id="Fedya-and-Array"><a href="#Fedya-and-Array" class="headerlink" title="Fedya and Array"></a>Fedya and Array</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>有一个 $n$ 个元素的序列 $a$，元素首尾相连排成圆环，任意两个相邻元素间差的绝对值等于 $1$。定义一个局部最小值为<strong>同时</strong>小于左右两个相邻元素的元素值，一个局部最大值为<strong>同时</strong>大于左右两个相邻元素的元素值。</p>
+<p><strong>注意，元素 $a_n$ 和 元素 $a_1$ 是相邻元素。</strong></p>
+<p>给定序列 $a$ 中<strong>所有</strong>局部最大值的和以及序列 $a$ 中<strong>所有</strong>局部最小值的和，请还原出<strong>元素个数最少</strong>的数组 $a$。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>For his birthday recently Fedya was given an array $ a $ of $ n $ integers arranged in a circle, For each pair of neighboring numbers ( $ a_1 $ and $ a_2 $ , $ a_2 $ and $ a_3 $ , $ \ldots $ , $ a_{n - 1} $ and $ a_n $ , $ a_n $ and $ a_1 $ ) the absolute difference between them is equal to $ 1 $ .</p>
+<p>Let’s call a local maximum an element, which is greater than both of its neighboring elements. Also call a local minimum an element, which is less than both of its neighboring elements. Note, that elements $ a_1 $ and $ a_n $ are neighboring elements.</p>
+<p>Unfortunately, Fedya lost an array, but he remembered in it the sum of local maximums $ x $ and the sum of local minimums $ y $ .</p>
+<p>Given $ x $ and $ y $ , help Fedya find any matching array of minimum length.</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 1000 $ ). Description of the test cases follows.</p>
+<p>Each line of each test case contain two integers $ x $ and $ y $ ( $ -10^{9} \le y &lt; x \le 10^{9} $ ) — the sum of local maximums and the sum of local minimums, respectively.</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, in the first line print one integer $ n $ — the minimum length of matching arrays.</p>
+<p>In the second line print $ n $ integers $ a_1, a_2, \ldots, a_n $ ( $ -10^{9} \leqslant a_i \leqslant 10^{9} $ ) — the array elements such that the the absolute difference between each pair of neighboring is equal to $ 1 $ .</p>
+<p>If there are multiple solutions, print any of them.</p>
+<p>It is guaranteed that the sum of $ n $ over all test cases does not exceed $ 2 \cdot 10^{5} $ .</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">3 -2</span><br><span class="line">4 -4</span><br><span class="line">2 -1</span><br><span class="line">5 -3</span><br></pre></td></tr></table></figure>
 
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-1</span><br><span class="line">1 4</span><br><span class="line">2 6</span><br><span class="line">-1</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">0 1 2 1 0 -1 0 -1 0 1</span><br><span class="line">16</span><br><span class="line">-2 -1 -2 -1 0 1 2 3 4 5 4 3 2 1 0 -1 </span><br><span class="line">6</span><br><span class="line">1 0 -1 0 1 0</span><br><span class="line">16</span><br><span class="line">2 3 2 1 0 -1 0 -1 0 -1 0 1 2 1 0 1</span><br></pre></td></tr></table></figure>
 
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>给了一个只含有元素1到n且两两不同的数组, 要求我们找出一段子区间, 子区间端点不是这段子区间的最值</p>
-<p>首先我们要想明白, 随着区间的缩短, 区间最大值单调不升, 区间最小值单调不降, 那么对于一段区间而言如果它不合法, 那我们就试着排掉不合法的端点, 缩小区间, 直到区间合法或者答案不存在</p>
-<p>具体的做法是: 我们先尝试全选, 因为序列一定含有1到n, 所以很明显全选的最大值是n, 最小值是n, 如果端点不等于最值, 那么我们直接选, 如果其中一个端点a等于最值, 例如等于n, 那么我们操作a(加1或者减1)缩小区间, 同时因为等于n的点被排除在外了, 剩下的点的最大值肯定就是n-1, 我们再进行对端点进行判断, 重复直到找到答案或者明确答案不存在</p>
-<p><strong>一些心得</strong>: 我就说只含有1到n是个解题很关键的性质, 我们可以确定整段序列上的最大值和最小值是n和1, 并且如果我们删除了n, 那我们就知道最大值就会变成n-1</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">			cin &gt;&gt; a[i];</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> l = <span class="number">1</span>, r = n, minn = <span class="number">1</span>, maxn = n;</span><br><span class="line">		<span class="keyword">while</span> (l &lt; r)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//等于极值, 区间缩小, 且极值被排除在外</span></span><br><span class="line">			<span class="keyword">if</span> (a[l] == minn) &#123; l++, minn++; <span class="keyword">continue</span>; &#125;</span><br><span class="line">			<span class="keyword">if</span> (a[l] == maxn) &#123; l++, maxn--; <span class="keyword">continue</span>; &#125;</span><br><span class="line">			<span class="keyword">if</span> (a[r] == minn) &#123; r--, minn++; <span class="keyword">continue</span>; &#125;</span><br><span class="line">			<span class="keyword">if</span> (a[r] == maxn) &#123; r--, maxn--; <span class="keyword">continue</span>; &#125;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (l &lt; r) cout &lt;&lt; l &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; r;</span><br><span class="line">		<span class="keyword">else</span> cout &lt;&lt; <span class="number">-1</span>;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>是一道数学构造题</p>
+<p>要求构造出一个环, 相邻元素差为1, 且所有比左右两个数都大的数的和为 $x$, 所有比左右两个数都小的数的和为 $y$</p>
+<p>以 $x&#x3D;3$ , $y&#x3D;-2$ 为例: </p>
+<ol>
+<li><p>3是由一个局部最大值构成, -2是由一个局部最小值构成, 那么就是0到3, 3到-2, -2到2, 这样构造出来的数组的长度就是 $(x-y)\times2$ , 因为对于任意的 $x$ 和 $y$ 来说都可以这样分解, 所以对于任意的 $x$ 和 $y$ 来说都适用</p>
+</li>
+<li><p>3是由多个局部最大值组成, 那么就可以是0到2, 2到0, 0到1, 1到0, 0到-2, -2到-1, 此时数组的长度就是</p>
+<p>$\sum_{i &#x3D; 1}^{i\le n} x_i\times2$, 对于 $y$ 同理, 不难看出第二种构造方法的长度与第一种是相同的</p>
+</li>
+</ol>
+<p>这两种构造都是能使长度最短的, 我们采取比较好写的第一种</p>
+<p><strong>!</strong>: 但是有可能 $x$ 和 $y$ 都大于0或者小于0, 所以我们不能从0开始, 要从 $x$ 或者 $y$ 开始, 记得保证首尾差值为1</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> x, y; cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">		cout &lt;&lt; (x - y) * <span class="number">2</span> &lt;&lt; endl;</span><br><span class="line">		</span><br><span class="line">		<span class="type">int</span> i;</span><br><span class="line">		<span class="keyword">for</span> (i = x; i &gt; y; i--)</span><br><span class="line">			cout &lt;&lt; i &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		<span class="keyword">for</span> (; i &lt; x; i++)</span><br><span class="line">			cout &lt;&lt; i &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
 
 
       
@@ -795,7 +699,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1794A/">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1789A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/m_ava.png">
@@ -809,7 +713,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/09/17/CF1794A/" class="post-title-link" itemprop="url">CF1794A</a>
+            <a href="/2023/09/17/CF1789A/" class="post-title-link" itemprop="url">CF1789A</a>
         </h2>
 
         <div class="post-meta">
@@ -826,7 +730,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-18 12:53:05" itemprop="dateModified" datetime="2023-10-18T12:53:05+08:00">2023-10-18</time>
+                <time title="修改时间：2023-10-18 12:53:23" itemprop="dateModified" datetime="2023-10-18T12:53:23+08:00">2023-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -849,29 +753,37 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Prefix-and-Suffix-Array"><a href="#Prefix-and-Suffix-Array" class="headerlink" title="Prefix and Suffix Array"></a>Prefix and Suffix Array</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>马科斯非常喜爱字符串，他有一个最爱的字符串 $s$，里面只由小写英文字母组成。</p>
-<p>对于这个字符串 $s$，马科斯在一张纸上胡乱写下了 $s$ 的所有<strong>非空真前缀子串</strong>和<strong>非空真后缀子串</strong>（因为是胡乱写下的，所以这并没有什么顺序）。你看到了这张纸，看到了写在上面的所有字符串，现在你很好奇：马科斯最爱的字符串 $s$ 是不是一个<strong>回文串</strong>。</p>
-<p>你的任务是：利用字符串 $s$ 的所有<strong>非空真前缀子串</strong>和<strong>非空真后缀子串</strong>，判断 $s$ 是否是一个<strong>回文串</strong>。</p>
-<p>一个字符串 $a$ 是另一个字符串 $b$ 的<strong>非空真前缀子串</strong>，当且仅当从 $b$ 的末尾删去一部分后，剩下的一部分就是 $a$。</p>
-<p>一个字符串 $a$ 是另一个字符串 $b$ 的<strong>非空真后缀子串</strong>，当且仅当从 $b$ 的开头删去一部分后，剩下的一部分就是 $a$。</p>
-<p>一个<strong>回文串</strong>从前往后读和从后往前读是一模一样的。例如，字符串 $\texttt{gg}$，$\texttt{ioi}$，$\texttt{abba}$，$\texttt{icpci}$ 是回文串，而字符串 $\texttt{codeforces}$，$\texttt{abcd}$，$\texttt{alt}$ 不是回文串。</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Marcos loves strings a lot, so he has a favorite string $ s $ consisting of lowercase English letters. For this string, he wrote down all its non-empty prefixes and suffixes (except for $ s $ ) on a piece of paper in arbitrary order. You see all these strings and wonder if Marcos’ favorite string is a palindrome or not. So, your task is to decide whether $ s $ is a palindrome by just looking at the piece of paper.</p>
-<p>A string $ a $ is a prefix of a string $ b $ if $ a $ can be obtained from $ b $ by deletion of several (possibly, zero or all) characters from the end.</p>
-<p>A string $ a $ is a suffix of a string $ b $ if $ a $ can be obtained from $ b $ by deletion of several (possibly, zero or all) characters from the beginning.</p>
-<p>A palindrome is a string that reads the same backward as forward, for example, strings “gg”, “ioi”, “abba”, “icpci” are palindromes, but strings “codeforces”, “abcd”, “alt” are not.</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test consists of multiple test cases. The first line contains a single integer $ t $ ( $ 1 \le t \le 120 $ ) — the number of test cases. The description of test cases follows.</p>
-<p>The first line of each test case contains a single integer $ n $ ( $ 2\le n \le 20 $ ) — the length of the string $ s $ .</p>
-<p>The second line of each test case contains $ 2n-2 $ strings $ a_1, a_2, \cdots, a_{2n-2} $ — all non-empty prefixes and suffixes of $ s $ , not including itself, in arbitrary order.</p>
-<p>It is guaranteed that these strings are all the non-empty prefixes and suffixes of some string consisting of lowercase English letters.</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output “YES” if $ s $ is a palindrome, and “NO” otherwise.</p>
-<p>You can output the answer in any case (upper or lower). For example, the strings “yEs”, “yes”, “Yes”, and “YES” will be recognized as positive responses.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">4</span><br><span class="line">bcd cd a d abc ab</span><br><span class="line">3</span><br><span class="line">i io i oi</span><br><span class="line">2</span><br><span class="line">g g</span><br><span class="line">3</span><br><span class="line">t al lt a</span><br><span class="line">4</span><br><span class="line">bba a ab a abb ba</span><br></pre></td></tr></table></figure>
+          <h1 id="Serval-and-Mocha’s-Array"><a href="#Serval-and-Mocha’s-Array" class="headerlink" title="Serval and Mocha’s Array"></a>Serval and Mocha’s Array</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>对于一个正整数数组 $ a $ ，如果 $ a $ 中所有元素的最大公约数不超过其长度，那么这个数组就是<strong>好</strong>的。</p>
+<p>对于一个至少有 $ 2 $ 个正整数的数组，如果其长度不小于 $ 2 $ 的所有前缀都是好的，那么这个数组就是<strong>完美</strong>的。</p>
+<p>例如：</p>
+<ul>
+<li>$ [3,6] $ 不好，因为$ \gcd(3,6)&#x3D;3 $大于其长度 $ 2 $ 。</li>
+<li>$ [1,2,4] $ 既好又完美，因为其长度不小于 $ 2 $ 的所有前缀，即 $ [1,2] $ 和 $ [1,2,4] $ ，都是好的。</li>
+<li>$ [3,6,1] $ 好但不完美，因为$ [3,6] $ 不好。</li>
+</ul>
+<p>给定一个含有 $ n $ 个正整数的数组，请你判断数组 $ a $ 是否可以<strong>通过重新排列 $ a $ 中的元素</strong>而<strong>变得完美</strong>。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Mocha likes arrays, and Serval gave her an array consisting of positive integers as a gift.</p>
+<p>Mocha thinks that for an array of positive integers $ a $ , it is good iff the <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Greatest_common_divisor">greatest common divisor</a> of all the elements in $ a $ is no more than its length. And for an array of at least $ 2 $ positive integers, it is beautiful iff all of its prefixes whose length is no less than $ 2 $ are good.</p>
+<p>For example:</p>
+<ul>
+<li>$ [3,6] $ is not good, because $ \gcd(3,6)&#x3D;3 $ is greater than its length $ 2 $ .</li>
+<li>$ [1,2,4] $ is both good and beautiful, because all of its prefixes whose length is no less than $ 2 $ , which are $ [1,2] $ and $ [1,2,4] $ , are both good.</li>
+<li>$ [3,6,1] $ is good but not beautiful, because $ [3,6] $ is not good.</li>
+</ul>
+<p>Now Mocha gives you the gift array $ a $ of $ n $ positive integers, and she wants to know whether array $ a $ could become beautiful by reordering the elements in $ a $ . It is allowed to keep the array $ a $ unchanged.</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1\leq t\leq 500 $ ). The description of the test cases follows.</p>
+<p>The first line of each test case contains a single integer $ n $ ( $ 2\leq n\leq 100 $ ) — the length of array $ a $ .</p>
+<p>The second line of each test case contains $ n $ integers $ a_1,a_2,\ldots,a_n $ ( $ 1\leq a_1,a_2,\ldots,a_n\leq 10^6 $ ) — the elements of array $ a $ .</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, print Yes if it is possible to reorder the elements in $ a $ to make it beautiful, and print No if not.</p>
+<p>You can output Yes and No in any case (for example, strings yEs, yes, Yes and YES will be recognized as a positive response).</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">2</span><br><span class="line">3 6</span><br><span class="line">3</span><br><span class="line">1 2 4</span><br><span class="line">3</span><br><span class="line">3 6 1</span><br><span class="line">3</span><br><span class="line">15 35 21</span><br><span class="line">4</span><br><span class="line">35 10 35 14</span><br><span class="line">5</span><br><span class="line">1261 227821 143 4171 1941</span><br></pre></td></tr></table></figure>
 
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NO</span><br><span class="line">YES</span><br><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">YES</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">No</span><br><span class="line">Yes</span><br><span class="line">Yes</span><br><span class="line">No</span><br><span class="line">Yes</span><br><span class="line">Yes</span><br></pre></td></tr></table></figure>
 
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>回文串的定义就是一个字符串从前往后读跟从后往前读是一样的, 那么比如s是一个回文串, 我把s的尾部字符删了得到s1, 把s的头部字符删了得到s2, 从前往后跟从后往前读是一样的, 那么不就说明s1 &#x3D; s2.reverse() 吗</p>
-<p>那我们我就得出s是回文串当且仅当s1 &#x3D; s2.reverse()</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">string s[<span class="number">110</span>];</span><br><span class="line"><span class="type">int</span> len[<span class="number">110</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(string a, string b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> p = a.<span class="built_in">size</span>(), q = b.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> p &gt; q;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span> * n - <span class="number">2</span>; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; s[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">sort</span>(s, s + <span class="number">2</span> * n - <span class="number">2</span>, cmp);</span><br><span class="line"></span><br><span class="line">		string s1 = s[<span class="number">0</span>], s2 = s[<span class="number">1</span>];</span><br><span class="line">		<span class="type">int</span> i = <span class="number">0</span>, j = s2.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (i &lt; j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">swap</span>(s2[i], s2[j]);</span><br><span class="line">			i++, j--;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (s1 == s2) cout &lt;&lt; <span class="string">&quot;YES\n&quot;</span>;</span><br><span class="line">		<span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;NO\n&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>首先我们要明确, 数越多, 对于 $gcd$ 越严格, 换句话说就是数越多, $gcd$ 只可能越来越小, 如果 $gcd(a_1, a_2, a_3….a_n)&#x3D;k$, 那么 $k$ 只会小于等于 $gcd(ai, aj)$ , 反过来也就是说 <strong>对于一段序列 $p$ 如果 $p$ 的 $\large gcd &#x3D; k$, 就不存在 $\large gcd(p_i, p_j)&lt;k$</strong> , 因为gcd不可能变大只可能变小</p>
+<p>定义一段序列为好当且仅当这段序列的 $gcd$ 小于等于序列长度, 无论如果都要解决长度为2的前缀, 所以我们需要两个数的 $gcd\le2$ , 又因为当序列变长时 $gcd$ 有不增加的性质, 所以如果有两个数的 $gcd&#x3D;2$ , 把他们放到开头, 就能保证序列 a 是完美的, 反之如果不存在这样两个数, 那么序列就不可能完美</p>
+<p>本题虽然不难, 但是能帮助我更好的理解 <strong>最大公因数</strong> 的一些性质</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> f[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">gcd</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123; <span class="keyword">return</span> b ? <span class="built_in">gcd</span>(b, a % b) : a; &#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">			cin &gt;&gt; f[i];</span><br><span class="line">		<span class="type">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (<span class="built_in">gcd</span>(f[i], f[j]) &lt;= <span class="number">2</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					flag = <span class="literal">true</span>; <span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (flag) cout &lt;&lt; <span class="string">&quot;yes\n&quot;</span>;</span><br><span class="line">		<span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;no\n&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -989,7 +901,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1793B/">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1794A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/m_ava.png">
@@ -1003,7 +915,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/09/17/CF1793B/" class="post-title-link" itemprop="url">CF1793B</a>
+            <a href="/2023/09/17/CF1794A/" class="post-title-link" itemprop="url">CF1794A</a>
         </h2>
 
         <div class="post-meta">
@@ -1020,7 +932,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-18 12:53:13" itemprop="dateModified" datetime="2023-10-18T12:53:13+08:00">2023-10-18</time>
+                <time title="修改时间：2023-10-18 12:53:05" itemprop="dateModified" datetime="2023-10-18T12:53:05+08:00">2023-10-18</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -1043,38 +955,125 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Fedya-and-Array"><a href="#Fedya-and-Array" class="headerlink" title="Fedya and Array"></a>Fedya and Array</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>有一个 $n$ 个元素的序列 $a$，元素首尾相连排成圆环，任意两个相邻元素间差的绝对值等于 $1$。定义一个局部最小值为<strong>同时</strong>小于左右两个相邻元素的元素值，一个局部最大值为<strong>同时</strong>大于左右两个相邻元素的元素值。</p>
-<p><strong>注意，元素 $a_n$ 和 元素 $a_1$ 是相邻元素。</strong></p>
-<p>给定序列 $a$ 中<strong>所有</strong>局部最大值的和以及序列 $a$ 中<strong>所有</strong>局部最小值的和，请还原出<strong>元素个数最少</strong>的数组 $a$。</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>For his birthday recently Fedya was given an array $ a $ of $ n $ integers arranged in a circle, For each pair of neighboring numbers ( $ a_1 $ and $ a_2 $ , $ a_2 $ and $ a_3 $ , $ \ldots $ , $ a_{n - 1} $ and $ a_n $ , $ a_n $ and $ a_1 $ ) the absolute difference between them is equal to $ 1 $ .</p>
-<p>Let’s call a local maximum an element, which is greater than both of its neighboring elements. Also call a local minimum an element, which is less than both of its neighboring elements. Note, that elements $ a_1 $ and $ a_n $ are neighboring elements.</p>
-<p>Unfortunately, Fedya lost an array, but he remembered in it the sum of local maximums $ x $ and the sum of local minimums $ y $ .</p>
-<p>Given $ x $ and $ y $ , help Fedya find any matching array of minimum length.</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 1000 $ ). Description of the test cases follows.</p>
-<p>Each line of each test case contain two integers $ x $ and $ y $ ( $ -10^{9} \le y &lt; x \le 10^{9} $ ) — the sum of local maximums and the sum of local minimums, respectively.</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, in the first line print one integer $ n $ — the minimum length of matching arrays.</p>
-<p>In the second line print $ n $ integers $ a_1, a_2, \ldots, a_n $ ( $ -10^{9} \leqslant a_i \leqslant 10^{9} $ ) — the array elements such that the the absolute difference between each pair of neighboring is equal to $ 1 $ .</p>
-<p>If there are multiple solutions, print any of them.</p>
-<p>It is guaranteed that the sum of $ n $ over all test cases does not exceed $ 2 \cdot 10^{5} $ .</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">3 -2</span><br><span class="line">4 -4</span><br><span class="line">2 -1</span><br><span class="line">5 -3</span><br></pre></td></tr></table></figure>
+          <h1 id="Prefix-and-Suffix-Array"><a href="#Prefix-and-Suffix-Array" class="headerlink" title="Prefix and Suffix Array"></a>Prefix and Suffix Array</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>马科斯非常喜爱字符串，他有一个最爱的字符串 $s$，里面只由小写英文字母组成。</p>
+<p>对于这个字符串 $s$，马科斯在一张纸上胡乱写下了 $s$ 的所有<strong>非空真前缀子串</strong>和<strong>非空真后缀子串</strong>（因为是胡乱写下的，所以这并没有什么顺序）。你看到了这张纸，看到了写在上面的所有字符串，现在你很好奇：马科斯最爱的字符串 $s$ 是不是一个<strong>回文串</strong>。</p>
+<p>你的任务是：利用字符串 $s$ 的所有<strong>非空真前缀子串</strong>和<strong>非空真后缀子串</strong>，判断 $s$ 是否是一个<strong>回文串</strong>。</p>
+<p>一个字符串 $a$ 是另一个字符串 $b$ 的<strong>非空真前缀子串</strong>，当且仅当从 $b$ 的末尾删去一部分后，剩下的一部分就是 $a$。</p>
+<p>一个字符串 $a$ 是另一个字符串 $b$ 的<strong>非空真后缀子串</strong>，当且仅当从 $b$ 的开头删去一部分后，剩下的一部分就是 $a$。</p>
+<p>一个<strong>回文串</strong>从前往后读和从后往前读是一模一样的。例如，字符串 $\texttt{gg}$，$\texttt{ioi}$，$\texttt{abba}$，$\texttt{icpci}$ 是回文串，而字符串 $\texttt{codeforces}$，$\texttt{abcd}$，$\texttt{alt}$ 不是回文串。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Marcos loves strings a lot, so he has a favorite string $ s $ consisting of lowercase English letters. For this string, he wrote down all its non-empty prefixes and suffixes (except for $ s $ ) on a piece of paper in arbitrary order. You see all these strings and wonder if Marcos’ favorite string is a palindrome or not. So, your task is to decide whether $ s $ is a palindrome by just looking at the piece of paper.</p>
+<p>A string $ a $ is a prefix of a string $ b $ if $ a $ can be obtained from $ b $ by deletion of several (possibly, zero or all) characters from the end.</p>
+<p>A string $ a $ is a suffix of a string $ b $ if $ a $ can be obtained from $ b $ by deletion of several (possibly, zero or all) characters from the beginning.</p>
+<p>A palindrome is a string that reads the same backward as forward, for example, strings “gg”, “ioi”, “abba”, “icpci” are palindromes, but strings “codeforces”, “abcd”, “alt” are not.</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test consists of multiple test cases. The first line contains a single integer $ t $ ( $ 1 \le t \le 120 $ ) — the number of test cases. The description of test cases follows.</p>
+<p>The first line of each test case contains a single integer $ n $ ( $ 2\le n \le 20 $ ) — the length of the string $ s $ .</p>
+<p>The second line of each test case contains $ 2n-2 $ strings $ a_1, a_2, \cdots, a_{2n-2} $ — all non-empty prefixes and suffixes of $ s $ , not including itself, in arbitrary order.</p>
+<p>It is guaranteed that these strings are all the non-empty prefixes and suffixes of some string consisting of lowercase English letters.</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output “YES” if $ s $ is a palindrome, and “NO” otherwise.</p>
+<p>You can output the answer in any case (upper or lower). For example, the strings “yEs”, “yes”, “Yes”, and “YES” will be recognized as positive responses.</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">4</span><br><span class="line">bcd cd a d abc ab</span><br><span class="line">3</span><br><span class="line">i io i oi</span><br><span class="line">2</span><br><span class="line">g g</span><br><span class="line">3</span><br><span class="line">t al lt a</span><br><span class="line">4</span><br><span class="line">bba a ab a abb ba</span><br></pre></td></tr></table></figure>
 
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">0 1 2 1 0 -1 0 -1 0 1</span><br><span class="line">16</span><br><span class="line">-2 -1 -2 -1 0 1 2 3 4 5 4 3 2 1 0 -1 </span><br><span class="line">6</span><br><span class="line">1 0 -1 0 1 0</span><br><span class="line">16</span><br><span class="line">2 3 2 1 0 -1 0 -1 0 -1 0 1 2 1 0 1</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">NO</span><br><span class="line">YES</span><br><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">YES</span><br></pre></td></tr></table></figure>
 
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>是一道数学构造题</p>
-<p>要求构造出一个环, 相邻元素差为1, 且所有比左右两个数都大的数的和为 $x$, 所有比左右两个数都小的数的和为 $y$</p>
-<p>以 $x&#x3D;3$ , $y&#x3D;-2$ 为例: </p>
-<ol>
-<li><p>3是由一个局部最大值构成, -2是由一个局部最小值构成, 那么就是0到3, 3到-2, -2到2, 这样构造出来的数组的长度就是 $(x-y)\times2$ , 因为对于任意的 $x$ 和 $y$ 来说都可以这样分解, 所以对于任意的 $x$ 和 $y$ 来说都适用</p>
-</li>
-<li><p>3是由多个局部最大值组成, 那么就可以是0到2, 2到0, 0到1, 1到0, 0到-2, -2到-1, 此时数组的长度就是</p>
-<p>$\sum_{i &#x3D; 1}^{i\le n} x_i\times2$, 对于 $y$ 同理, 不难看出第二种构造方法的长度与第一种是相同的</p>
-</li>
-</ol>
-<p>这两种构造都是能使长度最短的, 我们采取比较好写的第一种</p>
-<p><strong>!</strong>: 但是有可能 $x$ 和 $y$ 都大于0或者小于0, 所以我们不能从0开始, 要从 $x$ 或者 $y$ 开始, 记得保证首尾差值为1</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> x, y; cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">		cout &lt;&lt; (x - y) * <span class="number">2</span> &lt;&lt; endl;</span><br><span class="line">		</span><br><span class="line">		<span class="type">int</span> i;</span><br><span class="line">		<span class="keyword">for</span> (i = x; i &gt; y; i--)</span><br><span class="line">			cout &lt;&lt; i &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		<span class="keyword">for</span> (; i &lt; x; i++)</span><br><span class="line">			cout &lt;&lt; i &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>回文串的定义就是一个字符串从前往后读跟从后往前读是一样的, 那么比如s是一个回文串, 我把s的尾部字符删了得到s1, 把s的头部字符删了得到s2, 从前往后跟从后往前读是一样的, 那么不就说明s1 &#x3D; s2.reverse() 吗</p>
+<p>那我们我就得出s是回文串当且仅当s1 &#x3D; s2.reverse()</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line">string s[<span class="number">110</span>];</span><br><span class="line"><span class="type">int</span> len[<span class="number">110</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(string a, string b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> p = a.<span class="built_in">size</span>(), q = b.<span class="built_in">size</span>();</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> p &gt; q;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; <span class="number">2</span> * n - <span class="number">2</span>; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; s[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">sort</span>(s, s + <span class="number">2</span> * n - <span class="number">2</span>, cmp);</span><br><span class="line"></span><br><span class="line">		string s1 = s[<span class="number">0</span>], s2 = s[<span class="number">1</span>];</span><br><span class="line">		<span class="type">int</span> i = <span class="number">0</span>, j = s2.<span class="built_in">size</span>() - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">while</span> (i &lt; j)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">swap</span>(s2[i], s2[j]);</span><br><span class="line">			i++, j--;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (s1 == s2) cout &lt;&lt; <span class="string">&quot;YES\n&quot;</span>;</span><br><span class="line">		<span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;NO\n&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1793C/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/m_ava.png">
+      <meta itemprop="name" content="beishangeyu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eyu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/17/CF1793C/" class="post-title-link" itemprop="url">CF1793C</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-18 12:53:09" itemprop="dateModified" datetime="2023-10-18T12:53:09+08:00">2023-10-18</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Dora-and-Search"><a href="#Dora-and-Search" class="headerlink" title="Dora and Search"></a>Dora and Search</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>给定一个长度为 $n$ 的排列 $a$ ，问是否存在正整数 $l,r$ 使得 $a_l,a_r$ 均不为 $a_{l…r}$ 中的最大值或最小值。</p>
+<h3 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h3><p>第一行一个正整数 $t$ ，表示数据组数。接下来对于每组数据输入包括两行，第一行一个正整数 $n$ ，第二行 $n$ 个正整数代表排列 $a$ 。<br>对于每组数据，若存在符合要求的 $l,r$ ，输出任意一组。若不存在则输出 $-1$ 。</p>
+<h3 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h3><p>$1\leqslant t \leqslant 10\ 000\ ,\ 1\leqslant \Sigma n \leqslant 200\ 000\ ,\ $ $a$ 是一个排列。</p>
+<h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>As you know, the girl Dora is always looking for something. This time she was given a permutation, and she wants to find such a subsegment of it that none of the elements at its ends is either the minimum or the maximum of the entire subsegment. More formally, you are asked to find the numbers $ l $ and $ r $ $ (1 \leq l \leq r \leq n) $ such that $ a_l \neq \min(a_l, a_{l + 1}, \ldots, a_r) $ , $ a_l \neq \max(a_l, a_{l + 1}, \ldots, a_r) $ and $ a_r \neq \min(a_l, a_{l + 1}, \ldots, a_r) $ , $ a_r \neq \max(a_l, a_{l + 1}, \ldots, a_r) $ .</p>
+<p>A permutation of length $ n $ is an array consisting of $ n $ distinct integers from $ 1 $ to $ n $ in any order. For example, $ [2,3,1,5,4] $ is a permutation, but $ [1,2,2] $ is not a permutation ( $ 2 $ occurs twice in the array) and $ [1,3,4] $ is also not a permutation ( $ n&#x3D;3 $ , but $ 4 $ is present in the array).</p>
+<p>Help Dora find such a subsegment, or tell her that such a subsegment does not exist.</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test consists of multiple test cases. The first line contains a single integer $ t $ ( $ 1 \leq t \leq 10^4 $ ) — the number of test cases. Description of the test cases follows.</p>
+<p>For each test case, the first line contains one integer $ n $ ( $ 1 \leq n \leq 2 \cdot 10^5 $ ) — the length of permutation.</p>
+<p>The second line contains $ n $ distinct integers $ a_1, a_2, \ldots, a_n $ ( $ 1 \leq a_i \leq n $ ) — the elements of permutation.</p>
+<p>It is guarented that the sum of $ n $ over all test cases doesn’t exceed $ 2 \cdot 10^5 $ .</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output $ -1 $ if the desired subsegment does not exist.</p>
+<p>Otherwise, output two indexes $ l, r $ such that $ [a_{l}, a_{l + 1}, \ldots, a_{r}] $ satisfies all conditions.</p>
+<p>If there are several solutions, then output any of them.</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">3</span><br><span class="line">1 2 3</span><br><span class="line">4</span><br><span class="line">2 1 4 3</span><br><span class="line">7</span><br><span class="line">1 3 2 4 6 5 7</span><br><span class="line">6</span><br><span class="line">2 3 6 5 4 1</span><br></pre></td></tr></table></figure>
+
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-1</span><br><span class="line">1 4</span><br><span class="line">2 6</span><br><span class="line">-1</span><br></pre></td></tr></table></figure>
+
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>给了一个只含有元素1到n且两两不同的数组, 要求我们找出一段子区间, 子区间端点不是这段子区间的最值</p>
+<p>首先我们要想明白, 随着区间的缩短, 区间最大值单调不升, 区间最小值单调不降, 那么对于一段区间而言如果它不合法, 那我们就试着排掉不合法的端点, 缩小区间, 直到区间合法或者答案不存在</p>
+<p>具体的做法是: 我们先尝试全选, 因为序列一定含有1到n, 所以很明显全选的最大值是n, 最小值是n, 如果端点不等于最值, 那么我们直接选, 如果其中一个端点a等于最值, 例如等于n, 那么我们操作a(加1或者减1)缩小区间, 同时因为等于n的点被排除在外了, 剩下的点的最大值肯定就是n-1, 我们再进行对端点进行判断, 重复直到找到答案或者明确答案不存在</p>
+<p><strong>一些心得</strong>: 我就说只含有1到n是个解题很关键的性质, 我们可以确定整段序列上的最大值和最小值是n和1, 并且如果我们删除了n, 那我们就知道最大值就会变成n-1</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">			cin &gt;&gt; a[i];</span><br><span class="line"></span><br><span class="line">		<span class="type">int</span> l = <span class="number">1</span>, r = n, minn = <span class="number">1</span>, maxn = n;</span><br><span class="line">		<span class="keyword">while</span> (l &lt; r)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//等于极值, 区间缩小, 且极值被排除在外</span></span><br><span class="line">			<span class="keyword">if</span> (a[l] == minn) &#123; l++, minn++; <span class="keyword">continue</span>; &#125;</span><br><span class="line">			<span class="keyword">if</span> (a[l] == maxn) &#123; l++, maxn--; <span class="keyword">continue</span>; &#125;</span><br><span class="line">			<span class="keyword">if</span> (a[r] == minn) &#123; r--, minn++; <span class="keyword">continue</span>; &#125;</span><br><span class="line">			<span class="keyword">if</span> (a[r] == maxn) &#123; r--, maxn--; <span class="keyword">continue</span>; &#125;</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (l &lt; r) cout &lt;&lt; l &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; r;</span><br><span class="line">		<span class="keyword">else</span> cout &lt;&lt; <span class="number">-1</span>;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
       
