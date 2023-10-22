@@ -181,7 +181,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1838B/">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1838C/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/m_ava.png">
@@ -195,7 +195,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2023/09/17/CF1838B/" class="post-title-link" itemprop="url">CF1838B</a>
+            <a href="/2023/09/17/CF1838C/" class="post-title-link" itemprop="url">CF1838C</a>
         </h2>
 
         <div class="post-meta">
@@ -212,7 +212,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-17 21:03:16" itemprop="dateModified" datetime="2023-10-17T21:03:16+08:00">2023-10-17</time>
+                <time title="修改时间：2023-10-17 20:54:30" itemprop="dateModified" datetime="2023-10-17T20:54:30+08:00">2023-10-17</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,41 +235,24 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Minimize-Permutation-Subarrays"><a href="#Minimize-Permutation-Subarrays" class="headerlink" title="Minimize Permutation Subarrays"></a>Minimize Permutation Subarrays</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>给定一个长度为 $n$ 的排列 $[p_1, p_2, …, p_n]$ ，任选两个元素（可以相同）并交换<strong>一次</strong>，使得其所有子段中排列（长度不一定为 $n$ ）的个数最少，输出被交换的元素的位置（下标从 $1$ 开始）。</p>
-<p>对于样例 $1$ ，如果交换 $p_1$ 和 $p_2$ ，则可以得到排列 $ [2, 1, 3] $ ，含有 $3$ 个为排列的子段（ $ [1] $ , $ [2, 1] $ , $ [2, 1, 3] $ ）；</p>
-<p>如果交换 $p_1$ 和 $p_3$ ，则可以得到排列 $ [3， 2， 1] $ ，含有 $3$ 个为排列的子段（ $ [1] $ , $ [2， 1] $ , $ [3， 2， 1] $ ）；</p>
-<p>如果交换 $p_2$ 和 $p_3$ ，则可以得到排列 $ [1, 3, 2] $ ，含有 $2$ 个为排列的子段（ $ [1] $ ， $ [1, 3, 2] $ ）。</p>
-<p>故当交换 $p_2$ 和 $p_3$ 时最优。</p>
-<p>对于样例 $3$ ，交换第 $2$ 和第 $5$ 个元素后，得到 $[1, 4, 2, 5, 3]$ ，仅包含两个为排列的子段（ $[1]$ ， $[1, 4,, 2, 5, 3]$ ）。可以证明这是最优的情况。</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You are given a permutation $ p $ of size $ n $ . You want to minimize the number of subarrays of $ p $ that are permutations. In order to do so, you must perform the following operation exactly once:</p>
-<ul>
-<li>Select integers $ i $ , $ j $ , where $ 1 \le i, j \le n $ , then</li>
-<li>Swap $ p_i $ and $ p_j $ .</li>
-</ul>
-<p>For example, if $ p = [5, 1, 4, 2, 3] $ and we choose $ i = 2 $ , $ j = 3 $ , the resulting array will be $ [5, 4, 1, 2, 3] $ . If instead we choose $ i = j = 5 $ , the resulting array will be $ [5, 1, 4, 2, 3] $ .</p>
-<p>Which choice of $ i $ and $ j $ will minimize the number of subarrays that are permutations?</p>
-<p>A permutation of length $ n $ is an array consisting of $ n $ distinct integers from $ 1 $ to $ n $ in arbitrary order. For example, $ [2,3,1,5,4] $ is a permutation, but $ [1,2,2] $ is not a permutation ( $ 2 $ appears twice in the array), and $ [1,3,4] $ is also not a permutation ( $ n=3 $ but there is $ 4 $ in the array).</p>
-<p>An array $ a $ is a subarray of an array $ b $ if $ a $ can be obtained from $ b $ by the deletion of several (possibly, zero or all) elements from the beginning and several (possibly, zero or all) elements from the end.</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>The first line of the input contains a single integer $ t $ ( $ 1 \le t \le 10^4 $ ) — the number of test cases. The description of the test cases follows.</p>
-<p>The first line of each test case contains a single integer $ n $ ( $ 3 \le n \le 2\cdot 10^5 $ ) — the size of the permutation.</p>
-<p>The next line of each test case contains $ n $ integers $ p_1, p_2, \ldots p_n $ ( $ 1 \le p_i \le n $ , all $ p_i $ are distinct) — the elements of the permutation $ p $ .</p>
-<p>It is guaranteed that the sum of $ n $ over all test cases does not exceed $ 2\cdot 10^5 $ .</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output two integers $ i $ and $ j $ ( $ 1 \le i, j \le n $ ) — the indices to swap in $ p $ .</p>
+          <h1 id="No-Prime-Differences"><a href="#No-Prime-Differences" class="headerlink" title="No Prime Differences"></a>No Prime Differences</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>$n \times m$ 的网格，填入 $1,2,3,…,n \times m$，使得相邻的两个方格的差不是质数。</p>
+<p>多组数据，输出任意一种方案（保证有解），每组输出间有空行（见样例）。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You are given integers $ n $ and $ m $ . Fill an $ n $ by $ m $ grid with the integers $ 1 $ through $ n\cdot m $ , in such a way that for any two adjacent cells in the grid, the absolute difference of the values in those cells is not a prime number. Two cells in the grid are considered adjacent if they share a side.</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>The first line of the input contains a single integer $ t $ ( $ 1 \le t \le 1000 $ ) — the number of test cases. The description of the test cases follows.</p>
+<p>The first and only line of each test case contains two integers $ n $ and $ m $ ( $ 4 \le n, m \le 1000 $ ) — the dimensions of the grid.</p>
+<p>It is guaranteed that the sum of $ n\cdot m $ over all test cases does not exceed $ 10^6 $ .</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output $ n $ lines of $ m $ integers each, representing the final grid. Every number from $ 1 $ to $ n\cdot m $ should appear exactly once in the grid.</p>
+<p>The extra spaces and blank lines in the sample output below are only present to make the output easier to read, and are not required.</p>
 <p>If there are multiple solutions, print any of them.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">3</span><br><span class="line">1 2 3</span><br><span class="line">3</span><br><span class="line">1 3 2</span><br><span class="line">5</span><br><span class="line">1 3 2 5 4</span><br><span class="line">6</span><br><span class="line">4 5 6 1 2 3</span><br><span class="line">9</span><br><span class="line">8 7 6 3 2 1 4 5 9</span><br><span class="line">10</span><br><span class="line">7 10 5 1 9 8 3 2 6 4</span><br><span class="line">10</span><br><span class="line">8 5 10 9 2 1 3 4 6 7</span><br><span class="line">10</span><br><span class="line">2 3 5 7 10 1 8 6 4 9</span><br></pre></td></tr></table></figure>
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">2 3</span><br><span class="line">1 1</span><br><span class="line">5 2</span><br><span class="line">1 4</span><br><span class="line">9 5</span><br><span class="line">8 8</span><br><span class="line">6 10</span><br><span class="line">5 4</span><br></pre></td></tr></table></figure>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>要让子序列的个数最少. 题目要求一个合法的长度为 k 的子序列需要包含元素1到k, 且子序列需要是连续的一段</p>
-<p>那么每个子序列肯定要从1开始吧, 然后下一个就要找2吧, 那如果1和2隔得很远, 比如1在开头, 2在结尾, 那么我们很明显就只有两个子序列, 一个是1, 另一个是1到n</p>
-<p>所以第一反应是把1和2放到开头和结尾, 这样很明显子序列是最少的, 但是交换只能进行一次, 如果1和2都在中间, 我们没办法通过一次交换达到这个结果</p>
-<p>我们再考虑别的方法, 例如子序列 <code>1 6 2</code>, 这肯定是不合法的吧, 因为我们在囊括1和2的时候包进去了一个比子序列长度大的数, 那我们不一定非要让1和2在开头和结尾, 我们只需要让最大的数在1和2中间即可</p>
-<p>仔细解释一下, 因为任何长度大于二的子序列都需要2和1, 我们包含2和1的时候就肯定要包含最大的数n, 要让这个子序列合法, 我们就只能把整个序列包含进去才能合法, 这样子我们就只有两个子序列, 一个只有1, 一个有1到n, 就是最少的</p>
-<p>具体方法是: </p>
-<ul>
-<li>如果1和2中间没有数字, 看看把1和n交换还是2和n能达到上述条件</li>
-<li>如果1和2中间有别的数字, 选出最小的那个和 n 交换</li>
-</ul>
-<p><strong>注意</strong>: 不一定1就在左边2就在右边, 不要惯性思维</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="type">int</span> pos1, pos2, posmax;	<span class="comment">//记录1, 2, n的位置</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; a[i];</span><br><span class="line">			<span class="keyword">if</span>(a[i] == <span class="number">1</span>) pos1 = i;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(a[i] == <span class="number">2</span>) pos2 = i;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span>(a[i] == n) posmax = i;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>((pos1 &lt; posmax &amp;&amp; posmax &lt; pos2) || (pos2 &lt; posmax &amp;&amp; posmax &lt; pos1))	</span><br><span class="line">        <span class="comment">//别把n换出去就行 </span></span><br><span class="line">		&#123;</span><br><span class="line">			cout &lt;&lt; pos1 &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; pos2 &lt;&lt; endl;</span><br><span class="line">			<span class="keyword">continue</span>; </span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span>(<span class="built_in">abs</span>(pos1 - pos2) == <span class="number">1</span>)	<span class="comment">//中间没有空位</span></span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(posmax &lt; <span class="built_in">min</span>(pos1, pos2))</span><br><span class="line">				&#123;</span><br><span class="line">					cout &lt;&lt; <span class="built_in">min</span>(pos1, pos2) &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; posmax &lt;&lt; endl;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					cout &lt;&lt; <span class="built_in">max</span>(pos1, pos2) &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; posmax &lt;&lt; endl;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">continue</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="type">int</span> minn = <span class="number">1e9</span>, minpos = pos1;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> i = <span class="built_in">min</span>(pos1, pos2) + <span class="number">1</span>; i &lt; <span class="built_in">max</span>(pos1, pos2); i++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span>(a[i] &lt; minn)</span><br><span class="line">				&#123;</span><br><span class="line">					minn = a[i], minpos = i;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			cout &lt;&lt; minpos &lt;&lt; <span class="string">&#x27; &#x27;</span> &lt;&lt; posmax &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line"> 	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4 4</span><br><span class="line">5 7</span><br><span class="line">6 4</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">16  7  1  9</span><br><span class="line">12  8  2  3</span><br><span class="line">13  4 10 11</span><br><span class="line">14  5  6 15</span><br><span class="line"></span><br><span class="line">29 23 17  9  5  6  2</span><br><span class="line">33 27 21 15 11  7  1</span><br><span class="line">32 31 25 19 20 16 10</span><br><span class="line">26 30 24 18 14  8  4</span><br><span class="line">35 34 28 22 13 12  3</span><br><span class="line"></span><br><span class="line"> 2  3  7 11</span><br><span class="line"> 8  9  1 10</span><br><span class="line">17 13  5  4</span><br><span class="line">18 14  6 12</span><br><span class="line">19 23 15 21</span><br><span class="line">20 24 16 22</span><br></pre></td></tr></table></figure>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>构建一个 $n\times m$ 的矩阵</p>
+<p>首先, 首先首先, <strong>1不是素数</strong>, 所以我们可以构建出以下这个矩阵</p>
+<p>$\begin{matrix}<br>  &amp;1  &amp;2  &amp;3 &amp;4 \\<br>  &amp;5  &amp;6  &amp;7 &amp;8 \\<br>  &amp;9  &amp;10  &amp;11 &amp;12\\<br>\end{matrix}$</p>
+<p>这样子横向差都是1, 但是这样纵向差是 $m$, 如果 $m$ 是素数, 那这样子就寄了</p>
+<p>那我们又想, 纵向差是 $m$ 不可以, 那么如果差是 $2\times m$ 不就可以了吗, 所以我们完全可以先按以上方法构造, 然后把奇数行凑一起输出, 把偶数行凑一起输出</p>
+<p>有一点要注意的是, 先输出偶数行, 再输出奇数行, 可以避免出现纵向差为 $m$ 的情况, 如果先输出奇数行, 可能会出现第一行, 第三行, 第二行, 第四行的情况, 还是有可能出现纵向差是 $m$</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1010</span>;</span><br><span class="line"><span class="type">int</span> a[N][N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n, m; cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">		<span class="type">int</span> num = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">				a[i][j] = num++;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//先输出偶数行 </span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n; i += <span class="number">2</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">				cout &lt;&lt; a[i][j] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">			cout &lt;&lt; endl;	</span><br><span class="line">		&#125; </span><br><span class="line">		<span class="comment">//再输出奇数行</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i += <span class="number">2</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span>(<span class="type">int</span> j = <span class="number">1</span>; j &lt;= m; j++)</span><br><span class="line">				cout &lt;&lt; a[i][j] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">			cout &lt;&lt; endl;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -370,6 +353,108 @@
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>我们先只考虑前i个数字, 在1到k这一段, 我们需要1个1, 从k+1到2k这一段, 我们需要2个1…, 为了使每一段都合法, 那我们肯定要把1放在每一段的开头, 具体来说就是位置1放1, 位置k+1放1, 位置2k+1放1…</p>
 <p>因为给的n很小, 我们完全可以先只按以上原则构造, 然后再从后往前遍历, 如果到一个位置发现1不够, 就在那个位置补1个就好了, 时间复杂度为 $O(n)$ </p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">110</span>;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">memset</span>(a, <span class="number">0</span>, <span class="keyword">sizeof</span> a);	<span class="comment">//多例要清空</span></span><br><span class="line">		<span class="type">int</span> n, k; cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">		<span class="type">int</span> sum = <span class="number">0</span>;	<span class="comment">//记录目前放了几个1</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i += k)</span><br><span class="line">			a[i] = <span class="number">1</span>, sum++;</span><br><span class="line">		<span class="type">int</span> num = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)	<span class="comment">//从后往前遍历</span></span><br><span class="line">		&#123;</span><br><span class="line">			num += a[n - i + <span class="number">1</span>];	<span class="comment">//记录到目前位置一共有几个1</span></span><br><span class="line">			<span class="type">int</span> cod = (i % k &gt; <span class="number">0</span>) + i / k;	<span class="comment">//至少需要cod个1才合法</span></span><br><span class="line">			<span class="keyword">if</span>(num &lt; cod) sum++, num++;	<span class="comment">//在这个位置补1个1, num也要更新</span></span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; sum &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1839B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/m_ava.png">
+      <meta itemprop="name" content="beishangeyu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Eyu's Blog">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/09/17/CF1839B/" class="post-title-link" itemprop="url">CF1839B</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-17 20:54:21" itemprop="dateModified" datetime="2023-10-17T20:54:21+08:00">2023-10-17</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Lamps"><a href="#Lamps" class="headerlink" title="Lamps"></a>Lamps</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>有 $n$ 盏灯，每盏灯有不亮，亮，坏掉 3 种状态。一开始每盏灯都不亮。</p>
+<p>第 $i$ 盏灯有属性 $a_i,b_i$。每次操作你可以选择一盏灭的灯将其点亮，并得到 $b_i$ 的分数。</p>
+<p>每次操作结束后，记有 $x$ 盏灯亮着，则所有 $a_i \le x$ 的灯 $i$ 都会损坏（无论是否亮着）。</p>
+<p>求能得到的最大分数。多组数据。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You have $ n $ lamps, numbered by integers from $ 1 $ to $ n $ . Each lamp $ i $ has two integer parameters $ a_i $ and $ b_i $ .</p>
+<p>At each moment each lamp is in one of three states: it may be turned on, turned off, or broken.</p>
+<p>Initially all lamps are turned off. In one operation you can select one lamp that is turned off and turn it on (you can’t turn on broken lamps). You receive $ b_i $ points for turning lamp $ i $ on. The following happens after each performed operation:</p>
+<ul>
+<li>Let’s denote the number of lamps that are turned on as $ x $ (broken lamps do not count). All lamps $ i $ such that $ a_i \le x $ simultaneously break, whether they were turned on or off.</li>
+</ul>
+<p>Please note that broken lamps never count as turned on and that after a turned on lamp breaks, you still keep points received for turning it on.</p>
+<p>You can perform an arbitrary number of operations.</p>
+<p>Find the maximum number of points you can get.</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>The first line contains a single integer $ t $ ( $ 1 \le t \le 10^4 $ ) — the number of test cases.</p>
+<p>The first line contains a single integer $ n $ ( $ 1 \le n \le 2 \cdot 10^5 $ ) — the number of lamps.</p>
+<p>Each of the next $ n $ lines contains two integers $ a_i $ and $ b_i $ ( $ 1 \le a_i \le n, 1 \le b_i \le 10^9 $ ) — parameters of the $ i $ -th lamp.</p>
+<p>It is guaranteed that sum of $ n $ over all test cases doesn’t exceed $ 2 \cdot 10^5 $ .</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output one integer — the maximum number of points you can get.</p>
+<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">4</span><br><span class="line">2 2</span><br><span class="line">1 6</span><br><span class="line">1 10</span><br><span class="line">1 13</span><br><span class="line">5</span><br><span class="line">3 4</span><br><span class="line">3 1</span><br><span class="line">2 5</span><br><span class="line">3 2</span><br><span class="line">3 3</span><br><span class="line">6</span><br><span class="line">1 2</span><br><span class="line">3 4</span><br><span class="line">1 4</span><br><span class="line">3 4</span><br><span class="line">3 5</span><br><span class="line">2 3</span><br><span class="line">1</span><br><span class="line">1 1</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">15</span><br><span class="line">14</span><br><span class="line">20</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>当灯笼 $i$ 的 $a_i$ 小于等于目前亮着的灯笼个数 $x$ 的时候, 灯笼 $i$ 就会坏掉, 如果它没被点亮, 那么我们很明显就亏了 $b_i$ 的价值</p>
+<p>而且很明显的是, $a_i$ 越小对 $x$ 的要求越高, 越容易浪费, 所以我们的思路就是一定要从小的 $a_i$ 开始点亮, 当 a_i 相同时, 我们要先点 $b_i$ 大的灯笼, 而且当一个灯笼被点亮之后坏掉了, 我们仍能保留价值, 且这个坏掉的灯笼不计入 $x$ </p>
+<p>具体做法是: 对灯笼依据 $a_i$ 升序排列, 相同情况下 $b_i$ 大的放在前边, 然后我们遍历灯笼, 一个一个点亮, 用 <strong>队列</strong>存储自己点亮的灯笼的 $a_i$, 很明显队列中的 $a_i$ 也是非降序的</p>
+<p>因为灯笼肯定是从 $a_i$ 小的开始坏起, 符合队列 <strong>先进先出</strong> 的性质, 每次遍历我们看看队头元素是否小于等于队列的长度, 然后一直弹出直到队头元素大于队列长度, 注意随着弹出队列长度显然</p>
+<p>注意, 灯笼所有满足条件的同时坏掉的, 但是队列弹出长度会减小, 所以我们先要把长度存起来</p>
+<p>对于 $a$ 是 3 3 3 3 3 3 3 的情况, 我们在点亮第三个灯笼的时候, 不仅队列中的三个灯笼要坏掉, 其他的 $a=3$ 的灯笼也是要坏掉的, 我们不能只依靠队列的弹出来判断灯笼是否坏掉, 所以我们每次要记录最后一个弹出的元素的 $a$ 是多少, 代表着这个值的 $a$ 的灯笼是要坏掉的, 由于排序后 $a$ 满足非递减, 所以我们只需要判断即将要点亮的灯笼的 $a_i$ 是不是等于 $a$ 即可, 如果是就说明之前坏掉了, 是不能点亮的</p>
+<p><strong>!</strong>: $a$ 和 $b$ 到了 $10^9$ , 无需多言, 开long long</p>
+<p>在判断灯笼坏掉的部分, 因为每个灯笼最多也就进队出队一次, 这里的时间复杂度是 $O(n)$ 的, 不难看出总的时间复杂度是 $O(n)$</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line">	ll a, b;</span><br><span class="line">&#125;c[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(A p, A q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(p.a == q.a) <span class="keyword">return</span> p.b &gt; q.b;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> p.a &lt; q.a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		queue&lt;ll&gt; q;	<span class="comment">//存放已经开了的灯 </span></span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; c[i].a &gt;&gt; c[i].b;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">sort</span>(c + <span class="number">1</span>, c + n + <span class="number">1</span>, cmp);</span><br><span class="line">		ll ans = <span class="number">0</span>, tobreak = <span class="number">-1</span>;	<span class="comment">//tobreak代表也是要坏的灯笼</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			ll sz = q.<span class="built_in">size</span>(); </span><br><span class="line">			<span class="keyword">while</span>(q.<span class="built_in">size</span>())</span><br><span class="line">			&#123;</span><br><span class="line">				ll tmp = q.<span class="built_in">front</span>();</span><br><span class="line">				<span class="keyword">if</span>(tmp &gt; sz) <span class="keyword">break</span>;</span><br><span class="line">				tobreak = tmp, q.<span class="built_in">pop</span>();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(c[i].a == tobreak) <span class="keyword">continue</span>;</span><br><span class="line">			ans += c[i].b;</span><br><span class="line">			q.<span class="built_in">push</span>(c[i].a);</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; ans &lt;&lt; endl; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -576,108 +661,6 @@
 <p>感觉是一个好大的坑啊妈的</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>感觉这个代码写得好屈辱啊妈的</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">if</span>(n &gt;= <span class="number">5</span>) cout &lt;&lt; <span class="string">&quot;Alice\n&quot;</span>;</span><br><span class="line">		<span class="keyword">else</span> cout &lt;&lt; <span class="string">&quot;Bob\n&quot;</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://beishangeyu.github.io/2023/09/17/CF1839B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/m_ava.png">
-      <meta itemprop="name" content="beishangeyu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Eyu's Blog">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/09/17/CF1839B/" class="post-title-link" itemprop="url">CF1839B</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-09-17 20:52:29" itemprop="dateCreated datePublished" datetime="2023-09-17T20:52:29+08:00">2023-09-17</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-10-17 20:54:21" itemprop="dateModified" datetime="2023-10-17T20:54:21+08:00">2023-10-17</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%A2%98%E8%A7%A3/" itemprop="url" rel="index"><span itemprop="name">题解</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Lamps"><a href="#Lamps" class="headerlink" title="Lamps"></a>Lamps</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>有 $n$ 盏灯，每盏灯有不亮，亮，坏掉 3 种状态。一开始每盏灯都不亮。</p>
-<p>第 $i$ 盏灯有属性 $a_i,b_i$。每次操作你可以选择一盏灭的灯将其点亮，并得到 $b_i$ 的分数。</p>
-<p>每次操作结束后，记有 $x$ 盏灯亮着，则所有 $a_i \le x$ 的灯 $i$ 都会损坏（无论是否亮着）。</p>
-<p>求能得到的最大分数。多组数据。</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You have $ n $ lamps, numbered by integers from $ 1 $ to $ n $ . Each lamp $ i $ has two integer parameters $ a_i $ and $ b_i $ .</p>
-<p>At each moment each lamp is in one of three states: it may be turned on, turned off, or broken.</p>
-<p>Initially all lamps are turned off. In one operation you can select one lamp that is turned off and turn it on (you can’t turn on broken lamps). You receive $ b_i $ points for turning lamp $ i $ on. The following happens after each performed operation:</p>
-<ul>
-<li>Let’s denote the number of lamps that are turned on as $ x $ (broken lamps do not count). All lamps $ i $ such that $ a_i \le x $ simultaneously break, whether they were turned on or off.</li>
-</ul>
-<p>Please note that broken lamps never count as turned on and that after a turned on lamp breaks, you still keep points received for turning it on.</p>
-<p>You can perform an arbitrary number of operations.</p>
-<p>Find the maximum number of points you can get.</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>The first line contains a single integer $ t $ ( $ 1 \le t \le 10^4 $ ) — the number of test cases.</p>
-<p>The first line contains a single integer $ n $ ( $ 1 \le n \le 2 \cdot 10^5 $ ) — the number of lamps.</p>
-<p>Each of the next $ n $ lines contains two integers $ a_i $ and $ b_i $ ( $ 1 \le a_i \le n, 1 \le b_i \le 10^9 $ ) — parameters of the $ i $ -th lamp.</p>
-<p>It is guaranteed that sum of $ n $ over all test cases doesn’t exceed $ 2 \cdot 10^5 $ .</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output one integer — the maximum number of points you can get.</p>
-<h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">4</span><br><span class="line">2 2</span><br><span class="line">1 6</span><br><span class="line">1 10</span><br><span class="line">1 13</span><br><span class="line">5</span><br><span class="line">3 4</span><br><span class="line">3 1</span><br><span class="line">2 5</span><br><span class="line">3 2</span><br><span class="line">3 3</span><br><span class="line">6</span><br><span class="line">1 2</span><br><span class="line">3 4</span><br><span class="line">1 4</span><br><span class="line">3 4</span><br><span class="line">3 5</span><br><span class="line">2 3</span><br><span class="line">1</span><br><span class="line">1 1</span><br></pre></td></tr></table></figure>
-<h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">15</span><br><span class="line">14</span><br><span class="line">20</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>当灯笼 $i$ 的 $a_i$ 小于等于目前亮着的灯笼个数 $x$ 的时候, 灯笼 $i$ 就会坏掉, 如果它没被点亮, 那么我们很明显就亏了 $b_i$ 的价值</p>
-<p>而且很明显的是, $a_i$ 越小对 $x$ 的要求越高, 越容易浪费, 所以我们的思路就是一定要从小的 $a_i$ 开始点亮, 当 a_i 相同时, 我们要先点 $b_i$ 大的灯笼, 而且当一个灯笼被点亮之后坏掉了, 我们仍能保留价值, 且这个坏掉的灯笼不计入 $x$ </p>
-<p>具体做法是: 对灯笼依据 $a_i$ 升序排列, 相同情况下 $b_i$ 大的放在前边, 然后我们遍历灯笼, 一个一个点亮, 用 <strong>队列</strong>存储自己点亮的灯笼的 $a_i$, 很明显队列中的 $a_i$ 也是非降序的</p>
-<p>因为灯笼肯定是从 $a_i$ 小的开始坏起, 符合队列 <strong>先进先出</strong> 的性质, 每次遍历我们看看队头元素是否小于等于队列的长度, 然后一直弹出直到队头元素大于队列长度, 注意随着弹出队列长度显然</p>
-<p>注意, 灯笼所有满足条件的同时坏掉的, 但是队列弹出长度会减小, 所以我们先要把长度存起来</p>
-<p>对于 $a$ 是 3 3 3 3 3 3 3 的情况, 我们在点亮第三个灯笼的时候, 不仅队列中的三个灯笼要坏掉, 其他的 $a=3$ 的灯笼也是要坏掉的, 我们不能只依靠队列的弹出来判断灯笼是否坏掉, 所以我们每次要记录最后一个弹出的元素的 $a$ 是多少, 代表着这个值的 $a$ 的灯笼是要坏掉的, 由于排序后 $a$ 满足非递减, 所以我们只需要判断即将要点亮的灯笼的 $a_i$ 是不是等于 $a$ 即可, 如果是就说明之前坏掉了, 是不能点亮的</p>
-<p><strong>!</strong>: $a$ 和 $b$ 到了 $10^9$ , 无需多言, 开long long</p>
-<p>在判断灯笼坏掉的部分, 因为每个灯笼最多也就进队出队一次, 这里的时间复杂度是 $O(n)$ 的, 不难看出总的时间复杂度是 $O(n)$</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">A</span></span><br><span class="line">&#123;</span><br><span class="line">	ll a, b;</span><br><span class="line">&#125;c[N];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">cmp</span><span class="params">(A p, A q)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(p.a == q.a) <span class="keyword">return</span> p.b &gt; q.b;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> p.a &lt; q.a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span>(t--)</span><br><span class="line">	&#123;</span><br><span class="line">		queue&lt;ll&gt; q;	<span class="comment">//存放已经开了的灯 </span></span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; c[i].a &gt;&gt; c[i].b;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">sort</span>(c + <span class="number">1</span>, c + n + <span class="number">1</span>, cmp);</span><br><span class="line">		ll ans = <span class="number">0</span>, tobreak = <span class="number">-1</span>;	<span class="comment">//tobreak代表也是要坏的灯笼</span></span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			ll sz = q.<span class="built_in">size</span>(); </span><br><span class="line">			<span class="keyword">while</span>(q.<span class="built_in">size</span>())</span><br><span class="line">			&#123;</span><br><span class="line">				ll tmp = q.<span class="built_in">front</span>();</span><br><span class="line">				<span class="keyword">if</span>(tmp &gt; sz) <span class="keyword">break</span>;</span><br><span class="line">				tobreak = tmp, q.<span class="built_in">pop</span>();</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span>(c[i].a == tobreak) <span class="keyword">continue</span>;</span><br><span class="line">			ans += c[i].b;</span><br><span class="line">			q.<span class="built_in">push</span>(c[i].a);</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; ans &lt;&lt; endl; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
