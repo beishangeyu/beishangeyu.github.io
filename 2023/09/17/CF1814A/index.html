@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"beishangeyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":null,"padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Coins题面翻译本题一共有 $t$ 组数据。 每组数据包含两个整数 $n$ 和 $k$，如果存在两个非负整数 $x,y$，满足 $2\times x+k\times y&#x3D;n$，输出 YES，否则输出 NO 题目描述In Berland, there are two types of coins, having denominations of $ 2 $ and $ k $ burle">
+  <meta name="description" content="Coins题面翻译本题一共有 $t$ 组数据。 每组数据包含两个整数 $n$ 和 $k$，如果存在两个非负整数 $x,y$，满足 $2\times x+k\times y&#x3D;n$，输出 YES，否则输出 NO 题目描述In Berland, there are two types of coins, having denominations of $ 2 $ and $ k $ burles. Yo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF1814A">
 <meta property="og:url" content="https://beishangeyu.github.io/2023/09/17/CF1814A/index.html">
 <meta property="og:site_name" content="Eyu&#39;s Blog">
-<meta property="og:description" content="Coins题面翻译本题一共有 $t$ 组数据。 每组数据包含两个整数 $n$ 和 $k$，如果存在两个非负整数 $x,y$，满足 $2\times x+k\times y&#x3D;n$，输出 YES，否则输出 NO 题目描述In Berland, there are two types of coins, having denominations of $ 2 $ and $ k $ burle">
+<meta property="og:description" content="Coins题面翻译本题一共有 $t$ 组数据。 每组数据包含两个整数 $n$ 和 $k$，如果存在两个非负整数 $x,y$，满足 $2\times x+k\times y&#x3D;n$，输出 YES，否则输出 NO 题目描述In Berland, there are two types of coins, having denominations of $ 2 $ and $ k $ burles. Yo">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-17T12:52:29.000Z">
 <meta property="article:modified_time" content="2023-10-17T13:06:46.959Z">
@@ -241,23 +241,20 @@
 
       
         <h1 id="Coins"><a href="#Coins" class="headerlink" title="Coins"></a>Coins</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p><strong>本题一共有 $t$ 组数据。</strong></p>
-<p>每组数据包含两个整数 $n$ 和 $k$，如果存在两个非负整数 $x,y$，满足 $2\times x+k\times y&#x3D;n$，输出 <code>YES</code>，否则输出 <code>NO</code></p>
+<p>每组数据包含两个整数 $n$ 和 $k$，如果存在两个非负整数 $x,y$，满足 $2\times x+k\times y=n$，输出 <code>YES</code>，否则输出 <code>NO</code></p>
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>In Berland, there are two types of coins, having denominations of $ 2 $ and $ k $ burles.</p>
-<p>Your task is to determine whether it is possible to represent $ n $ burles in coins, i. e. whether there exist non-negative integers $ x $ and $ y $ such that $ 2 \cdot x + k \cdot y &#x3D; n $ .</p>
+<p>Your task is to determine whether it is possible to represent $ n $ burles in coins, i. e. whether there exist non-negative integers $ x $ and $ y $ such that $ 2 \cdot x + k \cdot y = n $ .</p>
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>The first line contains a single integer $ t $ ( $ 1 \le t \le 10^4 $ ) — the number of test cases.</p>
 <p>The only line of each test case contains two integers $ n $ and $ k $ ( $ 1 \le k \le n \le 10^{18} $ ; $ k \ne 2 $ ).</p>
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, print YES if it is possible to represent $ n $ burles in coins; otherwise, print NO. You may print each letter in any case (YES, yes, Yes will all be recognized as positive answer, NO, no and nO will all be recognized as negative answer).</p>
 <h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">5 3</span><br><span class="line">6 1</span><br><span class="line">7 4</span><br><span class="line">8 8</span><br></pre></td></tr></table></figure>
-
 <h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">YES</span><br><span class="line">YES</span><br><span class="line">NO</span><br><span class="line">YES</span><br></pre></td></tr></table></figure>
-
-<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>In the first test case, you can take one coin with denomination $ 2 $ and one coin with denomination $ k &#x3D; 3 $ .</p>
-<p>In the second test case, you can take three coins with denomination $ 2 $ . Alternatively, you can take six coins with denomination $ k &#x3D; 1 $ .</p>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>In the first test case, you can take one coin with denomination $ 2 $ and one coin with denomination $ k = 3 $ .</p>
+<p>In the second test case, you can take three coins with denomination $ 2 $ . Alternatively, you can take six coins with denomination $ k = 1 $ .</p>
 <p>In the third test case, there is no way to represent $ 7 $ burles.</p>
-<p>In the fourth test case, you can take one coin with denomination $ k &#x3D; 8 $ .</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>问我们能否用面值为2的硬币和面值为k的硬币表示 n , 即是问是否存在非负整数 x 和 y 使得 $2\times x + k \times y &#x3D; n$ , 如果存在, 那么其中y个面值为硬币肯定可以拆出 x’ 个面值为2的硬币, 余数为 y’ , 我们只需要从0到1枚举 y’ , 看看 $n - y’\times k$ 是否是个偶数, 即是否可以被二整除即可</p>
+<p>In the fourth test case, you can take one coin with denomination $ k = 8 $ .</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>问我们能否用面值为2的硬币和面值为k的硬币表示 n , 即是问是否存在非负整数 x 和 y 使得 $2\times x + k \times y = n$ , 如果存在, 那么其中y个面值为硬币肯定可以拆出 x’ 个面值为2的硬币, 余数为 y’ , 我们只需要从0到1枚举 y’ , 看看 $n - y’\times k$ 是否是个偶数, 即是否可以被二整除即可</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> ULL;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		ULL n, k; cin &gt;&gt; n &gt;&gt; k;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt;= <span class="number">2</span>; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (i == <span class="number">2</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				cout &lt;&lt; <span class="string">&quot;no&quot;</span> &lt;&lt; endl;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			ULL v = n - i * k;</span><br><span class="line">			<span class="keyword">if</span> (v % <span class="number">2</span> == <span class="number">0</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				cout &lt;&lt; <span class="string">&quot;yes&quot;</span> &lt;&lt; endl;</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -277,8 +274,8 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1815A/" rel="prev" title="CF1815A">
-      <i class="fa fa-chevron-left"></i> CF1815A
+    <a href="/2023/09/17/CF1808B/" rel="prev" title="CF1808B">
+      <i class="fa fa-chevron-left"></i> CF1808B
     </a></div>
       <div class="post-nav-item">
     <a href="/2023/09/17/CF1814B/" rel="next" title="CF1814B">

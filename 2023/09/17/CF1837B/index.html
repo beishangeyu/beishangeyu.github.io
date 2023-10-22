@@ -263,9 +263,6 @@
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, print one integer — the minimum cost among all arrays which are compatible with the given string $ s $ .</p>
 <h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">4</span><br><span class="line">&lt;&lt;&gt;&gt;</span><br><span class="line">4</span><br><span class="line">&gt;&gt;&lt;&lt;</span><br><span class="line">&gt;&gt;5</span><br><span class="line">&gt;</span><br><span class="line">&gt;7</span><br><span class="line">&gt;&lt;&gt;&lt;&gt;&lt;&gt;&lt;</span><br></pre></td></tr></table></figure>
 <h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">3</span><br><span class="line">6</span><br><span class="line">2</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>通过分析所给样例可以得出，答案是最长的连续出现的相同符号的个数 + 1，很简单很不讲道理，或许这就是贪心吧</p>
 <p>简单感性理解一下为什么可以这样子, 我们单独看最长连续出现的相同符号这一段, 假设是 “&lt;&lt;&lt;&lt;” 那我们可以构造 “1&lt;2&lt;3&lt;4”, 其他的情况我们只需要或反向或正向的使用这一段里边的数字就可以了, 是一定一定可以用这几个数字填入其他所有的地方的</p>
 <p>这个其实还是比较好理解的, 你脑子里自己想象一下</p>

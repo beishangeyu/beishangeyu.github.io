@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"beishangeyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":null,"padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Long Legs题面翻译给你一个无限大小的棋盘，一个机器人初始位置为 $(0,0)$，初始每次可移动的长度为 $1$。对于一个当前在 $(x,y)$ 的机器人，且它当前的可移动长度为 $m$（初始为 $1$)。则它可以耗费一个时间进行如下操作：$\qquad$ 1. 移动到 $(x+m,y)$。$\qquad$ 2. 移动到 $(x,y+m)$。$\qquad$ 3.使得 $m&#x3D;m+1">
+  <meta name="description" content="Long Legs题面翻译给你一个无限大小的棋盘，一个机器人初始位置为 $(0,0)$，初始每次可移动的长度为 $1$。对于一个当前在 $(x,y)$ 的机器人，且它当前的可移动长度为 $m$（初始为 $1$)。则它可以耗费一个时间进行如下操作：$\qquad$ 1. 移动到 $(x+m,y)$。$\qquad$ 2. 移动到 $(x,y+m)$。$\qquad$ 3.使得 $m&#x3D;m+1$。注意：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF1814B">
 <meta property="og:url" content="https://beishangeyu.github.io/2023/09/17/CF1814B/index.html">
 <meta property="og:site_name" content="Eyu&#39;s Blog">
-<meta property="og:description" content="Long Legs题面翻译给你一个无限大小的棋盘，一个机器人初始位置为 $(0,0)$，初始每次可移动的长度为 $1$。对于一个当前在 $(x,y)$ 的机器人，且它当前的可移动长度为 $m$（初始为 $1$)。则它可以耗费一个时间进行如下操作：$\qquad$ 1. 移动到 $(x+m,y)$。$\qquad$ 2. 移动到 $(x,y+m)$。$\qquad$ 3.使得 $m&#x3D;m+1">
+<meta property="og:description" content="Long Legs题面翻译给你一个无限大小的棋盘，一个机器人初始位置为 $(0,0)$，初始每次可移动的长度为 $1$。对于一个当前在 $(x,y)$ 的机器人，且它当前的可移动长度为 $m$（初始为 $1$)。则它可以耗费一个时间进行如下操作：$\qquad$ 1. 移动到 $(x+m,y)$。$\qquad$ 2. 移动到 $(x,y+m)$。$\qquad$ 3.使得 $m&#x3D;m+1$。注意：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-17T12:52:29.000Z">
 <meta property="article:modified_time" content="2023-10-17T13:06:42.544Z">
@@ -240,7 +240,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Long-Legs"><a href="#Long-Legs" class="headerlink" title="Long Legs"></a>Long Legs</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>给你一个无限大小的棋盘，一个机器人初始位置为 $(0,0)$，初始每次可移动的长度为 $1$。<br>对于一个当前在 $(x,y)$ 的机器人，且它当前的可移动长度为 $m$（初始为 $1$)。则它可以耗费一个时间进行如下操作：<br>$\qquad$ 1. 移动到 $(x+m,y)$。<br>$\qquad$ 2. 移动到 $(x,y+m)$。<br>$\qquad$ 3.使得 $m&#x3D;m+1$。<br>注意：在当前位置使得 $m&#x3D;m+1$ 后会影响后面的操作。 </p>
+        <h1 id="Long-Legs"><a href="#Long-Legs" class="headerlink" title="Long Legs"></a>Long Legs</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>给你一个无限大小的棋盘，一个机器人初始位置为 $(0,0)$，初始每次可移动的长度为 $1$。<br>对于一个当前在 $(x,y)$ 的机器人，且它当前的可移动长度为 $m$（初始为 $1$)。则它可以耗费一个时间进行如下操作：<br>$\qquad$ 1. 移动到 $(x+m,y)$。<br>$\qquad$ 2. 移动到 $(x,y+m)$。<br>$\qquad$ 3.使得 $m=m+1$。<br>注意：在当前位置使得 $m=m+1$ 后会影响后面的操作。 </p>
 <p>现在给你两个正整数 $a,b(1 \leq a,b \leq 10^9)$，问机器人最少需要多少单位时间可以到达 $(a,b)$。</p>
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>A robot is placed in a cell $ (0, 0) $ of an infinite grid. This robot has adjustable length legs. Initially, its legs have length $ 1 $ .</p>
 <p>Let the robot currently be in the cell $ (x, y) $ and have legs of length $ m $ . In one move, it can perform one of the following three actions:</p>
@@ -254,9 +254,7 @@
 <p>The only line of each test case contains two integers $ a $ and $ b $ ( $ 1 \le a, b \le 10^9 $ ) — the ending cell.</p>
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, print a single integer — the smallest number of moves the robot is required to make to reach a cell $ (a, b) $ from a cell $ (0, 0) $ .</p>
 <h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">1 1</span><br><span class="line">1 6</span><br><span class="line">8 4</span><br></pre></td></tr></table></figure>
-
 <h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
-
 <h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>In the first testcase, the robot can first jump to $ (0, 1) $ , then to $ (1, 1) $ . If it ever increases the length of its legs, it will only be able to jump past $ (1, 1) $ .</p>
 <p>In the second testcase, the robot can jump to $ (1, 0) $ , then increase the length of its length to $ 2 $ and jump three times to reach $ (1, 6) $ .</p>
 <p>In the third testcase, the robot can increase the length of its legs three times to make it $ 4 $ . Then jump to $ (0, 4) $ . Then jump twice to reach $ (8, 4) $ .</p>
@@ -265,18 +263,17 @@
 <p>终点是 (a, b) , 以x轴为例: </p>
 <ul>
 <li>当 a 可以被我们选好的 m 整除时, 跳到 (a, 0) 的步数是 $\frac{a}{m}$ , </li>
-<li>当 a 不能被整除时, 我们以 m 去跳最多能跳到 $\left [  \frac{a}{m}\right ]$ 位置, 剩下的部分一定小于 m , 记为 k , 我们在增加步长的过程中肯定会出现 m &#x3D; k 的时候, 我们只需要在这个时候以步长 k 跳一次格子即可, 跳到 (a, 0) 的步数就是 $\left [  \frac{a}{m}\right ] + 1$</li>
+<li>当 a 不能被整除时, 我们以 m 去跳最多能跳到 $\left [  \frac{a}{m}\right ]$ 位置, 剩下的部分一定小于 m , 记为 k , 我们在增加步长的过程中肯定会出现 m = k 的时候, 我们只需要在这个时候以步长 k 跳一次格子即可, 跳到 (a, 0) 的步数就是 $\left [  \frac{a}{m}\right ] + 1$</li>
 </ul>
 <p>对于y轴同理, 能整除就是 $\frac{b}{m}$ , 不能整除就是 $\left [  \frac{b}{m}\right ] + 1$</p>
 <p>再加上增加步长需要的操作次数 (m - 1) , 总的操作次数就是: $x到a的步数 + y到b的步数 + (m - 1)$ </p>
 <p>我们只需要1开始枚举合适的步长 m , m 最大是不会超过 $3 \times 10^5$ 的</p>
 <p>为什么 m 最大不超过 $3 \times 10^5$ 呢? </p>
 <p>我们发现, a和b均不能被m整除时的总操作次数 和 a和b均可以被m整除的总操作次数之间也就差2, 随便选一种来讨论</p>
-<p>已知: $m + n \le 2 \sqrt{mn}$ , 当且仅当 $m &#x3D; n$ 时取到等于号</p>
-<p>那么对于总操作次数来说有 $\frac{a + b}{m}  + m - 1\le 2\sqrt{\frac{a + b}{m}}-1$ , 要想操作次数取最小, 即是 $\frac{a+b}{m} &#x3D; m$ , 即$m &#x3D; \sqrt{a+b}$ </p>
-<p>当 a &#x3D; b &#x3D; $10^9$ 时, m不过也就是 $\sqrt{2} \times 10^\frac{9}{2}$ , 是不会超时的</p>
+<p>已知: $m + n \le 2 \sqrt{mn}$ , 当且仅当 $m = n$ 时取到等于号</p>
+<p>那么对于总操作次数来说有 $\frac{a + b}{m}  + m - 1\le 2\sqrt{\frac{a + b}{m}}-1$ , 要想操作次数取最小, 即是 $\frac{a+b}{m} = m$ , 即$m = \sqrt{a+b}$ </p>
+<p>当 a = b = $10^9$ 时, m不过也就是 $\sqrt{2} \times 10^\frac{9}{2}$ , 是不会超时的</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">3e5</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> a, b; cin &gt;&gt; a &gt;&gt; b;</span><br><span class="line">		</span><br><span class="line">		<span class="type">int</span> ans = N;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= N; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="type">int</span> t = (a / i) + (a % i != <span class="number">0</span>) + (b / i) + (b % i != <span class="number">0</span>) + i - <span class="number">1</span>;</span><br><span class="line">			ans = <span class="built_in">min</span>(ans, t);</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -300,8 +297,8 @@
       <i class="fa fa-chevron-left"></i> CF1814A
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1808B/" rel="next" title="CF1808B">
-      CF1808B <i class="fa fa-chevron-right"></i>
+    <a href="/2023/09/17/CF1805D/" rel="next" title="CF1805D">
+      CF1805D <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

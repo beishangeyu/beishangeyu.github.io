@@ -249,7 +249,7 @@
 <p>只有一行包含两个正整数 $a,b$ ( $1\le a,b\le 10^9$ )，含义如题面所示。</p>
 <h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>对于每一个数据：</p>
 <p>第一行是一个正整数 $n$ ( $1\le n\le 2$ )，表示 $\textrm{lan}$ 需要几次跳跃访问 $\textrm{Mary}$。<strong>注意：你不需要让 $n$ 最小。</strong></p>
-<p>下面是 $n$ 行，在第 $i$ 行有用空格分开的两个整数 $x_i,y_i$ ( $0\le x_i,y_i\le 10^9$ )，表示 $\textrm{lan}$ 第 $i$ 次会跳跃到 $(x_i,y_i)$。必须满足 $x_n&#x3D;a,y_n&#x3D;b$。</p>
+<p>下面是 $n$ 行，在第 $i$ 行有用空格分开的两个整数 $x_i,y_i$ ( $0\le x_i,y_i\le 10^9$ )，表示 $\textrm{lan}$ 第 $i$ 次会跳跃到 $(x_i,y_i)$。必须满足 $x_n=a,y_n=b$。</p>
 <p>$\textrm{lan}$ 每次跳转后的位置不需要是不同的。</p>
 <p>如果有多组解，输出任意一个。</p>
 <h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>Ian and Mary are frogs living on lattice points of the Cartesian coordinate plane, with Ian living on $ (0,0) $ and Mary living on $ (a,b) $ .</p>
@@ -259,13 +259,11 @@
 <h2 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h2><p>The first line contains a single integer $ t $ ( $ 1 \le t \le 500 $ ) — the number of test cases. The description of test cases follows.</p>
 <p>The first and only line of each test case contains two integers $ a $ and $ b $ ( $ 1\le a,b\le 10^9 $ ) — the coordinates of the lattice point where Mary lives.</p>
 <h2 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, print an integer $ n $ ( $ 1 \le n \le 2 $ ) on the first line, denoting the number of jumps Ian uses in order to meet Mary. Note that you do not need to minimize the number of jumps.</p>
-<p>On the $ i $ -th line of the next $ n $ lines, print two integers $ 0 \le x_i,y_i \le 10^9 $ separated by a space, denoting Ian’s location $ (x_i,y_i) $ after the $ i $ -th jump. $ x_n &#x3D; a $ , $ y_n &#x3D; b $ must hold.</p>
+<p>On the $ i $ -th line of the next $ n $ lines, print two integers $ 0 \le x_i,y_i \le 10^9 $ separated by a space, denoting Ian’s location $ (x_i,y_i) $ after the $ i $ -th jump. $ x_n = a $ , $ y_n = b $ must hold.</p>
 <p>Ian’s initial location and his locations after each of the $ n $ jumps need not be distinct.</p>
 <p>If there are multiple solutions, output any.</p>
 <h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">8</span><br><span class="line">3 4</span><br><span class="line">4 4</span><br><span class="line">3 6</span><br><span class="line">2 2</span><br><span class="line">1 1</span><br><span class="line">7 3</span><br><span class="line">2022 2023</span><br><span class="line">1000000000 1000000000</span><br></pre></td></tr></table></figure>
-
 <h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">3 4</span><br><span class="line">2</span><br><span class="line">3 2</span><br><span class="line">4 4</span><br><span class="line">2</span><br><span class="line">5 3</span><br><span class="line">3 6</span><br><span class="line">2</span><br><span class="line">1 0</span><br><span class="line">2 2</span><br><span class="line">1</span><br><span class="line">1 1</span><br><span class="line">1</span><br><span class="line">7 3</span><br><span class="line">1</span><br><span class="line">2022 2023</span><br><span class="line">2</span><br><span class="line">69420420 469696969</span><br><span class="line">1000000000 1000000000</span><br></pre></td></tr></table></figure>
-
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>从 (0, 0) 到 (x - 1, 1) 再到 (x, y) 肯定合法</p>
 <p>也即是在 长为1, 宽为m 或者 宽为1, 长为m 的矩形内连接对角线, 除了端点, 没有别的点在对角线上</p>
 <p>代码太简单不写了</p>
@@ -288,12 +286,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1817A%20Almost%20Increasing%20Subsequence/" rel="prev" title="CF1817A">
-      <i class="fa fa-chevron-left"></i> CF1817A
+    <a href="/2023/09/17/CF1815A/" rel="prev" title="CF1815A">
+      <i class="fa fa-chevron-left"></i> CF1815A
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1816B/" rel="next" title="CF1816B">
-      CF1816B <i class="fa fa-chevron-right"></i>
+    <a href="/2023/09/17/CF1808B/" rel="next" title="CF1808B">
+      CF1808B <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

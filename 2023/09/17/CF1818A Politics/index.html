@@ -244,20 +244,20 @@
 <ul>
 <li>如果同意的成员多于不同意的成员（ $Y &gt; N$ ），那么所有不同意的成员会退出俱乐部；</li>
 <li>如果不同意的成员多于同意的成员（ $Y &lt; N$ ），那么所有同意的成员会退出俱乐部；</li>
-<li>如果平局（ $Y &#x3D; N$ ），那么所有成员都会退出俱乐部。</li>
+<li>如果平局（ $Y = N$ ），那么所有成员都会退出俱乐部。</li>
 </ul>
 <p>作为俱乐部的部长，你的目标是让自己待在俱乐部里，并且使辩论之后俱乐部里剩余的成员的数量最大化。在辩论开始之前，你已经得知了每一位成员对于各个辩题的意见，并且你可以在辩论开始之前开除任意数量的成员（不包括你自己）。</p>
 <p>你需要求出辩论之后俱乐部里最多能剩下多少人（包括你自己）。你不需要输出开除的方案。请确保最后你自己还在俱乐部里。</p>
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>每个测试点包含多组数据。输入数据的第一行包含数据组数 $t$ ( $1 \le t \le 100$ )。第二行及以下是测试数据。</p>
 <p>每组测试数据的第一行包含两个正整数 $n$ 和 $k$ ( $1 \le n,k \le 100$ )，分别表示俱乐部内成员的个数和辩题的个数。</p>
-<p>接下来的 $n$ 行中，第 $i$ 行包含一个长度为 $k$ 的字符串 $t_i$ 。字符串 $t_i$ 中的第 $j$ 个字符（ $+$  或 $-$ ）描述了第 $i$ 位成员对第 $j$ 个辩题的意见（如果这时候他&#x2F;她还在俱乐部中）。“ $+$ ”代表同意，而“ $-$ ”代表不同意。</p>
+<p>接下来的 $n$ 行中，第 $i$ 行包含一个长度为 $k$ 的字符串 $t_i$ 。字符串 $t_i$ 中的第 $j$ 个字符（ $+$  或 $-$ ）描述了第 $i$ 位成员对第 $j$ 个辩题的意见（如果这时候他/她还在俱乐部中）。“ $+$ ”代表同意，而“ $-$ ”代表不同意。</p>
 <p>输入保证各组数据的 $n \sdot k$ 之和不超过 $5 \sdot 10^4$ 。</p>
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>对于每组数据，输出辩论之后俱乐部里最多能剩下的人数。</p>
 <h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>In a debate club with $ n $ members, including yourself (member $ 1 $ ), there are $ k $ opinions to be discussed in sequence. During each discussion, members express their agreement or disagreement with the opinion. Let’s define $ Y $ as the number of members who agree and $ N $ as the number of members who disagree. After each discussion, members leave the club based on the following criteria:</p>
 <ul>
 <li>If more members agree than disagree ( $ Y &gt; N $ ), all members who disagreed leave the club.</li>
 <li>If more members disagree than agree ( $ Y &lt; N $ ), all members who agreed leave the club.</li>
-<li>If there is a tie ( $ Y &#x3D; N $ ), all members leave the club.</li>
+<li>If there is a tie ( $ Y = N $ ), all members leave the club.</li>
 </ul>
 <p>As the club president, your goal is to stay in the club and maximize the number of members remaining after the meeting. You have access to each member’s stance on all $ k $ opinions before the meeting starts, and you can expel any number of members (excluding yourself) before the meeting begins.</p>
 <p>Determine the maximum number of members, including yourself, who can remain in the club after the meeting. You don’t need to provide the specific expulsion strategy but only the maximum number of members that can stay. Ensure that you remain in the club after the meeting as well.</p>
@@ -267,14 +267,11 @@
 <p>It is guaranteed that the sum of $ n \cdot k $ over all test cases does not exceed $ 5 \cdot 10^4 $ .</p>
 <h2 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output the maximum number of members, including yourself, who can remain in the club after the meeting.</p>
 <h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">2 2</span><br><span class="line">++</span><br><span class="line">+-</span><br><span class="line">1 3</span><br><span class="line">+-+</span><br><span class="line">4 1</span><br><span class="line">+</span><br><span class="line">-</span><br><span class="line">-</span><br><span class="line">+</span><br><span class="line">5 4</span><br><span class="line">++++</span><br><span class="line">+--+</span><br><span class="line">++-+</span><br><span class="line">+-++</span><br><span class="line">++++</span><br><span class="line">4 2</span><br><span class="line">++</span><br><span class="line">--</span><br><span class="line">--</span><br><span class="line">-+</span><br></pre></td></tr></table></figure>
-
 <h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">2</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>重点在你要让自己留下来, 那么只有意见跟你一样的才可以留下来, 而意见和你不一样的你可以在辩论开始前开除他们,问题就转化为求有多少个人意见和自己一致, 复杂度是 $O(n)$</p>
 <p>第一行是自己的意见</p>
 <p>是道思维题, 别想的很复杂</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t);</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n, k;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;k);</span><br><span class="line">		string s[<span class="number">110</span>];</span><br><span class="line">		<span class="type">int</span> ans = n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; s[i];</span><br><span class="line">			<span class="keyword">if</span> (s[i] != s[<span class="number">0</span>])</span><br><span class="line">				ans--;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -294,12 +291,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1818B%20Indivisible/" rel="prev" title="CF1818B">
-      <i class="fa fa-chevron-left"></i> CF1818B
+    <a href="/2023/09/17/CF1821B/" rel="prev" title="CF1821B">
+      <i class="fa fa-chevron-left"></i> CF1821B
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1817A%20Almost%20Increasing%20Subsequence/" rel="next" title="CF1817A">
-      CF1817A <i class="fa fa-chevron-right"></i>
+    <a href="/2023/09/17/CF1820B/" rel="next" title="CF1820B">
+      CF1820B <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

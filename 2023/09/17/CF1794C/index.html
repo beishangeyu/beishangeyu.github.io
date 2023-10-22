@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"beishangeyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":null,"padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Scoring Subsequences题面翻译定义序列 $[s_1,s_2,\cdots,s_d]$ 的得分为$$\frac{s_1 \cdot s_2 \cdot \dots \cdot s_d}{d!}$$ 特别地，空序列的得分为 $1$。 定义序列 $[s_1,s_2,\cdots,s_d]$ 的花费为原序列中取得最大得分的所有子序列，其中最长的一个子序列的长度。 给定单调不减序列 $[a">
+  <meta name="description" content="Scoring Subsequences题面翻译定义序列 $[s_1,s_2,\cdots,s_d]$ 的得分为  \frac{s_1 \cdot s_2 \cdot \dots \cdot s_d}{d!}特别地，空序列的得分为 $1$。 定义序列 $[s_1,s_2,\cdots,s_d]$ 的花费为原序列中取得最大得分的所有子序列，其中最长的一个子序列的长度。 给定单调不减序列 $[a_1,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF1794C">
 <meta property="og:url" content="https://beishangeyu.github.io/2023/09/17/CF1794C/index.html">
 <meta property="og:site_name" content="Eyu&#39;s Blog">
-<meta property="og:description" content="Scoring Subsequences题面翻译定义序列 $[s_1,s_2,\cdots,s_d]$ 的得分为$$\frac{s_1 \cdot s_2 \cdot \dots \cdot s_d}{d!}$$ 特别地，空序列的得分为 $1$。 定义序列 $[s_1,s_2,\cdots,s_d]$ 的花费为原序列中取得最大得分的所有子序列，其中最长的一个子序列的长度。 给定单调不减序列 $[a">
+<meta property="og:description" content="Scoring Subsequences题面翻译定义序列 $[s_1,s_2,\cdots,s_d]$ 的得分为  \frac{s_1 \cdot s_2 \cdot \dots \cdot s_d}{d!}特别地，空序列的得分为 $1$。 定义序列 $[s_1,s_2,\cdots,s_d]$ 的花费为原序列中取得最大得分的所有子序列，其中最长的一个子序列的长度。 给定单调不减序列 $[a_1,">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-17T12:52:29.000Z">
 <meta property="article:modified_time" content="2023-10-18T04:52:56.470Z">
@@ -240,14 +240,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="Scoring-Subsequences"><a href="#Scoring-Subsequences" class="headerlink" title="Scoring Subsequences"></a>Scoring Subsequences</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>定义序列 $[s_1,s_2,\cdots,s_d]$ 的<em>得分</em>为<br>$$\frac{s_1 \cdot s_2 \cdot \dots \cdot s_d}{d!}$$</p>
-<p>特别地，空序列的得分为 $1$。</p>
+        <h1 id="Scoring-Subsequences"><a href="#Scoring-Subsequences" class="headerlink" title="Scoring Subsequences"></a>Scoring Subsequences</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>定义序列 $[s_1,s_2,\cdots,s_d]$ 的<em>得分</em>为 </p>
+<script type="math/tex; mode=display">\frac{s_1 \cdot s_2 \cdot \dots \cdot s_d}{d!}</script><p>特别地，空序列的得分为 $1$。</p>
 <p>定义序列 $[s_1,s_2,\cdots,s_d]$ 的<em>花费</em>为原序列中取得最大得分的所有子序列，其中最长的一个子序列的长度。</p>
-<p>给定单调不减序列 $[a_1,a_2,\dots,a_n]$，对每个 $k&#x3D;1,2,\cdots n$，求 $[a_1,a_2,\cdots ,a_k]$ 的花费。</p>
+<p>给定单调不减序列 $[a_1,a_2,\dots,a_n]$，对每个 $k=1,2,\cdots n$，求 $[a_1,a_2,\cdots ,a_k]$ 的花费。</p>
 <p>规定某个序列的子序列是从最初序列通过去除某些元素但不破坏余下元素的相对位置（在前或在后）而形成的新序列。</p>
-<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>The score of a sequence $ [s_1, s_2, \ldots, s_d] $ is defined as $ \displaystyle \frac{s_1\cdot s_2\cdot \ldots \cdot s_d}{d!} $ , where $ d!&#x3D;1\cdot 2\cdot \ldots \cdot d $ . In particular, the score of an empty sequence is $ 1 $ .</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>The score of a sequence $ [s_1, s_2, \ldots, s_d] $ is defined as $ \displaystyle \frac{s_1\cdot s_2\cdot \ldots \cdot s_d}{d!} $ , where $ d!=1\cdot 2\cdot \ldots \cdot d $ . In particular, the score of an empty sequence is $ 1 $ .</p>
 <p>For a sequence $ [s_1, s_2, \ldots, s_d] $ , let $ m $ be the maximum score among all its subsequences. Its cost is defined as the maximum length of a subsequence with a score of $ m $ .</p>
-<p>You are given a non-decreasing sequence $ [a_1, a_2, \ldots, a_n] $ of integers of length $ n $ . In other words, the condition $ a_1 \leq a_2 \leq \ldots \leq a_n $ is satisfied. For each $ k&#x3D;1, 2, \ldots , n $ , find the cost of the sequence $ [a_1, a_2, \ldots , a_k] $ .</p>
+<p>You are given a non-decreasing sequence $ [a_1, a_2, \ldots, a_n] $ of integers of length $ n $ . In other words, the condition $ a_1 \leq a_2 \leq \ldots \leq a_n $ is satisfied. For each $ k=1, 2, \ldots , n $ , find the cost of the sequence $ [a_1, a_2, \ldots , a_k] $ .</p>
 <p>A sequence $ x $ is a subsequence of a sequence $ y $ if $ x $ can be obtained from $ y $ by deletion of several (possibly, zero or all) elements.</p>
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 10^4 $ ). The description of the test cases follows.</p>
 <p>The first line of each test case contains an integer $ n $ ( $ 1\le n\le 10^5 $ ) — the length of the given sequence.</p>
@@ -255,17 +255,14 @@
 <p>It is guaranteed that the sum of $ n $ over all test cases does not exceed $ 5\cdot 10^5 $ .</p>
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output $ n $ integers — the costs of sequences $ [a_1, a_2, \ldots , a_k] $ in ascending order of $ k $ .</p>
 <h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">3</span><br><span class="line">1 2 3</span><br><span class="line">2</span><br><span class="line">1 1</span><br><span class="line">5</span><br><span class="line">5 5 5 5 5</span><br></pre></td></tr></table></figure>
-
 <h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 1 2 </span><br><span class="line">1 1 </span><br><span class="line">1 2 3 4 5</span><br></pre></td></tr></table></figure>
-
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>得分 &#x3D; $\Large{\frac{s_1\cdot s_2 \cdot…\cdot s_k}{k!}}$ ,  对于序列 a , 我们进行一下变形得到 a’ : $\Large \frac{a_1}{k}$ , $\Large \frac{a_2}{k-1}$ , … $\Large \frac{a_n}{1}$ </p>
-<p>我们发现 $\Large \frac{a_1}{k}\cdot\frac{a_2}{k-1}\cdot\frac{a_3}{k-2}\cdot…\cdot\frac{a_k}{1}&#x3D;     \frac{a_1\cdot a_2\cdot…\cdot a_n}{k!}$ , 且变形后的序列 a’ 仍是单调非递减的</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>得分 = $\Large{\frac{s_1\cdot s_2 \cdot…\cdot s_k}{k!}}$ ,  对于序列 a , 我们进行一下变形得到 a’ : $\Large \frac{a_1}{k}$ , $\Large \frac{a_2}{k-1}$ , … $\Large \frac{a_n}{1}$ </p>
+<p>我们发现 $\Large \frac{a_1}{k}\cdot\frac{a_2}{k-1}\cdot\frac{a_3}{k-2}\cdot…\cdot\frac{a_k}{1}=     \frac{a_1\cdot a_2\cdot…\cdot a_n}{k!}$ , 且变形后的序列 a’ 仍是单调非递减的</p>
 <p>为了让长度最大, 我们要包含所有 a’ 中 $\ge 1$ 的所有项</p>
 <p>因为 a’ 具有单调性, 对于每一个k, 我们可以用二分找到第一个 $\ge 1$ 的项, 然后就能得到最长的长度</p>
 <p>其实也包含了贪心的思想</p>
 <p><strong>!</strong>: 为了避免精度的误差, 条件 $\large\frac{a_i}{k-i+1}\ge1$ 应写为 $a_i\ge k-i+1$ </p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; a[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="type">int</span> l = <span class="number">1</span>, r = i;</span><br><span class="line">            <span class="comment">//二分的判断条件由希望找到的区间边界性质决定</span></span><br><span class="line">			<span class="keyword">while</span> (l &lt; r)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="type">int</span> mid = l + r &gt;&gt; <span class="number">1</span>;</span><br><span class="line">				<span class="keyword">if</span> (a[mid] &gt;= i - mid + <span class="number">1</span>) r = mid;</span><br><span class="line">				<span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			cout &lt;&lt; i - l + <span class="number">1</span> &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -289,8 +286,8 @@
       <i class="fa fa-chevron-left"></i> CF1798C
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1794B/" rel="next" title="CF1794B">
-      CF1794B <i class="fa fa-chevron-right"></i>
+    <a href="/2023/09/17/CF1794A/" rel="next" title="CF1794A">
+      CF1794A <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

@@ -242,7 +242,7 @@
       
         <h1 id="JoJo’s-Incredible-Adventures"><a href="#JoJo’s-Incredible-Adventures" class="headerlink" title="JoJo’s Incredible Adventures"></a>JoJo’s Incredible Adventures</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><h4 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h4><p>给定一个长度为 $n$ 的二进制字符串 $s$，构建一个 $n \times n$ 的方格表。首行写下原始字符串 $s$，次行右移一个字符的循环移位字符串 $s$，第三行右移两个字符的循环移位字符串 $s$，以此类推。因此，第 $k$ 行包含一个从 $s$ 右移 $k$ 个字符的循环移位字符串。行从上到下编号 $0$ 至 $n-1$。</p>
 <p>在生成的表中，需要找到只由数字 $1$ 构成的矩形并计算其面积，返回最大的面积。</p>
-<p>注意：字符串 $s$ 向右循环移动 $k$ 位是指将其最后 $k$ 个字符移动到前面，即字符串 $s_{n-k+1} \cdots s_n ; s_1 \cdots s_{n-k}$。</p>
+<p>注意：字符串 $s$ 向右循环移动 $k$ 位是指将其最后 $k$ 个字符移动到前面，即字符串 $s_{n-k+1} \cdots s_n \; s_1 \cdots s_{n-k}$。</p>
 <h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行的正整数 $t$ ($1\leq t\leq 2\times10^4$) 是测试用例的数量。 对于每个测试用例，只有一行，是一个只由零和一组成的二进制字符串。</p>
 <p>保证所有测试用例中字符总数之和不超过 $2\times 10^5$。</p>
 <h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>对于每个测试用例，输出一个整数：只由数字 $1$ 构成的矩形的最大面积。如果不存在这样的矩形，则输出 $0$。</p>
@@ -257,9 +257,7 @@
 <p>It is guaranteed that the sum of string lengths $ |s| $ over all test cases does not exceed $ 2 \cdot 10^5 $ .</p>
 <h2 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output a single integer — the maximum area of a rectangle consisting only of ones. If there is no such rectangle, output $ 0 $ .</p>
 <h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">101</span><br><span class="line">011110</span><br><span class="line">101010</span><br></pre></td></tr></table></figure>
-
 <h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">6</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
 <h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>In the first test case, there is a table $ 1 \times 1 $ consisting of a single character 0, so there are no rectangles consisting of ones, and the answer is $ 0 $ .</p>
 <p>In the second test case, there is a table $ 1 \times 1 $ , consisting of a single character 1, so the answer is $ 1 $ .</p>
 <p>In the third test case, there is a table:</p>
@@ -268,15 +266,14 @@
 <p> 101010010101101010010101101010010101Rectangles with maximum area are shown in bold.</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><ul>
 <li>如果 s 全为1, 最大矩形面积就是 s.size() * s.size()</li>
-<li>如果不是全为1, 我们找出连续是1的最长段, 长度记为 len, 此时这个矩形的周长 &#x3D; (len + 1) * 2, 下一行右移一次后, 矩形的长 - 1, 宽 + 1, 由此类推: <strong>矩形的周长是不变的</strong>, $x + y &#x3D; k$, 要求 $x\times y$ 的最大值, 即求 $f(x) &#x3D; x\times (k - x)$ 的最大值, 当 $x &#x3D; \frac{k}{2}$ 时能取得最大值, 也就是说要让 $x$ 和 $y$ 尽可能接近 $\frac{k}{2}$</li>
+<li>如果不是全为1, 我们找出连续是1的最长段, 长度记为 len, 此时这个矩形的周长 = (len + 1) <em> 2, 下一行右移一次后, 矩形的长 - 1, 宽 + 1, 由此类推: <em>*矩形的周长是不变的</em></em>, $x + y = k$, 要求 $x\times y$ 的最大值, 即求 $f(x) = x\times (k - x)$ 的最大值, 当 $x = \frac{k}{2}$ 时能取得最大值, 也就是说要让 $x$ 和 $y$ 尽可能接近 $\frac{k}{2}$   </li>
 </ul>
 <p>对于第二种情况, 开头的1和结尾的1是可以通过右移连接起来的, 所以连续是1的最长段<strong>可能是在右移之后出现</strong>, 我们怎么解决呢? 可以把s和s拼起来, 反正右移之后会连接起来, 那我们刚开始就把 s 和 s 拼起来是没关系的, 而且拼起来之后才不用枚举每一行去找最长的连续是1的段, 避免了一个 $O(n^{2})$ 的操作</p>
 <p>又因为如果s全为1, 那么拼起来之后1出现的次数就翻倍了, 我们要在这种情况下让 maxlen 除以2</p>
 <p>那拼起来之后不会对第二种情况有影响吗? 是不会的, 因为会有0在中间隔开, 就算我们把开头结尾拼起来, 那也只是在复现本来就会出现的情况, 如果最长的连续是1的段不是这种情况, 那么就会被0隔开, 不会翻倍的</p>
-<p>n &#x3D; $2\times 10^{5}$ , 那么答案最大是 n * n, 会爆int, 要用 <code>unsigned long long</code> 存</p>
+<p>n = $2\times 10^{5}$ , 那么答案最大是 n * n, 会爆int, 要用 <code>unsigned long long</code> 存</p>
 <p>考虑最长连续出现1的段, 用到了<strong>贪心</strong>的思想</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> ULL;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t);</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		string s;</span><br><span class="line">		cin &gt;&gt; s;</span><br><span class="line">		s += s;</span><br><span class="line">		<span class="type">bool</span> flag = <span class="literal">false</span>;</span><br><span class="line">		ULL maxlen = <span class="number">0</span>, curlen = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; s[i]; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">if</span> (s[i] == <span class="string">&#x27;0&#x27;</span>)</span><br><span class="line">			&#123;</span><br><span class="line">				flag = <span class="literal">true</span>;</span><br><span class="line">				maxlen = <span class="built_in">max</span>(curlen, maxlen);</span><br><span class="line">				curlen = <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				curlen++;</span><br><span class="line">		&#125;</span><br><span class="line">		maxlen = <span class="built_in">max</span>(curlen, maxlen);</span><br><span class="line">		<span class="keyword">if</span> (!flag)</span><br><span class="line">		&#123;</span><br><span class="line">			maxlen /= <span class="number">2</span>;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;	%lld\n&quot;</span>, maxlen * maxlen);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			maxlen++;</span><br><span class="line">			ULL x = maxlen / <span class="number">2</span>, y = <span class="built_in">ceil</span>(<span class="built_in">double</span>(maxlen) / <span class="number">2</span>);	<span class="comment">//x向下取整, y向上取整, 尽可能靠近 maxlen / 2</span></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;	%lld\n&quot;</span>, x * y);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -296,12 +293,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1823B/" rel="prev" title="CF1823B">
-      <i class="fa fa-chevron-left"></i> CF1823B
+    <a href="/2023/09/17/CF1818A%20Politics/" rel="prev" title="CF1818A">
+      <i class="fa fa-chevron-left"></i> CF1818A
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1821C/" rel="next" title="CF1821C">
-      CF1821C <i class="fa fa-chevron-right"></i>
+    <a href="/2023/09/17/CF1818B%20Indivisible/" rel="next" title="CF1818B">
+      CF1818B <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

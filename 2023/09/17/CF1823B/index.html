@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"beishangeyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":null,"padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Sort with Step题面翻译给定一个 $1$ 到 $n$ 的排列 $p$ 和一个正整数 $k$。 你可以对 $p$ 进行若干次操作，每次操作交换 $p_i$ 和 $p_j$，其中 $|i-j|&#x3D;k$。你的目标是使得 $p$ 变为升序。 除此之外，在开始你的操作之前，你还可以预先交换任意两个 $p_i$ 和 $p_j$ 一次。 你的任务是判断：  能否在不用预先交换的情况下，使得">
+  <meta name="description" content="Sort with Step题面翻译给定一个 $1$ 到 $n$ 的排列 $p$ 和一个正整数 $k$。 你可以对 $p$ 进行若干次操作，每次操作交换 $p_i$ 和 $p_j$，其中 $|i-j|&#x3D;k$。你的目标是使得 $p$ 变为升序。 除此之外，在开始你的操作之前，你还可以预先交换任意两个 $p_i$ 和 $p_j$ 一次。 你的任务是判断：  能否在不用预先交换的情况下，使得 $p$ 变">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF1823B">
 <meta property="og:url" content="https://beishangeyu.github.io/2023/09/17/CF1823B/index.html">
 <meta property="og:site_name" content="Eyu&#39;s Blog">
-<meta property="og:description" content="Sort with Step题面翻译给定一个 $1$ 到 $n$ 的排列 $p$ 和一个正整数 $k$。 你可以对 $p$ 进行若干次操作，每次操作交换 $p_i$ 和 $p_j$，其中 $|i-j|&#x3D;k$。你的目标是使得 $p$ 变为升序。 除此之外，在开始你的操作之前，你还可以预先交换任意两个 $p_i$ 和 $p_j$ 一次。 你的任务是判断：  能否在不用预先交换的情况下，使得">
+<meta property="og:description" content="Sort with Step题面翻译给定一个 $1$ 到 $n$ 的排列 $p$ 和一个正整数 $k$。 你可以对 $p$ 进行若干次操作，每次操作交换 $p_i$ 和 $p_j$，其中 $|i-j|&#x3D;k$。你的目标是使得 $p$ 变为升序。 除此之外，在开始你的操作之前，你还可以预先交换任意两个 $p_i$ 和 $p_j$ 一次。 你的任务是判断：  能否在不用预先交换的情况下，使得 $p$ 变">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-17T12:52:29.000Z">
 <meta property="article:modified_time" content="2023-10-17T13:05:27.566Z">
@@ -241,7 +241,7 @@
 
       
         <h1 id="Sort-with-Step"><a href="#Sort-with-Step" class="headerlink" title="Sort with Step"></a>Sort with Step</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>给定一个 $1$ 到 $n$ 的排列 $p$ 和一个正整数 $k$。</p>
-<p>你可以对 $p$ 进行若干次操作，每次操作交换 $p_i$ 和 $p_j$，其中 $|i-j|&#x3D;k$。你的目标是使得 $p$ 变为升序。</p>
+<p>你可以对 $p$ 进行若干次操作，每次操作交换 $p_i$ 和 $p_j$，其中 $|i-j|=k$。你的目标是使得 $p$ 变为升序。</p>
 <p>除此之外，在开始你的操作之前，你还可以<strong>预先交换</strong>任意两个 $p_i$ 和 $p_j$ 一次。</p>
 <p>你的任务是判断：</p>
 <ol>
@@ -261,9 +261,9 @@
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Let’s define a permutation of length $ n $ as an array $ p $ of length $ n $ , which contains every number from $ 1 $ to $ n $ exactly once.</p>
 <p>You are given a permutation $ p_1, p_2, \dots, p_n $ and a number $ k $ . You need to sort this permutation in the ascending order. In order to do it, you can repeat the following operation any number of times (possibly, zero):</p>
 <ul>
-<li>pick two elements of the permutation $ p_i $ and $ p_j $ such that $ |i - j| &#x3D; k $ , and swap them.</li>
+<li>pick two elements of the permutation $ p_i $ and $ p_j $ such that $ |i - j| = k $ , and swap them.</li>
 </ul>
-<p>Unfortunately, some permutations can’t be sorted with some fixed numbers $ k $ . For example, it’s impossible to sort $ [2, 4, 3, 1] $ with $ k &#x3D; 2 $ .</p>
+<p>Unfortunately, some permutations can’t be sorted with some fixed numbers $ k $ . For example, it’s impossible to sort $ [2, 4, 3, 1] $ with $ k = 2 $ .</p>
 <p>That’s why, before starting the sorting, you can make at most one preliminary exchange:</p>
 <ul>
 <li>choose any pair $ p_i $ and $ p_j $ and swap them.</li>
@@ -273,7 +273,7 @@
 <li>check whether is it possible to sort the permutation without any preliminary exchanges,</li>
 <li>if it’s not, check, whether is it possible to sort the permutation using exactly one preliminary exchange.</li>
 </ol>
-<p>For example, if $ k &#x3D; 2 $ and permutation is $ [2, 4, 3, 1] $ , then you can make a preliminary exchange of $ p_1 $ and $ p_4 $ , which will produce permutation $ [1, 4, 3, 2] $ , which is possible to sort with given $ k $ .</p>
+<p>For example, if $ k = 2 $ and permutation is $ [2, 4, 3, 1] $ , then you can make a preliminary exchange of $ p_1 $ and $ p_4 $ , which will produce permutation $ [1, 4, 3, 2] $ , which is possible to sort with given $ k $ .</p>
 <h2 id="输入格式-1"><a href="#输入格式-1" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 10^4 $ ). The description of the test cases follows.</p>
 <p>The first line of each test case contains two integers $ n $ and $ k $ ( $ 2 \le n \le 2 \cdot 10^5 $ ; $ 1 \le k \le n - 1 $ ) — length of the permutation, and a distance between elements that can be swapped.</p>
 <p>The second line of each test case contains $ n $ integers $ p_1, p_2, \dots, p_n $ ( $ 1 \le p_i \le n $ ) — elements of the permutation $ p $ .</p>
@@ -285,12 +285,10 @@
 <li>-1, if it is not possible to sort the permutation with at most one preliminary exchange.</li>
 </ul>
 <h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">6</span><br><span class="line">4 1</span><br><span class="line">3 1 2 4</span><br><span class="line">4 2</span><br><span class="line">3 4 1 2</span><br><span class="line">4 2</span><br><span class="line">3 1 4 2</span><br><span class="line">10 3</span><br><span class="line">4 5 9 1 8 6 10 2 3 7</span><br><span class="line">10 3</span><br><span class="line">4 6 9 1 8 5 10 2 3 7</span><br><span class="line">10 3</span><br><span class="line">4 6 9 1 8 5 10 3 2 7</span><br></pre></td></tr></table></figure>
-
 <h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">0</span><br><span class="line">1</span><br><span class="line">-1</span><br></pre></td></tr></table></figure>
-
 <h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>In the first test case, there is no need in preliminary exchange, as it is possible to swap $ (p_1, p_2) $ and then $ (p_2, p_3) $ .</p>
 <p>In the second test case, there is no need in preliminary exchange, as it is possible to swap $ (p_1, p_3) $ and then $ (p_2, p_4) $ .</p>
-<p>In the third test case, you need to apply preliminary exchange to $ (p_2, p_3) $ . After that the permutation becomes $ [3, 4, 1, 2] $ and can be sorted with $ k &#x3D; 2 $ .</p>
+<p>In the third test case, you need to apply preliminary exchange to $ (p_2, p_3) $ . After that the permutation becomes $ [3, 4, 1, 2] $ and can be sorted with $ k = 2 $ .</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>我们可以开一次挂, 交换任意的两个数</p>
 <p>序列a的元素只有1~n, 且没有重复, 那么成功排序后值为 i 的元素位置也是 i (下标从1开始), 也即对于 a[i] 而言, i是起点位置, a[i] 是目的位置, 如果 <strong>a[i] - i 是 k 的整数倍</strong>, 那么他就肯定可以通过和<strong>距离为 k 的数交换最终到达目的位置</strong>, 称为合法数</p>
 <ul>
@@ -298,13 +296,10 @@
 </li>
 <li><p>如果不合法数 $\ge 3$ , 那么肯定没办法sort, 输出-1</p>
 </li>
-<li><p>如果有两个不合法数, 我们交换这两个数看是否能合法</p>
-</li>
-<li><p>如果有一个不合法数, 我们遍历序列a, 看有没有哪个数能跟他换</p>
-</li>
+<li>如果有两个不合法数, 我们交换这两个数看是否能合法</li>
+<li>如果有一个不合法数, 我们遍历序列a, 看有没有哪个数能跟他换</li>
 </ul>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">2e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> a[N];</span><br><span class="line"><span class="type">int</span> b[N];	<span class="comment">//记录哪些不合法</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t);</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n, k;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;n, &amp;k);</span><br><span class="line">		<span class="type">int</span> un = <span class="number">0</span>;		<span class="comment">//不合法的人数</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line">			<span class="keyword">if</span> (<span class="built_in">abs</span>(a[i] - i) % k)</span><br><span class="line">			&#123;</span><br><span class="line">				b[++un] = i;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (un &gt;= <span class="number">3</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;  -1\n&quot;</span>);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span>(un == <span class="number">2</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="type">int</span> sta1 = b[<span class="number">1</span>], ed1 = a[b[<span class="number">1</span>]];</span><br><span class="line">			<span class="type">int</span> sta2 = b[<span class="number">2</span>], ed2 = a[b[<span class="number">2</span>]];</span><br><span class="line">			<span class="keyword">if</span> (<span class="built_in">abs</span>(ed1 - sta2) % k == <span class="number">0</span> &amp;&amp; <span class="built_in">abs</span>(ed2 - sta1) % k == <span class="number">0</span>)</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;  1\n&quot;</span>);</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">&quot;  -1\n&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (un == <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">&quot;  0\n&quot;</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n + <span class="number">1</span>; i++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">if</span> (i == n + <span class="number">1</span>)</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">&quot;  -1\n&quot;</span>);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="type">int</span> sta1 = b[<span class="number">1</span>], ed1 = a[b[<span class="number">1</span>]];</span><br><span class="line">				<span class="type">int</span> sta2 = i, ed2 = a[i];</span><br><span class="line">				<span class="keyword">if</span> (<span class="built_in">abs</span>(ed2 - ed1) % k == <span class="number">0</span>)	<span class="comment">//是化简之后的结果</span></span><br><span class="line">				&#123;</span><br><span class="line">					<span class="built_in">printf</span>(<span class="string">&quot;  1\n&quot;</span>);</span><br><span class="line">					<span class="keyword">break</span>;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -328,8 +323,8 @@
       <i class="fa fa-chevron-left"></i> CF1824A
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1820B/" rel="next" title="CF1820B">
-      CF1820B <i class="fa fa-chevron-right"></i>
+    <a href="/2023/09/17/CF1821C/" rel="next" title="CF1821C">
+      CF1821C <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

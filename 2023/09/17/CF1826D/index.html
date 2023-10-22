@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"beishangeyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":null,"padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="CF1826D题目选定区间 [l, r] 使得 $v&#x3D;b_{i1}+b_{i2}+b_{i3}-(r-l)$ 最大, 其中三个b是区间内最大的三个值, 区间长度要 $\ge 3$ 输出最大的 $v$  输入$1\le t \le 10^{5}$ , $3\le n\le 10^{5}$ , $1\le b_{i} \le 10^{8}$ $t$ 个样例, 每个样例 $n$ 个 $b_{i">
+  <meta name="description" content="CF1826D题目选定区间 [l, r] 使得 $v&#x3D;b_{i1}+b_{i2}+b_{i3}-(r-l)$ 最大, 其中三个b是区间内最大的三个值, 区间长度要 $\ge 3$ 输出最大的 $v$  输入$1\le t \le 10^{5}$ , $3\le n\le 10^{5}$ , $1\le b_{i} \le 10^{8}$ $t$ 个样例, 每个样例 $n$ 个 $b_{i}$  分">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF1826D">
 <meta property="og:url" content="https://beishangeyu.github.io/2023/09/17/CF1826D/index.html">
 <meta property="og:site_name" content="Eyu&#39;s Blog">
-<meta property="og:description" content="CF1826D题目选定区间 [l, r] 使得 $v&#x3D;b_{i1}+b_{i2}+b_{i3}-(r-l)$ 最大, 其中三个b是区间内最大的三个值, 区间长度要 $\ge 3$ 输出最大的 $v$  输入$1\le t \le 10^{5}$ , $3\le n\le 10^{5}$ , $1\le b_{i} \le 10^{8}$ $t$ 个样例, 每个样例 $n$ 个 $b_{i">
+<meta property="og:description" content="CF1826D题目选定区间 [l, r] 使得 $v&#x3D;b_{i1}+b_{i2}+b_{i3}-(r-l)$ 最大, 其中三个b是区间内最大的三个值, 区间长度要 $\ge 3$ 输出最大的 $v$  输入$1\le t \le 10^{5}$ , $3\le n\le 10^{5}$ , $1\le b_{i} \le 10^{8}$ $t$ 个样例, 每个样例 $n$ 个 $b_{i}$  分">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-17T12:52:29.000Z">
 <meta property="article:modified_time" content="2023-10-17T13:04:49.978Z">
@@ -240,17 +240,16 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="CF1826D"><a href="#CF1826D" class="headerlink" title="CF1826D"></a>CF1826D</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>选定区间 [l, r] 使得 $v&#x3D;b_{i1}+b_{i2}+b_{i3}-(r-l)$ 最大, 其中三个b是区间内最大的三个值, 区间长度要 $\ge 3$</p>
+        <h1 id="CF1826D"><a href="#CF1826D" class="headerlink" title="CF1826D"></a>CF1826D</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>选定区间 [l, r] 使得 $v=b_{i1}+b_{i2}+b_{i3}-(r-l)$ 最大, 其中三个b是区间内最大的三个值, 区间长度要 $\ge 3$</p>
 <p>输出最大的 $v$ </p>
 <h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>$1\le t \le 10^{5}$ , $3\le n\le 10^{5}$ , $1\le b_{i} \le 10^{8}$</p>
 <p>$t$ 个样例, 每个样例 $n$ 个 $b_{i}$ </p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>$v&#x3D;b_{i1}+b_{i2}+b_{i3}-(r-l)$ , 要让v最大, 我们就想让 $r-l$ 尽可能小, 不妨设 $i1 &lt; i2&lt; i3$ 且</p>
-<p>$r &#x3D; i3$ , $l &#x3D; i1$ , 那么式子就变成了 $v &#x3D; (b_{i1}+i1)+b_{i2}+(b_{i3}-i3)$ </p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>$v=b_{i1}+b_{i2}+b_{i3}-(r-l)$ , 要让v最大, 我们就想让 $r-l$ 尽可能小, 不妨设 $i1 &lt; i2&lt; i3$ 且</p>
+<p>$r = i3$ , $l = i1$ , 那么式子就变成了 $v = (b_{i1}+i1)+b_{i2}+(b_{i3}-i3)$ </p>
 <p>这样我们枚举中间位置 $b_{i2}$ , 找到它左边和右边对应部分的最大值即可, 有点类似那个接雨水的问题</p>
 <p>而找到左边和右边的最大值, 可以用 <strong>DP</strong> 来实现 </p>
 <p>代码其实不难, 主要是要想通上边这个式子的变形, 用到了贪心的思想</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e5</span> + <span class="number">10</span>;</span><br><span class="line"><span class="type">int</span> a[N], l[N], r[N];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;t);</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;a[i]);</span><br><span class="line"></span><br><span class="line">		l[<span class="number">2</span>] = a[<span class="number">1</span>] + <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">3</span>; i &lt;= n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//l[i]表示i左边的最大值, 不包括位置i</span></span><br><span class="line">			l[i] = <span class="built_in">max</span>(a[i - <span class="number">1</span>] + (i - <span class="number">1</span>), l[i - <span class="number">1</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">		r[n - <span class="number">1</span>] = a[n] - n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = n - <span class="number">2</span>; i &gt;= <span class="number">1</span>; i--)</span><br><span class="line">		&#123;</span><br><span class="line">			r[i] = <span class="built_in">max</span>(a[i + <span class="number">1</span>] - (i + <span class="number">1</span>), r[i + <span class="number">1</span>]);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//枚举每个中间位置</span></span><br><span class="line">		<span class="type">int</span> ans = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">2</span>; i &lt;= n - <span class="number">1</span>; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			ans = <span class="built_in">max</span>(ans, l[i] + r[i] + a[i]);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, ans);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -270,12 +269,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1827B1/" rel="prev" title="CF1827B1">
-      <i class="fa fa-chevron-left"></i> CF1827B1
+    <a href="/2023/09/17/CF1828A/" rel="prev" title="CF1828A">
+      <i class="fa fa-chevron-left"></i> CF1828A
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1827A/" rel="next" title="CF1827A">
-      CF1827A <i class="fa fa-chevron-right"></i>
+    <a href="/2023/09/17/CF1826C/" rel="next" title="CF1826C">
+      CF1826C <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

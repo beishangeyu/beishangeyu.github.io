@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"beishangeyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":null,"padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="题目描述给定一个数 $X$, 求最少加减多少个平方数可以得到 $X$ 输入$t$ 个样例, 每行一个数 $X$ $t &#x3D; 100$, $X &#x3D; 10 ^{11}$ 输出s$n$ 表示最少需要几个数, 然后跟着 $n$ 个数, 表示加减哪些数的平方数 分析首先我们考虑 $n&#x3D;1$ 的情况, 即 $X$ 是完全平方数, 那我们判断 sqrt(X) * sqrt(X) 是否">
+  <meta name="description" content="题目描述给定一个数 $X$, 求最少加减多少个平方数可以得到 $X$ 输入$t$ 个样例, 每行一个数 $X$ $t &#x3D; 100$, $X &#x3D; 10 ^{11}$ 输出s$n$ 表示最少需要几个数, 然后跟着 $n$ 个数, 表示加减哪些数的平方数 分析首先我们考虑 $n&#x3D;1$ 的情况, 即 $X$ 是完全平方数, 那我们判断 sqrt(X) * sqrt(X) 是否等于 $X$ 即可 然后我们就">
 <meta property="og:type" content="article">
 <meta property="og:title" content="用平方数表示X">
 <meta property="og:url" content="https://beishangeyu.github.io/2023/09/17/%E7%94%A8%E5%B9%B3%E6%96%B9%E6%95%B0%E8%A1%A8%E7%A4%BAX/index.html">
 <meta property="og:site_name" content="Eyu&#39;s Blog">
-<meta property="og:description" content="题目描述给定一个数 $X$, 求最少加减多少个平方数可以得到 $X$ 输入$t$ 个样例, 每行一个数 $X$ $t &#x3D; 100$, $X &#x3D; 10 ^{11}$ 输出s$n$ 表示最少需要几个数, 然后跟着 $n$ 个数, 表示加减哪些数的平方数 分析首先我们考虑 $n&#x3D;1$ 的情况, 即 $X$ 是完全平方数, 那我们判断 sqrt(X) * sqrt(X) 是否">
+<meta property="og:description" content="题目描述给定一个数 $X$, 求最少加减多少个平方数可以得到 $X$ 输入$t$ 个样例, 每行一个数 $X$ $t &#x3D; 100$, $X &#x3D; 10 ^{11}$ 输出s$n$ 表示最少需要几个数, 然后跟着 $n$ 个数, 表示加减哪些数的平方数 分析首先我们考虑 $n&#x3D;1$ 的情况, 即 $X$ 是完全平方数, 那我们判断 sqrt(X) * sqrt(X) 是否等于 $X$ 即可 然后我们就">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-17T12:52:29.000Z">
 <meta property="article:modified_time" content="2023-10-18T04:53:34.065Z">
@@ -242,15 +242,15 @@
       
         <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>给定一个数 $X$, 求最少加减多少个平方数可以得到 $X$</p>
 <h2 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h2><p>$t$ 个样例, 每行一个数 $X$</p>
-<p>$t &#x3D; 100$, $X &#x3D; 10 ^{11}$</p>
+<p>$t = 100$, $X = 10 ^{11}$</p>
 <h2 id="输出s"><a href="#输出s" class="headerlink" title="输出s"></a>输出s</h2><p>$n$ 表示最少需要几个数, 然后跟着 $n$ 个数, 表示加减哪些数的平方数</p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>首先我们考虑 $n&#x3D;1$ 的情况, 即 $X$ 是完全平方数, 那我们判断 sqrt(X) * sqrt(X) 是否等于 $X$ 即可</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>首先我们考虑 $n=1$ 的情况, 即 $X$ 是完全平方数, 那我们判断 sqrt(X) * sqrt(X) 是否等于 $X$ 即可</p>
 <p>然后我们就很自然能想到<strong>平方差</strong>, 即考虑X是否能用 $A^2-B^2$ 表示呢?</p>
-<p>我们知道如果可以, 就会有 $X&#x3D;A^2-B^2&#x3D;(A+B)(A-B)$ , 而 $(A+B)$ 和 $(A-B)$ 的差为2B, 是个偶数, 所以 $(A+B)$ 和 $(A-B)$ 是同奇偶性的, 换句话说, 如果一个数可以分解成两个同奇偶性的数的乘积, 那么它就可以用平方差来表示</p>
+<p>我们知道如果可以, 就会有 $X=A^2-B^2=(A+B)(A-B)$ , 而 $(A+B)$ 和 $(A-B)$ 的差为2B, 是个偶数, 所以 $(A+B)$ 和 $(A-B)$ 是同奇偶性的, 换句话说, 如果一个数可以分解成两个同奇偶性的数的乘积, 那么它就可以用平方差来表示</p>
 <p>那么什么样的数可以分解成两个同奇偶性的数的乘积呢?</p>
 <p>当X为奇数的时候, 我们知道任何奇数都可以分解成两个奇数的乘积, 最简单的就是1乘以它自己, 所以所有奇数都可以用平方差表示, 排除那些完全平方数即可</p>
-<p>当X为偶数的时候呢, 这里引入一个知识点: 偶数可以分成两类, 一类是4的倍数, 即 $4k$, 另一类是 $4k-2$. $4k-2&#x3D;2(k-1)$, 即奇数和2的乘积, 无论怎么分解, 2也会在其中一个因数中, 那个因数是偶数, 另一个就是奇数, 所以 $4k-2$ 类型的偶数肯定不能分解成两个奇偶性相同的因数, 也就不能用平方差表示; 而 $4k$ 类型的偶数, 肯定可以分出一个4出来, 而4又是$2\times2$, 这样 $4k$ 就是 $2\times2k$, 因数肯定是两个偶数, 所以 $4k$ 类型, 也即是4的倍数的偶数可以表示为 $A^2-B^2$</p>
-<p>平方差考虑了, 我们还要考虑<strong>平方和</strong>的情况, 会不会 $X&#x3D;A^2+B^2$ 呢? 我们只需要枚举A, 看看有没有合法的B满足这个式子即可, 这一步时间复杂度是 $O(\sqrt{X})$ </p>
+<p>当X为偶数的时候呢, 这里引入一个知识点: 偶数可以分成两类, 一类是4的倍数, 即 $4k$, 另一类是 $4k-2$. $4k-2=2(k-1)$, 即奇数和2的乘积, 无论怎么分解, 2也会在其中一个因数中, 那个因数是偶数, 另一个就是奇数, 所以 $4k-2$ 类型的偶数肯定不能分解成两个奇偶性相同的因数, 也就不能用平方差表示; 而 $4k$ 类型的偶数, 肯定可以分出一个4出来, 而4又是$2\times2$, 这样 $4k$ 就是 $2\times2k$, 因数肯定是两个偶数, 所以 $4k$ 类型, 也即是4的倍数的偶数可以表示为 $A^2-B^2$</p>
+<p>平方差考虑了, 我们还要考虑<strong>平方和</strong>的情况, 会不会 $X=A^2+B^2$ 呢? 我们只需要枚举A, 看看有没有合法的B满足这个式子即可, 这一步时间复杂度是 $O(\sqrt{X})$ </p>
 <p>如果上述情况都不满足, 也即是 $X$ 即不是奇数, 也不是4的倍数, 也不能用平方和来表示, 那此时 $X$ 一定是偶数, 让 $X\pm1^2$ 就可以得到一个奇数, 然后就可以用平方差表示</p>
 <p>综上, 完全平方数是1步操作, 满足平方差或平方和是2步操作, 剩下均是3步操作</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2>
@@ -271,10 +271,7 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item">
-    <a href="/2023/09/17/CF1841B/" rel="prev" title="CF1841B">
-      <i class="fa fa-chevron-left"></i> CF1841B
-    </a></div>
+      <div class="post-nav-item"></div>
       <div class="post-nav-item">
     <a href="/2023/09/17/CF1841C/" rel="next" title="CF1841C">
       CF1841C <i class="fa fa-chevron-right"></i>

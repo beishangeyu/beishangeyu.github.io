@@ -250,11 +250,11 @@
 <p>接下来 $n$ 行，每行都包含 $m$ 个整数 $c_{i,j}(1\le c_{i,j}\le 10^6)$ ，是第 $i$ 张卡片上的数字。</p>
 <p>数据保证所有的 $n\cdot m$ 都不会超过 $3\cdot 10^5$。</p>
 <h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><p>对于每组数据，打印 $1$ 个数字，用换行隔开，代表每场游戏的赢家点数总和。</p>
-<h3 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明&#x2F;提示"></a>说明&#x2F;提示</h3><p>例如第一组数据：</p>
-<p>第一位对第二位玩家，胜者得到 $|1-7|+|4-9|+|2-2|+|8-1|+|5-4|&#x3D;19$ 点。</p>
-<p>第一位对第三位玩家，胜者得到 $|1-3|+|4-8|+|2-5|+|8-3|+|5-1|&#x3D;18$ 点。</p>
-<p>第二位对第三位玩家，胜者得到 $|7-3|+|9-8|+|2-5|+|1-3|+|4-1|&#x3D;13$ 点。</p>
-<p>总点数为 $19+18+13&#x3D;50$ 点。</p>
+<h3 id="说明-提示"><a href="#说明-提示" class="headerlink" title="说明/提示"></a>说明/提示</h3><p>例如第一组数据：</p>
+<p>第一位对第二位玩家，胜者得到 $|1-7|+|4-9|+|2-2|+|8-1|+|5-4|=19$ 点。</p>
+<p>第一位对第三位玩家，胜者得到 $|1-3|+|4-8|+|2-5|+|8-3|+|5-1|=18$ 点。</p>
+<p>第二位对第三位玩家，胜者得到 $|7-3|+|9-8|+|2-5|+|1-3|+|4-1|=13$ 点。</p>
+<p>总点数为 $19+18+13=50$ 点。</p>
 <h2 id="题目描述-1"><a href="#题目描述-1" class="headerlink" title="题目描述"></a>题目描述</h2><p>In this game, there is a deck that consists of $ n $ cards. Each card has $ m $ numbers written on it. Each of the $ n $ players receives exactly one card from the deck.</p>
 <p>Then all players play with each other in pairs, and each pair of players plays exactly once. Thus, if there are, for example, four players in total, then six games are played: the first against the second, the first against the third, the first against the fourth, the second against the third, the second against the fourth and the third against the fourth.</p>
 <p>Each of these games determines the winner in some way, but the rules are quite complicated, so we will not describe them here. All that matters is how many chips are paid out to the winner. Let the first player’s card have the numbers $ a_1, a_2, \dots, a_m $ , and the second player’s card — $ b_1, b_2, \dots, b_m $ . Then the winner of the game gets $ |a_1 - b_1| + |a_2 - b_2| + \dots + |a_m - b_m| $ chips from the total pot, where $ |x| $ denotes the absolute value of $ x $ .</p>
@@ -265,21 +265,18 @@
 <p>It is guaranteed that the total $ n \cdot m $ in all tests does not exceed $ 3 \cdot 10^5 $ .</p>
 <h2 id="输出格式-1"><a href="#输出格式-1" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, print one number — the total amount of winnings from all games.</p>
 <h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">3 5</span><br><span class="line">1 4 2 8 5</span><br><span class="line">7 9 2 1 4</span><br><span class="line">3 8 5 3 1</span><br><span class="line">1 4</span><br><span class="line">4 15 1 10</span><br><span class="line">4 3</span><br><span class="line">1 2 3</span><br><span class="line">3 2 1</span><br><span class="line">1 2 1</span><br><span class="line">4 2 7</span><br></pre></td></tr></table></figure>
-
 <h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">50</span><br><span class="line">0</span><br><span class="line">31</span><br></pre></td></tr></table></figure>
-
 <h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>Consider the first test case.</p>
-<p>In the game between the first and second player, the winner receives $ |1-7| + |4-9| + |2-2| + |8-1| + |5-4| &#x3D; 19 $ chips.</p>
-<p>In the game between the first and third player, the winner receives $ |1-3| + |4-8| + |2-5| + |8-3| + |5-1| &#x3D; 18 $ in chips.</p>
-<p>In the game between the second and third player, the winner receives $ |7-3| + |9-8| + |2-5| + |1-3| + |4-1| &#x3D; 13 $ chips.</p>
-<p>The total is $ 19 + 18 + 13 &#x3D; 50 $ chips.</p>
+<p>In the game between the first and second player, the winner receives $ |1-7| + |4-9| + |2-2| + |8-1| + |5-4| = 19 $ chips.</p>
+<p>In the game between the first and third player, the winner receives $ |1-3| + |4-8| + |2-5| + |8-3| + |5-1| = 18 $ in chips.</p>
+<p>In the game between the second and third player, the winner receives $ |7-3| + |9-8| + |2-5| + |1-3| + |4-1| = 13 $ chips.</p>
+<p>The total is $ 19 + 18 + 13 = 50 $ chips.</p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>有 n 行 m 列, 要求所有点数的总和, 对于每一列来说就是选两个数相减的绝对值的总和, 即 $ \sum_{1 \le i &lt; j \le m} \left | a_i - a_j \right | $, 反正是选两个数相减不重不漏, 那么我们就算对于一列进行排序对结果不会有任何影响</p>
-<p>我们将每一列升序排列, 对于任意 $j &gt; i$ 就有 $d_{ij}&#x3D;a_j-a_i&#x3D;a_{i+1}-a_i + a_{i+2}-a_i+…+a_j-a_{j-1}$ , 对于一列上所有的 $d_{ij}$ 而言都可以转换为在这之前相邻两数之差的总和, 我们就要计算相邻两数之差的出现次数, 也即是对答案贡献</p>
-<p>观察发现, 比如对于 $d_{23}&#x3D;a_3-a_2$ , $a_3-a_1$ 会用到, $a_3-a_2$ 会用到, $a_4-a_2$ 会用到, $a_4-a_1$ 也会用到, 观察一下就可以发现: 对于 $d_{23}$ 而言, 会被用到的次数是 $(n - 2)\times2$ , 那么 $d_{ij}$ 对于答案的贡献是就是 $(n-i)\times i$ 次</p>
+<p>我们将每一列升序排列, 对于任意 $j &gt; i$ 就有 $d_{ij}=a_j-a_i=a_{i+1}-a_i + a_{i+2}-a_i+…+a_j-a_{j-1}$ , 对于一列上所有的 $d_{ij}$ 而言都可以转换为在这之前相邻两数之差的总和, 我们就要计算相邻两数之差的出现次数, 也即是对答案贡献</p>
+<p>观察发现, 比如对于 $d_{23}=a_3-a_2$ , $a_3-a_1$ 会用到, $a_3-a_2$ 会用到, $a_4-a_2$ 会用到, $a_4-a_1$ 也会用到, 观察一下就可以发现: 对于 $d_{23}$ 而言, 会被用到的次数是 $(n - 2)\times2$ , 那么 $d_{ij}$ 对于答案的贡献是就是 $(n-i)\times i$ 次</p>
 <p>那我们就枚举 m 列, 对每一列升序排序, 然后计算相邻两个数的差, 再乘上贡献次数, 最后就可以求出答案</p>
 <p><strong>!</strong>: 答案可能会爆 <code>int</code> , 要用 <code>long long</code> 存, 计算过程也要以 <code>long long</code> 去计算</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">long</span> <span class="type">long</span> ll;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">3e5</span> + <span class="number">10</span>;</span><br><span class="line">vector&lt;<span class="type">int</span>&gt; v[N];</span><br><span class="line"><span class="type">int</span> a[N], tt = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		tt = <span class="number">0</span>;</span><br><span class="line">		<span class="type">int</span> n, m;</span><br><span class="line">		cin &gt;&gt; n &gt;&gt; m;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			v[i].<span class="built_in">clear</span>();	<span class="comment">//多例要记得清空</span></span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; m; j++)</span><br><span class="line">			&#123;	</span><br><span class="line">				<span class="type">int</span> x; cin &gt;&gt; x;</span><br><span class="line">				v[i].<span class="built_in">push_back</span>(x);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//枚举每一列</span></span><br><span class="line">		ll ans = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; m; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			tt = <span class="number">0</span>;</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">			&#123;</span><br><span class="line">				a[++tt] = v[j][i];</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="built_in">sort</span>(a + <span class="number">1</span>, a + tt + <span class="number">1</span>);</span><br><span class="line">			</span><br><span class="line">			<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; tt; i++)</span><br><span class="line">			&#123;</span><br><span class="line">				ans += <span class="built_in">ll</span>(a[i + <span class="number">1</span>] - a[i]) * i * (n - i);	<span class="comment">//这里也要转成 ll</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		cout &lt;&lt; ans &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -299,12 +296,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1814B/" rel="prev" title="CF1814B">
-      <i class="fa fa-chevron-left"></i> CF1814B
+    <a href="/2023/09/17/CF1816A/" rel="prev" title="CF1816A">
+      <i class="fa fa-chevron-left"></i> CF1816A
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1808A/" rel="next" title="CF1808A">
-      CF1808A <i class="fa fa-chevron-right"></i>
+    <a href="/2023/09/17/CF1814A/" rel="next" title="CF1814A">
+      CF1814A <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

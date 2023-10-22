@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"beishangeyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":null,"padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Divisible Array题面翻译构造一个长度为 $n$ 的序列 $a$ 满足以下条件。  对于每个元素 $a_i$ 满足 $a_i \le 1000$。 对于每个元素 $a_i$ 满足 $a_i \equiv 0 \pmod i$。即每个元素 $a_i$ 能被 $i$ 整除。 满足 $\sum_{i &#x3D; 1}^{n} a_i \equiv 0 \pmod n$。即所有元素之和能被">
+  <meta name="description" content="Divisible Array题面翻译构造一个长度为 $n$ 的序列 $a$ 满足以下条件。  对于每个元素 $a_i$ 满足 $a_i \le 1000$。 对于每个元素 $a_i$ 满足 $a_i \equiv 0 \pmod i$。即每个元素 $a_i$ 能被 $i$ 整除。 满足 $\sum_{i &#x3D; 1}^{n} a_i \equiv 0 \pmod n$。即所有元素之和能被 $n$ 整">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF1828A">
 <meta property="og:url" content="https://beishangeyu.github.io/2023/09/17/CF1828A/index.html">
 <meta property="og:site_name" content="Eyu&#39;s Blog">
-<meta property="og:description" content="Divisible Array题面翻译构造一个长度为 $n$ 的序列 $a$ 满足以下条件。  对于每个元素 $a_i$ 满足 $a_i \le 1000$。 对于每个元素 $a_i$ 满足 $a_i \equiv 0 \pmod i$。即每个元素 $a_i$ 能被 $i$ 整除。 满足 $\sum_{i &#x3D; 1}^{n} a_i \equiv 0 \pmod n$。即所有元素之和能被">
+<meta property="og:description" content="Divisible Array题面翻译构造一个长度为 $n$ 的序列 $a$ 满足以下条件。  对于每个元素 $a_i$ 满足 $a_i \le 1000$。 对于每个元素 $a_i$ 满足 $a_i \equiv 0 \pmod i$。即每个元素 $a_i$ 能被 $i$ 整除。 满足 $\sum_{i &#x3D; 1}^{n} a_i \equiv 0 \pmod n$。即所有元素之和能被 $n$ 整">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-17T12:52:29.000Z">
 <meta property="article:modified_time" content="2023-10-17T13:04:29.999Z">
@@ -244,7 +244,7 @@
 <ul>
 <li>对于每个元素 $a_i$ 满足 $a_i \le 1000$。</li>
 <li>对于每个元素 $a_i$ 满足 $a_i \equiv 0 \pmod i$。即每个元素 $a_i$ 能被 $i$ 整除。</li>
-<li>满足 $\sum_{i &#x3D; 1}^{n} a_i \equiv 0 \pmod n$。即所有元素之和能被 $n$ 整除。</li>
+<li>满足 $\sum_{i = 1}^{n} a_i \equiv 0 \pmod n$。即所有元素之和能被 $n$ 整除。</li>
 </ul>
 <p>$n \leq 200$。</p>
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You are given a positive integer $ n $ . Please find an array $ a_1, a_2, \ldots, a_n $ that is perfect.</p>
@@ -259,42 +259,11 @@
 <h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>For each test case, output an array $ a_1, a_2, \ldots, a_n $ that is perfect.</p>
 <p>We can show that an answer always exists. If there are multiple solutions, print any.</p>
 <h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">7</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td></tr></table></figure>
-
-
-
-
-
 <h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">2 4</span><br><span class="line">1 2 3</span><br><span class="line">2 8 6 4</span><br><span class="line">3 4 9 4 5</span><br><span class="line">1 10 18 8 5 36</span><br><span class="line">3 6 21 24 10 6 14</span><br></pre></td></tr></table></figure>
-
-
-
-
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>切入点在任何数都可以整除1, 所以第一个位置上可以放大于等于1的任何数字(题目要求元素要大于等于1)</p>
 <p>要求 <code>a[i] % i == 0 &amp;&amp; (a[1] + a[2] + ... + a[n]) % n == 0</code><br>任何数都能被1整除，那我们让 <code>a[i] = i</code>，最后的差由 <code>a[1]</code> 来补齐，又因为要求 <code>a[i] &gt;= 1</code>，避免<code>a[1] == 0</code> 的情况出现，我们令 <code>a[1] += n</code>，这样总和仍能被n整除</p>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code class="cpp">#include &lt;iostream&gt;
-using namespace std;
-const int N = 210;
-int main()
-&#123;
-    int t;
-    scanf(&quot;%d&quot;, &amp;t);
-    while (t--)
-    &#123;
-        int n;
-        scanf(&quot;%d&quot;, &amp;n);
-        if (n == 1)
-        &#123;
-            printf(&quot;1\n&quot;);
-            continue;
-        &#125;
-        int res = (n - 1) * (n + 2) / 2;
-        printf(&quot;%d &quot;, 2 * n - (res % n));
-        for (int i = 2; i &lt;= n; i++)
-            printf(&quot;%d &quot;, i);
-        printf(&quot;\n&quot;);
-    &#125;
-&#125;
-</code></pre>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><p>```cpp</p>
+<h1 id="include"><a href="#include" class="headerlink" title="include "></a>include <iostream></h1><p>using namespace std;<br>const int N = 210;<br>int main()<br>{<br>    int t;<br>    scanf(“%d”, &amp;t);<br>    while (t—)<br>    {<br>        int n;<br>        scanf(“%d”, &amp;n);<br>        if (n == 1)<br>        {<br>            printf(“1\n”);<br>            continue;<br>        }<br>        int res = (n - 1) <em> (n + 2) / 2;<br>        printf(“%d “, 2 </em> n - (res % n));<br>        for (int i = 2; i &lt;= n; i++)<br>            printf(“%d “, i);<br>        printf(“\n”);<br>    }<br>}</p>
 
     </div>
 
@@ -314,12 +283,12 @@ int main()
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1828B/" rel="prev" title="CF1828B">
-      <i class="fa fa-chevron-left"></i> CF1828B
+    <a href="/2023/09/17/CF1827A/" rel="prev" title="CF1827A">
+      <i class="fa fa-chevron-left"></i> CF1827A
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1827B1/" rel="next" title="CF1827B1">
-      CF1827B1 <i class="fa fa-chevron-right"></i>
+    <a href="/2023/09/17/CF1826D/" rel="next" title="CF1826D">
+      CF1826D <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -379,7 +348,7 @@ int main()
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Divisible-Array"><span class="nav-number">1.</span> <span class="nav-text">Divisible Array</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E9%9D%A2%E7%BF%BB%E8%AF%91"><span class="nav-number">1.1.</span> <span class="nav-text">题面翻译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">1.5.</span> <span class="nav-text">样例 #1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">样例输入 #1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA-1"><span class="nav-number">1.5.2.</span> <span class="nav-text">样例输出 #1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.6.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.7.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Divisible-Array"><span class="nav-number">1.</span> <span class="nav-text">Divisible Array</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E9%9D%A2%E7%BF%BB%E8%AF%91"><span class="nav-number">1.1.</span> <span class="nav-text">题面翻译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.2.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%85%A5%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.3.</span> <span class="nav-text">输入格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BE%93%E5%87%BA%E6%A0%BC%E5%BC%8F"><span class="nav-number">1.4.</span> <span class="nav-text">输出格式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B-1"><span class="nav-number">1.5.</span> <span class="nav-text">样例 #1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%85%A5-1"><span class="nav-number">1.5.1.</span> <span class="nav-text">样例输入 #1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B7%E4%BE%8B%E8%BE%93%E5%87%BA-1"><span class="nav-number">1.5.2.</span> <span class="nav-text">样例输出 #1</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.6.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.7.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#include"><span class="nav-number">2.</span> <span class="nav-text">include </span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

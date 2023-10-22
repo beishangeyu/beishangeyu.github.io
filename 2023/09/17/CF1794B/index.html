@@ -22,12 +22,12 @@
     var CONFIG = {"hostname":"beishangeyu.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":null,"padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"manual","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Not Dividing题面翻译$ T $ 组数据，每次给定 $ n $ 个正整数 $ a_i $。 任选一个 $ a_i $，令 $ a_i \gets a_i + 1 $，被称为一次操作。 要求进行至多 $2n$ 次操作后，对 $ i &#x3D; 1, 2, \cdots n - 1 $，$ a_{i + 1} \mod a_i \neq 0 $。 输出操作结束后的 $a_i$，符合以上要求">
+  <meta name="description" content="Not Dividing题面翻译$ T $ 组数据，每次给定 $ n $ 个正整数 $ a_i $。 任选一个 $ a_i $，令 $ a_i \gets a_i + 1 $，被称为一次操作。 要求进行至多 $2n$ 次操作后，对 $ i &#x3D; 1, 2, \cdots n - 1 $，$ a_{i + 1} \mod a_i \neq 0 $。 输出操作结束后的 $a_i$，符合以上要求。 题目保">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CF1794B">
 <meta property="og:url" content="https://beishangeyu.github.io/2023/09/17/CF1794B/index.html">
 <meta property="og:site_name" content="Eyu&#39;s Blog">
-<meta property="og:description" content="Not Dividing题面翻译$ T $ 组数据，每次给定 $ n $ 个正整数 $ a_i $。 任选一个 $ a_i $，令 $ a_i \gets a_i + 1 $，被称为一次操作。 要求进行至多 $2n$ 次操作后，对 $ i &#x3D; 1, 2, \cdots n - 1 $，$ a_{i + 1} \mod a_i \neq 0 $。 输出操作结束后的 $a_i$，符合以上要求">
+<meta property="og:description" content="Not Dividing题面翻译$ T $ 组数据，每次给定 $ n $ 个正整数 $ a_i $。 任选一个 $ a_i $，令 $ a_i \gets a_i + 1 $，被称为一次操作。 要求进行至多 $2n$ 次操作后，对 $ i &#x3D; 1, 2, \cdots n - 1 $，$ a_{i + 1} \mod a_i \neq 0 $。 输出操作结束后的 $a_i$，符合以上要求。 题目保">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-09-17T12:52:29.000Z">
 <meta property="article:modified_time" content="2023-10-18T04:53:01.131Z">
@@ -242,11 +242,11 @@
       
         <h1 id="Not-Dividing"><a href="#Not-Dividing" class="headerlink" title="Not Dividing"></a>Not Dividing</h1><h2 id="题面翻译"><a href="#题面翻译" class="headerlink" title="题面翻译"></a>题面翻译</h2><p>$ T $ 组数据，每次给定 $ n $ 个正整数 $ a_i $。</p>
 <p>任选一个 $ a_i $，令 $ a_i \gets a_i + 1 $，被称为一次操作。</p>
-<p>要求进行至多 $2n$ 次操作后，对 $ i &#x3D; 1, 2, \cdots n - 1 $，$ a_{i + 1} \mod a_i \neq 0 $。</p>
+<p>要求进行至多 $2n$ 次操作后，对 $ i = 1, 2, \cdots n - 1 $，$ a_{i + 1} \mod a_i \neq 0 $。</p>
 <p>输出操作结束后的 $a_i$，符合以上要求。</p>
 <p>题目保证 $1 \le T \le {10}^4$，$1 \le n \le {10}^4$，$1 \le \Sigma \space n \le 5 \cdot {10}^4 $。</p>
 <h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>You are given an array of $ n $ positive integers $ a_1, a_2, \ldots, a_n $ . In one operation, you can choose any number of the array and add $ 1 $ to it.</p>
-<p>Make at most $ 2n $ operations so that the array satisfies the following property: $ a_{i+1} $ is not divisible by $ a_i $ , for each $ i &#x3D; 1, 2, \ldots, n-1 $ .</p>
+<p>Make at most $ 2n $ operations so that the array satisfies the following property: $ a_{i+1} $ is not divisible by $ a_i $ , for each $ i = 1, 2, \ldots, n-1 $ .</p>
 <p>You do not need to minimize the number of operations.</p>
 <h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>Each test contains multiple test cases. The first line contains the number of test cases $ t $ ( $ 1 \le t \le 10^4 $ ). The description of the test cases follows.</p>
 <p>The first line of each test case contains an integer $ n $ ( $ 1\le n\le 10^4 $ ) — the length of the given array.</p>
@@ -256,14 +256,11 @@
 <p>In the only line, print $ n $ integers — the resulting array $ a $ after applying at most $ 2n $ operations.</p>
 <p>We can show that an answer always exists under the given constraints. If there are multiple answers, print any of them.</p>
 <h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4</span><br><span class="line">2 4 3 6</span><br><span class="line">3</span><br><span class="line">1 2 3</span><br><span class="line">2</span><br><span class="line">4 2</span><br></pre></td></tr></table></figure>
-
 <h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">4 5 6 7</span><br><span class="line">3 2 3</span><br><span class="line">4 2</span><br></pre></td></tr></table></figure>
-
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>$a_{i+1}$ 不能被 $a_i$ 整除, 有什么性质呢, 我们很自然的就可以想到$a_{i+1}$ 和 $a_i$ 的最小公倍数就应该是他们两个的乘积, 那我们遍历数组 $a$, 如果 $lcm(a_i,a_{i+1})\neq a_i\times a_{i+1}$ , 那么我们就让 $a_i$ 加一直到满足 $a_{i+1}$ 和 $a_i$ 的最小公倍数是他们两个的乘积 </p>
-<p>存在特殊情况是 $a_i&#x3D;1$ 的时候, 也满足和 $a_{i+1}$ 的最小公倍数是他俩的乘积, 但是任何数都可以被1整除, 解决方法也很简单, 在读入的时候如果遇上1就加上1让它变成2就可以了</p>
+<p>存在特殊情况是 $a_i=1$ 的时候, 也满足和 $a_{i+1}$ 的最小公倍数是他俩的乘积, 但是任何数都可以被1整除, 解决方法也很简单, 在读入的时候如果遇上1就加上1让它变成2就可以了</p>
 <p><strong>!</strong>: $a_i$ 是 $10^9$ 级, 求公倍数会爆int, 要开long long存</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="keyword">typedef</span> <span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> ULL;</span><br><span class="line"><span class="type">const</span> <span class="type">int</span> N = <span class="number">1e4</span> + <span class="number">10</span>;</span><br><span class="line">ULL a[N];</span><br><span class="line"></span><br><span class="line"><span class="function">ULL <span class="title">gcd</span><span class="params">(ULL a, ULL b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> b ? <span class="built_in">gcd</span>(b, a % b) : a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">ULL <span class="title">lcm</span><span class="params">(ULL a, ULL b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> (a * b) / <span class="built_in">gcd</span>(a, b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> n; cin &gt;&gt; n;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			cin &gt;&gt; a[i];</span><br><span class="line">			<span class="keyword">if</span> (a[i] == <span class="number">1</span>) a[i]++;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">1</span>; i &lt; n; i++)</span><br><span class="line">		&#123;</span><br><span class="line">			ULL mlcm = <span class="built_in">lcm</span>(a[i], a[i - <span class="number">1</span>]);</span><br><span class="line">			<span class="keyword">if</span> (mlcm != a[i] * a[i - <span class="number">1</span>])</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="keyword">for</span> (<span class="type">int</span> j = <span class="number">0</span>; <span class="built_in">lcm</span>(a[i], a[i - <span class="number">1</span>]) != a[i] * a[i - <span class="number">1</span>]; i++)</span><br><span class="line">					a[i]++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="type">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">			cout &lt;&lt; a[i] &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 
     </div>
 
@@ -283,12 +280,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1794C/" rel="prev" title="CF1794C">
-      <i class="fa fa-chevron-left"></i> CF1794C
+    <a href="/2023/09/17/CF1805C/" rel="prev" title="CF1805C">
+      <i class="fa fa-chevron-left"></i> CF1805C
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/09/17/CF1794A/" rel="next" title="CF1794A">
-      CF1794A <i class="fa fa-chevron-right"></i>
+    <a href="/2023/09/17/CF1805A/" rel="next" title="CF1805A">
+      CF1805A <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>

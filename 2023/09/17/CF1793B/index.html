@@ -254,25 +254,20 @@
 <p>If there are multiple solutions, print any of them.</p>
 <p>It is guaranteed that the sum of $ n $ over all test cases does not exceed $ 2 \cdot 10^{5} $ .</p>
 <h2 id="样例-1"><a href="#样例-1" class="headerlink" title="样例 #1"></a>样例 #1</h2><h3 id="样例输入-1"><a href="#样例输入-1" class="headerlink" title="样例输入 #1"></a>样例输入 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">3 -2</span><br><span class="line">4 -4</span><br><span class="line">2 -1</span><br><span class="line">5 -3</span><br></pre></td></tr></table></figure>
-
 <h3 id="样例输出-1"><a href="#样例输出-1" class="headerlink" title="样例输出 #1"></a>样例输出 #1</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">10</span><br><span class="line">0 1 2 1 0 -1 0 -1 0 1</span><br><span class="line">16</span><br><span class="line">-2 -1 -2 -1 0 1 2 3 4 5 4 3 2 1 0 -1 </span><br><span class="line">6</span><br><span class="line">1 0 -1 0 1 0</span><br><span class="line">16</span><br><span class="line">2 3 2 1 0 -1 0 -1 0 -1 0 1 2 1 0 1</span><br></pre></td></tr></table></figure>
-
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p>是一道数学构造题</p>
 <p>要求构造出一个环, 相邻元素差为1, 且所有比左右两个数都大的数的和为 $x$, 所有比左右两个数都小的数的和为 $y$</p>
-<p>以 $x&#x3D;3$ , $y&#x3D;-2$ 为例: </p>
+<p>以 $x=3$ , $y=-2$ 为例: </p>
 <ol>
 <li><p>3是由一个局部最大值构成, -2是由一个局部最小值构成, 那么就是0到3, 3到-2, -2到2, 这样构造出来的数组的长度就是 $(x-y)\times2$ , 因为对于任意的 $x$ 和 $y$ 来说都可以这样分解, 所以对于任意的 $x$ 和 $y$ 来说都适用</p>
 </li>
 <li><p>3是由多个局部最大值组成, 那么就可以是0到2, 2到0, 0到1, 1到0, 0到-2, -2到-1, 此时数组的长度就是</p>
-<p>$\sum_{i &#x3D; 1}^{i\le n} x_i\times2$, 对于 $y$ 同理, 不难看出第二种构造方法的长度与第一种是相同的</p>
+<p>$\sum_{i = 1}^{i\le n} x_i\times2$, 对于 $y$ 同理, 不难看出第二种构造方法的长度与第一种是相同的</p>
 </li>
 </ol>
 <p>这两种构造都是能使长度最短的, 我们采取比较好写的第一种</p>
 <p><strong>!</strong>: 但是有可能 $x$ 和 $y$ 都大于0或者小于0, 所以我们不能从0开始, 要从 $x$ 或者 $y$ 开始, 记得保证首尾差值为1</p>
 <h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	ios::<span class="built_in">sync_with_stdio</span>(<span class="number">0</span>), cin.<span class="built_in">tie</span>(<span class="number">0</span>), cout.<span class="built_in">tie</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="type">int</span> t; cin &gt;&gt; t;</span><br><span class="line">	<span class="keyword">while</span> (t--)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="type">int</span> x, y; cin &gt;&gt; x &gt;&gt; y;</span><br><span class="line">		cout &lt;&lt; (x - y) * <span class="number">2</span> &lt;&lt; endl;</span><br><span class="line">		</span><br><span class="line">		<span class="type">int</span> i;</span><br><span class="line">		<span class="keyword">for</span> (i = x; i &gt; y; i--)</span><br><span class="line">			cout &lt;&lt; i &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		<span class="keyword">for</span> (; i &lt; x; i++)</span><br><span class="line">			cout &lt;&lt; i &lt;&lt; <span class="string">&#x27; &#x27;</span>;</span><br><span class="line">		cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
 
     </div>
 
